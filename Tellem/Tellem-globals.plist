@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PostRecordingTimeInSecs</key>
+	<string>20</string>
+	<key>CannedEmailMessage</key>
+	<string>, &lt;p&gt;I just joined this new social network with fresh new features!&lt;p&gt;&lt;a href=&quot;http://appstore.com&quot;&gt;Click here to go to the Apple AppStore and search for Tellem&lt;/a&gt;&lt;/p&gt;&lt;p&gt;After you install the app, log in using Instagram or your email.  Then we can connect! &lt;p&gt;Thanks!</string>
+	<key>CannedTextMessage</key>
+	<string>. Join my new social network! Download the app Tellem at the Apple AppStore at http://appstore.com. After you install the app, log in using Instagram or your email. Then we can connect!  Thanks!</string>
+</dict>
+</plist>

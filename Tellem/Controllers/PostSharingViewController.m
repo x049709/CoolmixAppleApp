@@ -2,8 +2,8 @@
 //  PostSharingViewController.m
 //  Tellem
 //
-//  Created by TheOneTech28 on 09/05/14.
-//  Copyright (c) 2014 TheOneTechnologies. All rights reserved.
+//  Created by Ed Bayudan on 09/05/14.
+//  Copyright (c) 2014 Tellem, LLC. All rights reserved.
 //
 
 #import "PostSharingViewController.h"

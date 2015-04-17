@@ -31,8 +31,9 @@ static NSString * const kAviarySecret = @"b1mdl2dbyp5lq2d1";
     self.userNameInput.delegate = self;
     self.emailAddressInput.delegate = self;
     self.phoneNumberInput.delegate = self;
-
-    self.userProfile = [[User alloc] initWithPFUser:[PFUser currentUser]];
+    
+    //User set by the calling controller
+    //self.userProfile = [[User alloc] initWithPFUser:[PFUser currentUser]];
 
 }
 
@@ -115,6 +116,13 @@ static NSString * const kAviarySecret = @"b1mdl2dbyp5lq2d1";
     if ([self.userProfile.displayName isEqualToString:@"Guest"]) {
         return;
     }
+
+    NSString *currentUser = [[PFUser currentUser] username];
+    if (![[self.userProfile userName] isEqual:currentUser])
+    {
+        return;
+    }
+    
     self.userNameLabel.hidden = YES;
     self.userNameInput.hidden = NO;
     self.userNameButton.hidden = NO;
@@ -130,6 +138,13 @@ static NSString * const kAviarySecret = @"b1mdl2dbyp5lq2d1";
 }
 
 - (void)emailAddressLabelTouched{
+
+    NSString *currentUser = [[PFUser currentUser] username];
+    if (![[self.userProfile userName] isEqual:currentUser])
+    {
+        return;
+    }
+    
     if ([self.userProfile.displayName isEqualToString:@"Guest"]) {
         return;
     }
@@ -148,6 +163,13 @@ static NSString * const kAviarySecret = @"b1mdl2dbyp5lq2d1";
 }
 
 - (void)phoneNumberLabelTouched{
+
+    NSString *currentUser = [[PFUser currentUser] username];
+    if (![[self.userProfile userName] isEqual:currentUser])
+    {
+        return;
+    }
+
     if ([self.userProfile.displayName isEqualToString:@"Guest"]) {
         return;
     }
@@ -166,6 +188,13 @@ static NSString * const kAviarySecret = @"b1mdl2dbyp5lq2d1";
 }
 
 - (void)profileImageViewTouched{
+
+    NSString *currentUser = [[PFUser currentUser] username];
+    if (![[self.userProfile userName] isEqual:currentUser])
+    {
+        return;
+    }
+
     if ([self.userProfile.displayName isEqualToString:@"Guest"]) {
         return;
     }

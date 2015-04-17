@@ -58,6 +58,7 @@ typedef enum
         {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             UserProfileController *userDetails = (UserProfileController *)[storyboard instantiateViewControllerWithIdentifier:@"UserProfileController"];
+            userDetails.userProfile = [[User alloc] initWithPFUser:[PFUser currentUser]];
             navController.navigationBar.tintColor=[UIColor whiteColor];
             [navController pushViewController:userDetails animated:YES];
             break;

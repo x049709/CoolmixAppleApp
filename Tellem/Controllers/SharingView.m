@@ -2,8 +2,8 @@
 //  SharingView.m
 //  Tellem
 //
-//  Created by Theonetech22 on 05/04/14.
-//  Copyright (c) 2014 TheOneTechnologies. All rights reserved.
+//  Created by Ed Bayudan on 05/04/14.
+//  Copyright (c) 2014 Tellem, LLC. All rights reserved.
 //
 
 #import "SharingView.h"

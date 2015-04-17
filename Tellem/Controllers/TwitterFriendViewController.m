@@ -2,8 +2,8 @@
 //  twitterFriendViewController.m
 //  Tellem
 //
-//  Created by TheOneTech28 on 23/04/14.
-//  Copyright (c) 2014 TheOneTechnologies. All rights reserved.
+//  Created by Ed Bayudan on 23/04/14.
+//  Copyright (c) 2014 Tellem, LLC. All rights reserved.
 //
 
 #import "TwitterFriendViewController.h"

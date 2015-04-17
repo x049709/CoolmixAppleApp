@@ -22,6 +22,7 @@
 #import "DataProvider.h"
 #import "DataReceiver.h"
 #import "User.h"
+#import "UserProfileController.h"
 
 @interface PeopleViewController ()<DataProviderDelegate>
 {
@@ -1513,7 +1514,7 @@
                                  delegate:self
                                  cancelButtonTitle:@"Cancel"
                                  destructiveButtonTitle:nil
-                                 otherButtonTitles:@"Add to circle",@"Send a message", nil];
+                                 otherButtonTitles:@"Add to circle",@"View user profile",@"Send a message", nil];
                 
                 actionSheetFB.actionSheetStyle = UIActionSheetStyleDefault;
                 [actionSheetFB showFromTabBar:self.tabBarController.tabBar];
@@ -1550,7 +1551,7 @@
                                 delegate:self
                                 cancelButtonTitle:@"Cancel"
                                 destructiveButtonTitle:nil
-                                otherButtonTitles:@"Add to circle",@"Send a message", nil];
+                                otherButtonTitles:@"Add to circle",@"View user profile",@"Send a message", nil];
 
                 actionSheetTW.actionSheetStyle = UIActionSheetStyleDefault;
                 [actionSheetTW showFromTabBar:self.tabBarController.tabBar];
@@ -1586,7 +1587,7 @@
                                  delegate:self
                                  cancelButtonTitle:@"Cancel"
                                  destructiveButtonTitle:nil
-                                 otherButtonTitles:@"Add to circle",@"Send a message", nil];
+                                 otherButtonTitles:@"Add to circle",@"View user profile",@"Send a message", nil];
                 
                 actionSheetInstagram.actionSheetStyle = UIActionSheetStyleDefault;
                 [actionSheetInstagram showFromTabBar:self.tabBarController.tabBar];
@@ -1627,7 +1628,7 @@
                      delegate:self
                      cancelButtonTitle:@"Cancel"
                      destructiveButtonTitle:nil
-                     otherButtonTitles:@"Add to circle",@"Send a message", nil];
+                     otherButtonTitles:@"Add to circle",@"View user profile",@"Send a message", nil];
     
         actionSheetSearchUsers.actionSheetStyle = UIActionSheetStyleDefault;
         [actionSheetSearchUsers showFromTabBar:self.tabBarController.tabBar];
@@ -1643,9 +1644,12 @@
         if (buttonIndex == 0)
         {
             [self showCirclesView: [self.fbUsersInTellem objectAtIndex:actionSheet.tag]];
-        } else if (buttonIndex == 1)
+        } else if (buttonIndex == 2)
         {
             [self messageWithFriend];
+        } else if (buttonIndex == 1)
+        {
+            [self showUserDetails: [self.fbUsersInTellem objectAtIndex:actionSheet.tag]];
         } else {}
     }
     if (actionSheet==actionSheetInviteFB)
@@ -1664,9 +1668,12 @@
         if (buttonIndex == 0)
         {
             [self showCirclesView: [self.twUsersInTellem objectAtIndex:actionSheet.tag]];
-        } else if (buttonIndex == 1)
+        } else if (buttonIndex == 2)
         {
             [self messageWithFriend];
+        } else if (buttonIndex == 1)
+        {
+            [self showUserDetails: [self.twUsersInTellem objectAtIndex:actionSheet.tag]];
         } else {}
     }
     else
@@ -1686,9 +1693,12 @@
         if (buttonIndex == 0)
         {
             [self showCirclesView: [self.inUsersInTellem objectAtIndex:actionSheet.tag]];
-        } else if (buttonIndex == 1)
+        } else if (buttonIndex == 2)
         {
             [self messageWithFriend];
+        } else if (buttonIndex == 1)
+        {
+            [self showUserDetails: [self.inUsersInTellem objectAtIndex:actionSheet.tag]];
         } else {}
     }
     else
@@ -1732,9 +1742,12 @@
         if (buttonIndex == 0)
         {
             [self showCirclesView: [self.dataProvider.dataObjects objectAtIndex:actionSheet.tag]];
-        } else if (buttonIndex == 1)
+        } else if (buttonIndex == 2)
         {
             [self messageWithFriend];
+        } else if (buttonIndex == 1)
+        {
+            [self showUserDetails: [self.dataProvider.dataObjects objectAtIndex:actionSheet.tag]];
         } else {}
     }
 
@@ -1822,6 +1835,16 @@
     addCirclesView.delegate=self;
     self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
     [self.navigationController pushViewController:addCirclesView animated:YES];
+    
+}
+
+-(void)showUserDetails: (PFUser*)pfUser {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UserProfileController *userDetails = (UserProfileController *)[storyboard instantiateViewControllerWithIdentifier:@"UserProfileController"];
+    userDetails.userProfile = [[User alloc] initWithPFUser:pfUser];
+    self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
+    [self.navigationController pushViewController:userDetails animated:YES];
     
 }
 

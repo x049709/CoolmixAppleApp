@@ -3,7 +3,7 @@
 //  Tellem
 //
 //  Created by Ed Bayudan on 29/02/2012.
-//  Copyright (c) 2015 Tellem, Inc. All rights reserved.
+//  Copyright (c) 2015 Tellem, LLC All rights reserved.
 //
 
 #import "ZoomViewController.h"

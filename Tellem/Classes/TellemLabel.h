@@ -3,7 +3,7 @@
 //  UTellem
 //
 //  Created by Ed Bayudan on 2/13/15.
-//  Copyright (c) 2015 Tellem, Inc. All rights reserved.
+//  Copyright (c) 2015 Tellem, LLC All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

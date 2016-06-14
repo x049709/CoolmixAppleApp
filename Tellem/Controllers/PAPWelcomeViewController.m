@@ -29,7 +29,7 @@
     //MWLogDebug(@"\nPAPWelcomeViewController viewWillAppear: Started.");
     [super viewWillAppear:animated];
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Coolmix" bundle:nil];
     LoginViewController *loginViewController = (LoginViewController *)[storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     //self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
     [self.navigationController pushViewController:loginViewController animated:YES];

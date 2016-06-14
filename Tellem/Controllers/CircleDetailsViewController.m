@@ -115,7 +115,7 @@ static NSString * const kAviarySecret = @"b1mdl2dbyp5lq2d1";
 
 - (UIImage*)getProfilePicture
 {
-    PFFile *profilePhoto = [[PFFile alloc] init];
+    PFFile *profilePhoto = [PFFile alloc];
     if (self.photoFile) {
         profilePhoto = self.photoFile;
     } else {

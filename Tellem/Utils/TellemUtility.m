@@ -709,6 +709,32 @@
     return friendsOfUser;
 }
 
++ (NSMutableArray*) getCoolmixGSR: (NSString *) serverURL andServerUser: (NSString*) serverUser andServerPassword: (NSString*) serverPassword
+{
+    //MWLogDebug(@"\nMixHomeViewController viewDidLoad started.");
+    
+    NSMutableArray *gsrList = [NSMutableArray new];
+    NSString *requestURL = [serverURL stringByAppendingString:@"/gsrApi/gsr/"];
+    NSString *requestUser = serverUser;
+    NSString *requestPassword = serverPassword;
+    NSString *escapedURL = [requestURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSURL *url = [NSURL URLWithString:escapedURL];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [NSMutableURLRequest basicAuthForRequest:request withUsername:requestUser andPassword:requestPassword];
+    
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    NSData * data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    if (error == nil)
+    {
+        gsrList = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+    }
+    
+    return gsrList;
+
+}
+
 
 @end
 

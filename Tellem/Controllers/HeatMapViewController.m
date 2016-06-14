@@ -123,7 +123,7 @@ enum segmentedControlIndicies {
             self.pageCircle = [self.sortedCircles objectAtIndex:0];
             self.selectedCircle.circleType = kPAPCircleIsNotNewFromPostView;
             [self.selectedCircle setNewCircleName:[self.pageCircle valueForKey:kPAPCircleNameKey]];
-            PFFile *profilePhoto = [[PFFile alloc] init];
+            PFFile *profilePhoto = [PFFile alloc];
             profilePhoto = [self.pageCircle objectForKey:kPAPCircleProfilePicture];
             NSData *profilePhotoData = [profilePhoto getData];
             UIImage * profileImage = [[UIImage alloc] init];

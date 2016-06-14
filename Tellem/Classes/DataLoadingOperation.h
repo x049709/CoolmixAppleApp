@@ -14,7 +14,7 @@
 - (instancetype)initWithIndexes:(NSIndexSet *)indexes andCircle:(PFObject*) currentCircle;
 - (instancetype)initWithIndexes:(NSIndexSet *)indexes andSearchText:(NSString*) searchText;
 - (instancetype)initWithIndexes:(NSIndexSet *)indexes andCircleMember:(PFUser*) circleMember;
-
+- (instancetype)initWithIndexes:(NSIndexSet *)indexes andGSRServerURL: (NSString *) serverURL  andServerUser: (NSString*) serverUser andServerPassword: (NSString*) serverPassword;
 
 @property (nonatomic, readonly) NSIndexSet *indexes;
 @property (nonatomic, readonly) NSArray *dataPage;

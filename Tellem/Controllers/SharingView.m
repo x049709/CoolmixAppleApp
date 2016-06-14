@@ -14,6 +14,9 @@
 #import "PAPCache.h"
 #import "JSON.h"
 #import <Social/Social.h>
+#import <ParseTwitterUtils/PFTwitterUtils.h>
+#import <ParseTwitterUtils/PF_Twitter.h>
+
 
 @interface SharingView ()
 {
@@ -28,7 +31,7 @@
 @implementation SharingView
 
 @synthesize shareLabel, viewLabel,settingsScrollView,user_Facebook_Switch,user_Twitter_Switch,user_Instagram_Switch,user_Contacts_Switch,viewUser_Facebook_Switch,viewUser_Twitter_Switch,viewUser_Contacts_Switch,viewUser_Instagram_Switch,recTimeLabel,recTimeInSecs,sliderMinLabel,sliderMaxLabel;
-@synthesize viewUser_Facebook_Label,viewUser_Twitter_Label,viewUser_Instagram_Label;
+@synthesize viewUser_Facebook_Label,viewUser_Twitter_Label,viewUser_Instagram_Label,linkEULA;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -271,53 +274,54 @@
 
 - (IBAction)Facebook_BtnOn:(id)sender
 {
-    TellemGlobals *tM = [TellemGlobals globalsManager];
-    if (!tM.gFacebookSharingOK)
-    {
-        UIAlertView *Alert=[[UIAlertView alloc]initWithTitle:@"Tellem" message:@"Tellem has technical issues with Facebook. Please use Instagram to share your posts" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [Alert show];
-        [user_Facebook_Switch setOn:NO];
-        [self dismissViewControllerAnimated:NO completion:Nil];
-        return;
-    }
-    
-    if (user_Facebook_Switch.isOn) {
-         if ([[[PFUser currentUser]valueForKey:@"Accounttype"]isEqualToString:@"FB"]) {
-            ApplicationDelegate.session=[PFFacebookUtils session];
-            [FBSession setActiveSession:[PFFacebookUtils session]];
-            [self saveSharingSettings];
-         } else if ([[[PFUser currentUser]valueForKey:@"Accounttype"]isEqualToString:@"Normal"]) {
-            [FBSession openActiveSessionWithReadPermissions:nil allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState state, NSError *error)
-                {
-                    ApplicationDelegate.session=[FBSession activeSession];
-                    [FBSession setActiveSession:[FBSession activeSession]];
-                }];
-             
-         } else {
-            [FBSession openActiveSessionWithReadPermissions:nil allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState state, NSError *error)
-                {
-                  ApplicationDelegate.session=[FBSession activeSession];
-                  [FBSession setActiveSession:[FBSession activeSession]];
-                  NSString *fbtokendata=[NSString stringWithFormat:@"%@",[FBSession activeSession]];
-                  [[NSUserDefaults standardUserDefaults]setObject:fbtokendata forKey:@"fbAccessData"];
-                  [[NSUserDefaults standardUserDefaults]synchronize];
-                  [self saveSharingSettings];
-                }];
-        }
-    } else {
-        if([[[PFUser currentUser]objectForKey:@"Accounttype"]isEqualToString:@"FB"]) {
-            [self saveSharingSettings];
-        } else {
-            [[FBSession activeSession]closeAndClearTokenInformation];
-            NSHTTPCookieStorage* cookies = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-            [[FBSession activeSession] closeAndClearTokenInformation];
-            NSArray* fbCookies = [cookies cookiesForURL:[NSURL URLWithString:@"https://facebook.com/"]];
-            for (NSHTTPCookie* cookie in fbCookies) {
-                [cookies deleteCookie:cookie];
-            }
-            [self saveSharingSettings];
-        }
-    }
+    //TODO FOR V4
+//    TellemGlobals *tM = [TellemGlobals globalsManager];
+//    if (!tM.gFacebookSharingOK)
+//    {
+//        UIAlertView *Alert=[[UIAlertView alloc]initWithTitle:@"Tellem" message:@"Tellem has technical issues with Facebook. Please use Instagram to share your posts" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [Alert show];
+//        [user_Facebook_Switch setOn:NO];
+//        [self dismissViewControllerAnimated:NO completion:Nil];
+//        return;
+//    }
+//    
+//    if (user_Facebook_Switch.isOn) {
+//         if ([[[PFUser currentUser]valueForKey:@"Accounttype"]isEqualToString:@"FB"]) {
+//            //ApplicationDelegate.session=[PFFacebookUtils session];
+//            //[FBSession setActiveSession:[PFFacebookUtils session]];
+//            [self saveSharingSettings];
+//         } else if ([[[PFUser currentUser]valueForKey:@"Accounttype"]isEqualToString:@"Normal"]) {
+//            [FBSession openActiveSessionWithReadPermissions:nil allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState state, NSError *error)
+//                {
+//                    ApplicationDelegate.session=[FBSession activeSession];
+//                    [FBSession setActiveSession:[FBSession activeSession]];
+//                }];
+//             
+//         } else {
+//            [FBSession openActiveSessionWithReadPermissions:nil allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState state, NSError *error)
+//                {
+//                  ApplicationDelegate.session=[FBSession activeSession];
+//                  [FBSession setActiveSession:[FBSession activeSession]];
+//                  NSString *fbtokendata=[NSString stringWithFormat:@"%@",[FBSession activeSession]];
+//                  [[NSUserDefaults standardUserDefaults]setObject:fbtokendata forKey:@"fbAccessData"];
+//                  [[NSUserDefaults standardUserDefaults]synchronize];
+//                  [self saveSharingSettings];
+//                }];
+//        }
+//    } else {
+//        if([[[PFUser currentUser]objectForKey:@"Accounttype"]isEqualToString:@"FB"]) {
+//            [self saveSharingSettings];
+//        } else {
+//            [[FBSession activeSession]closeAndClearTokenInformation];
+//            NSHTTPCookieStorage* cookies = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+//            [[FBSession activeSession] closeAndClearTokenInformation];
+//            NSArray* fbCookies = [cookies cookiesForURL:[NSURL URLWithString:@"https://facebook.com/"]];
+//            for (NSHTTPCookie* cookie in fbCookies) {
+//                [cookies deleteCookie:cookie];
+//            }
+//            [self saveSharingSettings];
+//        }
+//    }
 }
 -(void) saveSharingSettings
 {
@@ -377,55 +381,56 @@
 
 - (IBAction)viewFacebook_BtnOn:(id)sender
 {
-    TellemGlobals *tM = [TellemGlobals globalsManager];
-    if (!tM.gFacebookSharingOK)
-    {
-        UIAlertView *Alert=[[UIAlertView alloc]initWithTitle:@"Tellem" message:@"Tellem has technical issues with Facebook. Please use Instagram or Tellem to search for friends" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [Alert show];
-        [viewUser_Facebook_Switch setOn:NO];
-        [self dismissViewControllerAnimated:NO completion:Nil];
-        return;
-    }
-    
-    if (viewUser_Facebook_Switch.isOn) {
-        if ([[[PFUser currentUser]valueForKey:@"Accounttype"]isEqualToString:@"FB"]) {
-            ApplicationDelegate.session=[PFFacebookUtils session];
-            [FBSession setActiveSession:[PFFacebookUtils session]];
-            [self saveSharingSettings];
-        } else if ([[[PFUser currentUser]valueForKey:@"Accounttype"]isEqualToString:@"Normal"]) {
-            [FBSession openActiveSessionWithReadPermissions:nil allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState state, NSError *error)
-             {
-                 ApplicationDelegate.session=[FBSession activeSession];
-                 [FBSession setActiveSession:[FBSession activeSession]];
-             }];
-            
-        } else {
-            [FBSession openActiveSessionWithReadPermissions:nil allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState state, NSError *error)
-             {
-                 ApplicationDelegate.session=[FBSession activeSession];
-                 [FBSession setActiveSession:[FBSession activeSession]];
-                 
-                 NSString *fbtokendata=[NSString stringWithFormat:@"%@",[FBSession activeSession]];
-                 [[NSUserDefaults standardUserDefaults]setObject:fbtokendata forKey:@"fbAccessData"];
-                 [[NSUserDefaults standardUserDefaults]synchronize];
-                 [self saveSharingSettings];
-                 
-             }];
-        }
-    } else {
-        if([[[PFUser currentUser]objectForKey:@"Accounttype"]isEqualToString:@"FB"]) {
-            [self saveSharingSettings];
-        } else {
-            [[FBSession activeSession]closeAndClearTokenInformation];
-            NSHTTPCookieStorage* cookies = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-            [[FBSession activeSession] closeAndClearTokenInformation];
-            NSArray* fbCookies = [cookies cookiesForURL:[NSURL URLWithString:@"https://facebook.com/"]];
-            for (NSHTTPCookie* cookie in fbCookies) {
-                [cookies deleteCookie:cookie];
-            }
-            [self saveSharingSettings];
-        }
-    }
+    //TODO FOR V4
+//    TellemGlobals *tM = [TellemGlobals globalsManager];
+//    if (!tM.gFacebookSharingOK)
+//    {
+//        UIAlertView *Alert=[[UIAlertView alloc]initWithTitle:@"Tellem" message:@"Tellem has technical issues with Facebook. Please use Instagram or Tellem to search for friends" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [Alert show];
+//        [viewUser_Facebook_Switch setOn:NO];
+//        [self dismissViewControllerAnimated:NO completion:Nil];
+//        return;
+//    }
+//    
+//    if (viewUser_Facebook_Switch.isOn) {
+//        if ([[[PFUser currentUser]valueForKey:@"Accounttype"]isEqualToString:@"FB"]) {
+//            //ApplicationDelegate.session=[PFFacebookUtils session];
+//            //[FBSession setActiveSession:[PFFacebookUtils session]];
+//            [self saveSharingSettings];
+//        } else if ([[[PFUser currentUser]valueForKey:@"Accounttype"]isEqualToString:@"Normal"]) {
+//            [FBSession openActiveSessionWithReadPermissions:nil allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState state, NSError *error)
+//             {
+//                 ApplicationDelegate.session=[FBSession activeSession];
+//                 [FBSession setActiveSession:[FBSession activeSession]];
+//             }];
+//            
+//        } else {
+//            [FBSession openActiveSessionWithReadPermissions:nil allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState state, NSError *error)
+//             {
+//                 ApplicationDelegate.session=[FBSession activeSession];
+//                 [FBSession setActiveSession:[FBSession activeSession]];
+//                 
+//                 NSString *fbtokendata=[NSString stringWithFormat:@"%@",[FBSession activeSession]];
+//                 [[NSUserDefaults standardUserDefaults]setObject:fbtokendata forKey:@"fbAccessData"];
+//                 [[NSUserDefaults standardUserDefaults]synchronize];
+//                 [self saveSharingSettings];
+//                 
+//             }];
+//        }
+//    } else {
+//        if([[[PFUser currentUser]objectForKey:@"Accounttype"]isEqualToString:@"FB"]) {
+//            [self saveSharingSettings];
+//        } else {
+//            [[FBSession activeSession]closeAndClearTokenInformation];
+//            NSHTTPCookieStorage* cookies = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+//            [[FBSession activeSession] closeAndClearTokenInformation];
+//            NSArray* fbCookies = [cookies cookiesForURL:[NSURL URLWithString:@"https://facebook.com/"]];
+//            for (NSHTTPCookie* cookie in fbCookies) {
+//                [cookies deleteCookie:cookie];
+//            }
+//            [self saveSharingSettings];
+//        }
+//    }
 }
 
 - (IBAction)Instagram_BtnOn:(id)sender
@@ -604,5 +609,9 @@
     TellemGlobals *tM = [TellemGlobals globalsManager];
     tM.gPostRecordingTimeInSecs = strRecTimeInSecs;
 };
+
+- (IBAction)openEULA:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kEULALink]];
+}
 
 @end

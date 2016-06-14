@@ -33,6 +33,7 @@
 @property (strong, nonatomic) IBOutlet UISlider *recTimeInSecs;
 @property (strong, nonatomic) IBOutlet UILabel *sliderMinLabel;
 @property (strong, nonatomic) IBOutlet UILabel *sliderMaxLabel;
+@property (strong, nonatomic) IBOutlet UIButton *linkEULA;
 
 
 - (IBAction)Twitter_BtnOn:(id)sender;
@@ -42,6 +43,7 @@
 - (IBAction)viewFacebook_BtnOn:(id)sender;
 - (IBAction)viewInstagram_BtnOn:(id)sender;
 - (IBAction)recTimeChanged:(id)sender;
+- (IBAction)openEULA:(id)sender;
 
 
 

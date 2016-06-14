@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSMutableURLRequest+BasicAuth.h"
 
 @interface TellemUtility : NSObject {
 }
@@ -51,6 +52,7 @@
 +(void)sendForgottenPasswordToUser: (NSString*) receivingUser;
 +(NSUInteger) countActivitiesForCircle: (PFObject*) circle andPhoto: (PFObject*) photo;
 +(NSMutableArray*) getAllFriendsofUser: (PFUser *) user andAccountType: (NSString*) accountType;
++(NSMutableArray*) getCoolmixGSR: (NSString *) serverURL andServerUser: (NSString*) serverUser andServerPassword: (NSString*) serverPassword;
 
 
 

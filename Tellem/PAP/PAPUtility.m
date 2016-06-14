@@ -40,16 +40,16 @@ NSString *const kPAPActivityToUserKey=@"toUser";
 NSString *const kPAPActivityCircleKey = @"circleKey";
 NSString *const kPAPActivityTypeKey=@"type";
 NSString *const kPAPActivityTypeFollow=@"follow";
-NSString *const kPAPActivityTypeLike       = @"like";
-NSString *const kPAPActivityPhotoKey       = @"photo";
-NSString *const kPAPActivityContentKey     = @"content";
-NSString *const kPAPActivityMoodTypeKey     = @"moodtypes";
-NSString *const kPAPActivityTypeComment    = @"comment";
-NSString *const kPAPActivityTypeCircleName    = @"circleName";
-NSString *const kPAPActivityTypeInitPost    = @"initPost";
-NSString *const kPAPActivityTypeInitPostWithDefaultPicture    = @"initPostWithDefaultPicture";
-NSString *const kPAPActivityTypeJoined     = @"joined";
-NSString *const kPAPActivityLastUpdated     = @"lastUpdated";
+NSString *const kPAPActivityTypeLike = @"like";
+NSString *const kPAPActivityPhotoKey = @"photo";
+NSString *const kPAPActivityContentKey = @"content";
+NSString *const kPAPActivityMoodTypeKey = @"moodtypes";
+NSString *const kPAPActivityTypeComment = @"comment";
+NSString *const kPAPActivityTypeCircleName = @"circleName";
+NSString *const kPAPActivityTypeInitPost = @"initPost";
+NSString *const kPAPActivityTypeInitPostWithDefaultPicture = @"initPostWithDefaultPicture";
+NSString *const kPAPActivityTypeJoined = @"joined";
+NSString *const kPAPActivityLastUpdated = @"lastUpdated";
 
 NSString *const kPAPTellemLogClassKey=@"TellemLog";
 NSString *const kPAPTellemLogMessageTextKey=@"messageText";
@@ -96,9 +96,12 @@ NSString *const kPAPPushInviteToCircle = @"inviteToCircle";
 NSString *const kPAPPushTemporaryPassword = @"temporaryPassword";
 
 #pragma mark - Font Types
-NSString *const kFontNormal = @"HelveticaNeue";
-NSString *const kFontThin = @"HelveticaNeue-Thin";
-NSString *const kFontBold = @"HelveticaNeue-Bold";
+//NSString *const kFontNormal = @"HelveticaNeue";
+//NSString *const kFontThin = @"HelveticaNeue-Thin";
+//NSString *const kFontBold = @"HelveticaNeue-Bold";
+NSString *const kFontNormal = @"DINAlternate-Bold";
+NSString *const kFontThin = @"DINAlternate-Bold";
+NSString *const kFontBold = @"DINAlternate-Bold";
 
 #pragma mark - Slider Values
 int kInitialRecTimeInSecs = 20;
@@ -115,6 +118,8 @@ NSString *const kRedirectUri = @"http://mydomain.com/NeverGonnaFindMe/";
 //Twitter
 NSString *const kTwitterClientID = @"COPyKvw1MdFFIEYL5CQMfJhub";
 NSString *const kTwitterClientSecret = @"oLZyYZhseImGU00SnVgTVTqUXOgidEnxr0Ylh1xrrwjCFXBbb2";
+//EULA
+NSString *const kEULALink = @"http://utellem.net/eula";
 
 
 @implementation PAPUtility

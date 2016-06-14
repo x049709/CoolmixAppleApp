@@ -23,6 +23,10 @@
 #import "DataReceiver.h"
 #import "User.h"
 #import "UserProfileController.h"
+#import <ParseTwitterUtils/PFTwitterUtils.h>
+#import <ParseTwitterUtils/PF_Twitter.h>
+
+
 
 @interface PeopleViewController ()<DataProviderDelegate>
 {
@@ -300,190 +304,191 @@
 
 -(void)userAllFacebookFriendsNeedChange{
     
-    if ([[[PFUser currentUser]valueForKey:@"Accounttype"]isEqualToString:@"FB"])
-    {
-        //Logged in user is FB, get all FB friends
-        ApplicationDelegate.session=[PFFacebookUtils session];
-        [FBSession setActiveSession:[PFFacebookUtils session]];
-        FBRequest* friendsRequest = [FBRequest requestForMyFriends];
-        [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,NSDictionary* result, NSError *error)
-         {
-             if (!error) {
-                 [self updateShareSettings:@"FB" value:@"1"];
-                 NSMutableArray *allFBFriends = [result objectForKey:@"data"];
-                 NSMutableArray *fbFriends=[[NSMutableArray alloc]init];
-                 NSMutableArray *fbFriendsInTellem=[[NSMutableArray alloc]init];
-                 PFQuery *query = [PFUser query];
-                 [query whereKey:@"username" containedIn:[allFBFriends valueForKey:@"id"]];
-                 [query orderByAscending:@"displayName"];
-                 NSArray *fbObjects = [query findObjects];
-                 tellemPFUserFBFriends = [(NSArray*)fbObjects mutableCopy];
-                 tellemFBFriends=[(NSArray*)fbObjects mutableCopy];
-                 for (int i=0; i<allFBFriends.count; i++) {
-                     if (![[fbObjects valueForKey:@"username"] containsObject:[allFBFriends[i] valueForKey:@"id"]]) {
-                         [fbFriends addObject:allFBFriends[i]];
-                     } else {
-                         [fbFriendsInTellem addObject:allFBFriends[i]];
-                     }
-                 }
-                 AllActivityFBAllData = [self sortMutableArray:fbFriends withKey:@"name"];
-                 
-                 if (AllActivityFBAllData.count==0 && tellemFBFriends.count==0) {
-                     [ApplicationDelegate.hudd hide:YES];
-                 }
-                 else {
-                     [ApplicationDelegate.hudd hide:YES];
-                     dispatch_async(dispatch_get_main_queue(), ^{
-                         [netWorkTable reloadData];
-                     });
-                 }
-             }
-             else {
-                 //Error connecting to FB
-                 //Change FB setting to 0 with alert
-                 [tellemFBFriends removeAllObjects];
-                 [tellemPFUserFBFriends removeAllObjects];
-                 [AllActivityFBAllData removeAllObjects];
-                 [self updateShareSettings:@"FB" value:@"0"];
-                 [ApplicationDelegate.hudd hide:YES];
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Tellem" message:@"Tap settings to connect to Facebook" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-                     [alert show];
-                     [netWorkTable reloadData];
-                 });
-             }
-         }];
-    }
-    else
-    {
-        //Logged in user is not FB, but View FB friends is ON, get all FB friends
-        PFUser *currentUser = [PFUser currentUser];
-        if ([[[currentUser valueForKey:@"ViewFriends"]objectAtIndex:1] isEqualToString:@"1"])
-        {
-            if([[FBSession activeSession]isOpen])
-            {
-                ApplicationDelegate.session=[FBSession activeSession];
-                [FBSession setActiveSession:[FBSession activeSession]];
-                FBRequest* friendsRequest = [FBRequest requestForMyFriends];
-                [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection, NSDictionary* result, NSError *error)
-                 {
-                     if (!error) {
-                         [self updateShareSettings:@"FB" value:@"1"];
-                         NSMutableArray *allFBFriends = [result objectForKey:@"data"];
-                         NSMutableArray *fbFriends=[[NSMutableArray alloc]init];
-                         NSMutableArray *fbFriendsInTellem=[[NSMutableArray alloc]init];
-                         PFQuery *query = [PFUser query];
-                         [query whereKey:@"username" containedIn:[allFBFriends valueForKey:@"id"]];
-                         [query orderByAscending:@"displayName"];
-                         NSArray *fbObjects = [query findObjects];
-                         tellemPFUserFBFriends = [(NSArray*)fbObjects mutableCopy];
-                         tellemFBFriends=[(NSArray*)fbObjects mutableCopy];
-                         for (int i=0; i<allFBFriends.count; i++) {
-                             if (![[fbObjects valueForKey:@"username"] containsObject:[allFBFriends[i] valueForKey:@"id"]]) {
-                                 [fbFriends addObject:allFBFriends[i]];
-                             } else {
-                                 [fbFriendsInTellem addObject:allFBFriends[i]];
-                             }
-                         }
-                         AllActivityFBAllData = [self sortMutableArray:fbFriends withKey:@"name"];
-                         
-                         if (AllActivityFBAllData.count==0 && tellemFBFriends.count==0) {
-                             [ApplicationDelegate.hudd hide:YES];
-                         }
-                         else {
-                             [ApplicationDelegate.hudd hide:YES];
-                             dispatch_async(dispatch_get_main_queue(), ^{
-                                 [netWorkTable reloadData];
-                             });
-                         }
-                     }
-                     else {
-                         //Error connecting to FB
-                         //Change FB setting to 0 with alert
-                         [tellemFBFriends removeAllObjects];
-                         [tellemPFUserFBFriends removeAllObjects];
-                         [AllActivityFBAllData removeAllObjects];
-                         [self updateShareSettings:@"FB" value:@"0"];
-                         [ApplicationDelegate.hudd hide:YES];
-                         dispatch_async(dispatch_get_main_queue(), ^{
-                             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Tellem" message:@"Tap settings to connect to Facebook" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-                             [alert show];
-                             [netWorkTable reloadData];
-                         });
-
-                     }
-                 }];
-            }
-            else
-            {
-                [FBSession openActiveSessionWithReadPermissions:nil allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState state, NSError *error)
-                 {
-                     ApplicationDelegate.session=[FBSession activeSession];
-                     [FBSession setActiveSession:[FBSession activeSession]];
-                     FBRequest* friendsRequest = [FBRequest requestForMyFriends];
-                     [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection, NSDictionary* result, NSError *error)
-                      {
-                          if (!error) {
-                              [self updateShareSettings:@"FB" value:@"1"];
-                              NSMutableArray *allFBFriends = [result objectForKey:@"data"];
-                              NSMutableArray *fbFriends=[[NSMutableArray alloc]init];
-                              NSMutableArray *fbFriendsInTellem=[[NSMutableArray alloc]init];
-                              PFQuery *query = [PFUser query];
-                              [query whereKey:@"username" containedIn:[allFBFriends valueForKey:@"id"]];
-                              [query orderByAscending:@"displayName"];
-                              NSArray *fbObjects = [query findObjects];
-                              tellemPFUserFBFriends = [(NSArray*)fbObjects mutableCopy];
-                              tellemFBFriends=[(NSArray*)fbObjects mutableCopy];
-                              for (int i=0; i<allFBFriends.count; i++) {
-                                  if (![[fbObjects valueForKey:@"username"] containsObject:[allFBFriends[i] valueForKey:@"id"]]) {
-                                      [fbFriends addObject:allFBFriends[i]];
-                                  } else {
-                                      [fbFriendsInTellem addObject:allFBFriends[i]];
-                                  }
-                              }
-                              AllActivityFBAllData = [self sortMutableArray:fbFriends withKey:@"name"];
-                              
-                              if (AllActivityFBAllData.count==0 && tellemFBFriends.count==0) {
-                                  [ApplicationDelegate.hudd hide:YES];
-                              }
-                              else {
-                                  [ApplicationDelegate.hudd hide:YES];
-                                  dispatch_async(dispatch_get_main_queue(), ^{
-                                      [netWorkTable reloadData];
-                                  });
-                              }
-                          }
-                          else {
-                              //Path appears to get called only on logout - comment out the alert!
-                              //[self updateShareSettings:@"FB" value:@"0"];
-                              //UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Tellem" message:@"Tapzzzzz settings to connect to Facebook" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-                              //[alert show];
-                              [tellemFBFriends removeAllObjects];
-                              [tellemPFUserFBFriends removeAllObjects];
-                              [AllActivityFBAllData removeAllObjects];
-                              [ApplicationDelegate.hudd hide:YES];
-                              dispatch_async(dispatch_get_main_queue(), ^{
-                                  [netWorkTable reloadData];
-                              });
-                          }
-                     }];
-                }];
-            }
-         }
-        else
-        {
-            //Logged in user is not FB, but View FB friends is not ON, alert user to connect to FB
-            [tellemFBFriends removeAllObjects];
-            [tellemPFUserFBFriends removeAllObjects];
-            [AllActivityFBAllData removeAllObjects];
-            [ApplicationDelegate.hudd hide:YES];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Tellem" message:@"Tap settings to connect to Facebook" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-                [alert show];
-                [netWorkTable reloadData];
-            });
-        }
-    }
+//TODO FOR V4
+//    if ([[[PFUser currentUser]valueForKey:@"Accounttype"]isEqualToString:@"FB"])
+//    {
+//        //Logged in user is FB, get all FB friends
+//        //ApplicationDelegate.session=[PFFacebookUtils session];
+//        //[FBSession setActiveSession:[PFFacebookUtils session]];
+//        FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+//        [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,NSDictionary* result, NSError *error)
+//         {
+//             if (!error) {
+//                 [self updateShareSettings:@"FB" value:@"1"];
+//                 NSMutableArray *allFBFriends = [result objectForKey:@"data"];
+//                 NSMutableArray *fbFriends=[[NSMutableArray alloc]init];
+//                 NSMutableArray *fbFriendsInTellem=[[NSMutableArray alloc]init];
+//                 PFQuery *query = [PFUser query];
+//                 [query whereKey:@"username" containedIn:[allFBFriends valueForKey:@"id"]];
+//                 [query orderByAscending:@"displayName"];
+//                 NSArray *fbObjects = [query findObjects];
+//                 tellemPFUserFBFriends = [(NSArray*)fbObjects mutableCopy];
+//                 tellemFBFriends=[(NSArray*)fbObjects mutableCopy];
+//                 for (int i=0; i<allFBFriends.count; i++) {
+//                     if (![[fbObjects valueForKey:@"username"] containsObject:[allFBFriends[i] valueForKey:@"id"]]) {
+//                         [fbFriends addObject:allFBFriends[i]];
+//                     } else {
+//                         [fbFriendsInTellem addObject:allFBFriends[i]];
+//                     }
+//                 }
+//                 AllActivityFBAllData = [self sortMutableArray:fbFriends withKey:@"name"];
+//                 
+//                 if (AllActivityFBAllData.count==0 && tellemFBFriends.count==0) {
+//                     [ApplicationDelegate.hudd hide:YES];
+//                 }
+//                 else {
+//                     [ApplicationDelegate.hudd hide:YES];
+//                     dispatch_async(dispatch_get_main_queue(), ^{
+//                         [netWorkTable reloadData];
+//                     });
+//                 }
+//             }
+//             else {
+//                 //Error connecting to FB
+//                 //Change FB setting to 0 with alert
+//                 [tellemFBFriends removeAllObjects];
+//                 [tellemPFUserFBFriends removeAllObjects];
+//                 [AllActivityFBAllData removeAllObjects];
+//                 [self updateShareSettings:@"FB" value:@"0"];
+//                 [ApplicationDelegate.hudd hide:YES];
+//                 dispatch_async(dispatch_get_main_queue(), ^{
+//                     UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Tellem" message:@"Tap settings to connect to Facebook" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+//                     [alert show];
+//                     [netWorkTable reloadData];
+//                 });
+//             }
+//         }];
+//    }
+//    else
+//    {
+//        //Logged in user is not FB, but View FB friends is ON, get all FB friends
+//        PFUser *currentUser = [PFUser currentUser];
+//        if ([[[currentUser valueForKey:@"ViewFriends"]objectAtIndex:1] isEqualToString:@"1"])
+//        {
+//            if([[FBSession activeSession]isOpen])
+//            {
+//                ApplicationDelegate.session=[FBSession activeSession];
+//                [FBSession setActiveSession:[FBSession activeSession]];
+//                FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+//                [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection, NSDictionary* result, NSError *error)
+//                 {
+//                     if (!error) {
+//                         [self updateShareSettings:@"FB" value:@"1"];
+//                         NSMutableArray *allFBFriends = [result objectForKey:@"data"];
+//                         NSMutableArray *fbFriends=[[NSMutableArray alloc]init];
+//                         NSMutableArray *fbFriendsInTellem=[[NSMutableArray alloc]init];
+//                         PFQuery *query = [PFUser query];
+//                         [query whereKey:@"username" containedIn:[allFBFriends valueForKey:@"id"]];
+//                         [query orderByAscending:@"displayName"];
+//                         NSArray *fbObjects = [query findObjects];
+//                         tellemPFUserFBFriends = [(NSArray*)fbObjects mutableCopy];
+//                         tellemFBFriends=[(NSArray*)fbObjects mutableCopy];
+//                         for (int i=0; i<allFBFriends.count; i++) {
+//                             if (![[fbObjects valueForKey:@"username"] containsObject:[allFBFriends[i] valueForKey:@"id"]]) {
+//                                 [fbFriends addObject:allFBFriends[i]];
+//                             } else {
+//                                 [fbFriendsInTellem addObject:allFBFriends[i]];
+//                             }
+//                         }
+//                         AllActivityFBAllData = [self sortMutableArray:fbFriends withKey:@"name"];
+//                         
+//                         if (AllActivityFBAllData.count==0 && tellemFBFriends.count==0) {
+//                             [ApplicationDelegate.hudd hide:YES];
+//                         }
+//                         else {
+//                             [ApplicationDelegate.hudd hide:YES];
+//                             dispatch_async(dispatch_get_main_queue(), ^{
+//                                 [netWorkTable reloadData];
+//                             });
+//                         }
+//                     }
+//                     else {
+//                         //Error connecting to FB
+//                         //Change FB setting to 0 with alert
+//                         [tellemFBFriends removeAllObjects];
+//                         [tellemPFUserFBFriends removeAllObjects];
+//                         [AllActivityFBAllData removeAllObjects];
+//                         [self updateShareSettings:@"FB" value:@"0"];
+//                         [ApplicationDelegate.hudd hide:YES];
+//                         dispatch_async(dispatch_get_main_queue(), ^{
+//                             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Tellem" message:@"Tap settings to connect to Facebook" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+//                             [alert show];
+//                             [netWorkTable reloadData];
+//                         });
+//
+//                     }
+//                 }];
+//            }
+//            else
+//            {
+//                [FBSession openActiveSessionWithReadPermissions:nil allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState state, NSError *error)
+//                 {
+//                     ApplicationDelegate.session=[FBSession activeSession];
+//                     [FBSession setActiveSession:[FBSession activeSession]];
+//                     FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+//                     [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection, NSDictionary* result, NSError *error)
+//                      {
+//                          if (!error) {
+//                              [self updateShareSettings:@"FB" value:@"1"];
+//                              NSMutableArray *allFBFriends = [result objectForKey:@"data"];
+//                              NSMutableArray *fbFriends=[[NSMutableArray alloc]init];
+//                              NSMutableArray *fbFriendsInTellem=[[NSMutableArray alloc]init];
+//                              PFQuery *query = [PFUser query];
+//                              [query whereKey:@"username" containedIn:[allFBFriends valueForKey:@"id"]];
+//                              [query orderByAscending:@"displayName"];
+//                              NSArray *fbObjects = [query findObjects];
+//                              tellemPFUserFBFriends = [(NSArray*)fbObjects mutableCopy];
+//                              tellemFBFriends=[(NSArray*)fbObjects mutableCopy];
+//                              for (int i=0; i<allFBFriends.count; i++) {
+//                                  if (![[fbObjects valueForKey:@"username"] containsObject:[allFBFriends[i] valueForKey:@"id"]]) {
+//                                      [fbFriends addObject:allFBFriends[i]];
+//                                  } else {
+//                                      [fbFriendsInTellem addObject:allFBFriends[i]];
+//                                  }
+//                              }
+//                              AllActivityFBAllData = [self sortMutableArray:fbFriends withKey:@"name"];
+//                              
+//                              if (AllActivityFBAllData.count==0 && tellemFBFriends.count==0) {
+//                                  [ApplicationDelegate.hudd hide:YES];
+//                              }
+//                              else {
+//                                  [ApplicationDelegate.hudd hide:YES];
+//                                  dispatch_async(dispatch_get_main_queue(), ^{
+//                                      [netWorkTable reloadData];
+//                                  });
+//                              }
+//                          }
+//                          else {
+//                              //Path appears to get called only on logout - comment out the alert!
+//                              //[self updateShareSettings:@"FB" value:@"0"];
+//                              //UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Tellem" message:@"Tapzzzzz settings to connect to Facebook" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+//                              //[alert show];
+//                              [tellemFBFriends removeAllObjects];
+//                              [tellemPFUserFBFriends removeAllObjects];
+//                              [AllActivityFBAllData removeAllObjects];
+//                              [ApplicationDelegate.hudd hide:YES];
+//                              dispatch_async(dispatch_get_main_queue(), ^{
+//                                  [netWorkTable reloadData];
+//                              });
+//                          }
+//                     }];
+//                }];
+//            }
+//         }
+//        else
+//        {
+//            //Logged in user is not FB, but View FB friends is not ON, alert user to connect to FB
+//            [tellemFBFriends removeAllObjects];
+//            [tellemPFUserFBFriends removeAllObjects];
+//            [AllActivityFBAllData removeAllObjects];
+//            [ApplicationDelegate.hudd hide:YES];
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Tellem" message:@"Tap settings to connect to Facebook" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+//                [alert show];
+//                [netWorkTable reloadData];
+//            });
+//        }
+//    }
 }
 
 -(void)tellemTwitterFriendsNeedsChange{
@@ -974,7 +979,7 @@
     
     //NSLog(@"NetworkViewController updateShareSettings shareSettings  %@ ",shareSettings);
     [[PFUser currentUser] setObject:shareSettings forKey:@"ViewFriends"];
-    [[PFUser currentUser] save];
+    //[[PFUser currentUser] save];
 }
 
 #pragma mark viewForHeaderInSection
@@ -1280,9 +1285,10 @@
                 nameLbl.font = [UIFont fontWithName:kFontThin size:14];
                 nameLbl.text=[[tellemFBFriends objectAtIndex:indexPath.row]valueForKey:@"displayName"];
                 [cell addSubview:nameLbl];
-                FBProfilePictureView *profilePictureView=[[FBProfilePictureView alloc]initWithFrame:CGRectMake(2,2, 46, 46)];
-                profilePictureView.profileID=[[tellemFBFriends objectAtIndex:indexPath.row]valueForKey:@"username"];
-                [cell addSubview:profilePictureView];
+                //TODO FOR V4
+                //FBProfilePictureView *profilePictureView=[[FBProfilePictureView alloc]initWithFrame:CGRectMake(2,2, 46, 46)];
+                //profilePictureView.profileID=[[tellemFBFriends objectAtIndex:indexPath.row]valueForKey:@"username"];
+                //[cell addSubview:profilePictureView];
             }
         }
         else
@@ -1430,8 +1436,9 @@
             inviteButton.tag=indexPath.row;
             [cell addSubview:inviteButton];
             
-            FBProfilePictureView *profilePictureView=[[FBProfilePictureView alloc]initWithFrame:CGRectMake(2,2, 46, 46)];
-            [cell addSubview:profilePictureView];
+            //TODO FOR V4
+            //FBProfilePictureView *profilePictureView=[[FBProfilePictureView alloc]initWithFrame:CGRectMake(2,2, 46, 46)];
+            //[cell addSubview:profilePictureView];
         }
     }
     else if (netWorkTable.tag==0)

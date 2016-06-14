@@ -10,7 +10,7 @@
 
 @implementation TellemGlobals
 
-@synthesize gBackgroundImageExtraLight,gPostRecordingTimeInSecs,gCannedEmailMessage,gCannedTextMessage,gFacebookOK,gTwitterOK,gFacebookSharingOK,gTwitterSharingOK,gPreferredCircle,gActivitiesPerPage,gMaxActivitiesToShow,gActivitiesToShow,gCurrentTab,gMaxActivitiesToMap;
+@synthesize gBackgroundImageExtraLight,gPostRecordingTimeInSecs,gCannedEmailMessage,gCannedTextMessage,gFacebookOK,gTwitterOK,gFacebookSharingOK,gTwitterSharingOK,gPreferredCircle,gActivitiesPerPage,gMaxActivitiesToShow,gActivitiesToShow,gCurrentTab,gMaxActivitiesToMap,gCoolmixServerURL,gCoolmixServerUser,gCoolmixServerPassword;
 ;
 
 #pragma mark Singleton Methods
@@ -26,7 +26,7 @@
 
 - (id)init {
     if (self = [super init]) {
-        gBackgroundImageExtraLight = [[UIImage imageNamed:@"leatherBackground.png"] applyExtraLightEffect];
+        gBackgroundImageExtraLight = [UIImage  imageNamed:@"white_bg"];
         gFacebookOK = YES;
         gTwitterOK = YES;
         gFacebookSharingOK = YES;
@@ -42,6 +42,10 @@
         gCannedEmailMessage = [gCannedEmailMessage stringByAppendingString:@"<p><a href=\"http://appstore.com\">Click here to go to the Apple AppStore and search for Tellem</a></p><p>"];
         gCannedEmailMessage = [gCannedEmailMessage stringByAppendingString:@"After you install the app, log in using Instagram or your email.  Then we can connect! <p>Thanks!"];
         gCannedTextMessage  = @". Join my new social network! Download the app Tellem at the Apple AppStore at http://appstore.com. After you install the app, log in using Instagram or your email. Then we can connect!  Thanks!";
+        gCoolmixServerURL = @"http://162.243.212.149:8080/v1.0";
+        gCoolmixServerUser = @"Martin";
+        gCoolmixServerPassword = @"Roseland00";
+
         NSLog(@"Tellem Globals:\n");
         NSLog(@"gFacebookOK=%@",gFacebookOK ? @"YES" : @"NO");
         NSLog(@"gTwitterOK=%@",gTwitterOK ? @"YES" : @"NO");
@@ -52,6 +56,7 @@
         NSLog(@"gMaxActivitiesToShow=%lu\n",(unsigned long)gMaxActivitiesToShow);
         NSLog(@"gCurrentTab=%lu\n",(unsigned long)gCurrentTab);
         NSLog(@"gMaxActivitiesToMap=%lu\n",(unsigned long)gMaxActivitiesToMap);
+        NSLog(@"gCoolmixServerURL=%@",gCoolmixServerURL);
     }
     return self;
 }

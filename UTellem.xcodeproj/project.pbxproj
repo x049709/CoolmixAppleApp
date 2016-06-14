@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36D4C2ADF0DF3A04D16D6197 /* libPods-Tellem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4464FFA6C28063866C208FC0 /* libPods-Tellem.a */; };
 		441FC4F818E312C300ED843C /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC4ED18E312C300ED843C /* NSObject+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		441FC4F918E312C300ED843C /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC4EF18E312C300ED843C /* NSString+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		441FC4FA18E312C300ED843C /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC4F118E312C300ED843C /* SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -18,8 +19,6 @@
 		45D3325418D194C100ABA2C0 /* TTTTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D3324E18D194C100ABA2C0 /* TTTTimeIntervalFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		45D3325F18D196A100ABA2C0 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45D3325E18D196A100ABA2C0 /* AdSupport.framework */; };
 		45D3326118D196A900ABA2C0 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45D3326018D196A900ABA2C0 /* Social.framework */; };
-		45D3326318D196B800ABA2C0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45D3326218D196B800ABA2C0 /* libsqlite3.dylib */; };
-		45D3326518D196C700ABA2C0 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45D3326418D196C700ABA2C0 /* libz.1.1.3.dylib */; };
 		45D3326718D196D100ABA2C0 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45D3326618D196D100ABA2C0 /* Accounts.framework */; };
 		45D3326918D196DF00ABA2C0 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45D3326818D196DF00ABA2C0 /* AddressBook.framework */; };
 		45D3326B18D196E700ABA2C0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45D3326A18D196E700ABA2C0 /* MessageUI.framework */; };
@@ -40,11 +39,11 @@
 		45EB291C1904F074002CBC55 /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 45EB291A1904F074002CBC55 /* AviarySDKResources.bundle */; };
 		45EB291E1904F0A6002CBC55 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EB291D1904F0A6002CBC55 /* Accelerate.framework */; };
 		45EB29201904F0B9002CBC55 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EB291F1904F0B9002CBC55 /* CoreData.framework */; };
-		45EB29221904F0D0002CBC55 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EB29211904F0D0002CBC55 /* libsqlite3.0.dylib */; };
-		45EB29241904F0EB002CBC55 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EB29231904F0EB002CBC55 /* libz.1.2.5.dylib */; };
 		45EB29261904F106002CBC55 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EB29251904F106002CBC55 /* OpenGLES.framework */; };
+		51009C531D0CA744007897AB /* RestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 51009C521D0CA744007897AB /* RestClient.m */; };
 		510469731A683AD700C2A32A /* CircleDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 510469721A683AD700C2A32A /* CircleDetailsViewController.m */; };
 		510A5A081A9F96FF005A8FA4 /* HomeTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 510A5A071A9F96FF005A8FA4 /* HomeTimelineViewController.m */; };
+		510CE7A41CFA450F0088D18F /* TellemSignupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 510CE7A21CFA450F0088D18F /* TellemSignupView.m */; };
 		510FBE071A93CBDE00FBBE13 /* allcircles.png in Resources */ = {isa = PBXBuildFile; fileRef = 510FBE061A93CBDE00FBBE13 /* allcircles.png */; };
 		511084161A57D48D0017758A /* post.png in Resources */ = {isa = PBXBuildFile; fileRef = 511084151A57D48D0017758A /* post.png */; };
 		511084181A57D5860017758A /* tellem-login-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 511084171A57D5860017758A /* tellem-login-icon.png */; };
@@ -59,10 +58,6 @@
 		5120C5011A74BCC200270562 /* address-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 5120C4FE1A74BCC200270562 /* address-selected.png */; };
 		5120C5021A74BCC200270562 /* address-unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 5120C4FF1A74BCC200270562 /* address-unselected.png */; };
 		5121F4751A671E5A004A3E26 /* CirclesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5121F4741A671E5A004A3E26 /* CirclesListViewController.m */; };
-		5126B1091A6F74F400F0B9A8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45959E5D18F2D7FE00CE213A /* FacebookSDK.framework */; };
-		5126B10A1A6F753300F0B9A8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5126B1031A6F730300F0B9A8 /* Parse.framework */; };
-		5126B10B1A6F753300F0B9A8 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5126B1041A6F730300F0B9A8 /* ParseFacebookUtils.framework */; };
-		5126B10C1A6F753300F0B9A8 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5126B1051A6F730300F0B9A8 /* ParseUI.framework */; };
 		5126B10D1A6F756500F0B9A8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45D3327C18D1975C00ABA2C0 /* SystemConfiguration.framework */; };
 		5127CB0E1AA3BF10009A2113 /* asterisk.png in Resources */ = {isa = PBXBuildFile; fileRef = 5127CB0D1AA3BF10009A2113 /* asterisk.png */; };
 		5128B37D1A5097ED000FF0AD /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 5128B3741A5097ED000FF0AD /* LICENSE */; };
@@ -181,6 +176,7 @@
 		5160A9E21A59B8BD00A9AAB0 /* CirclesPageContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5160A9E11A59B8BD00A9AAB0 /* CirclesPageContentController.m */; };
 		51625A801A7C22B5007DF770 /* PlaceHolderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51625A7F1A7C22B5007DF770 /* PlaceHolderView.m */; };
 		516D52D11A5B3FE600976D5D /* PostCirclesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516D52D01A5B3FE600976D5D /* PostCirclesViewController.m */; };
+		517807C81D0A28E700A62C34 /* CoolmixUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 517807C71D0A28E700A62C34 /* CoolmixUtility.m */; };
 		517ADBDE1A79330E009FE0C0 /* register-inputs.png in Resources */ = {isa = PBXBuildFile; fileRef = 517ADBDC1A79330E009FE0C0 /* register-inputs.png */; };
 		517ADBDF1A79330E009FE0C0 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 517ADBDD1A79330E009FE0C0 /* user.png */; };
 		517ADBEB1A7984E7009FE0C0 /* TellemLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 517ADBEA1A7984E7009FE0C0 /* TellemLoginView.m */; };
@@ -191,16 +187,35 @@
 		517DE1251A3BA7D700B94A01 /* addpicture.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 517DE1241A3BA7D700B94A01 /* addpicture.jpeg */; };
 		517DE1271A3BA89700B94A01 /* addpicture.png in Resources */ = {isa = PBXBuildFile; fileRef = 517DE1261A3BA89700B94A01 /* addpicture.png */; };
 		5181CC051A5906EB00B4CF2D /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 5181CC021A5906EB00B4CF2D /* check.png */; };
+		5182C7E11D08690B000C65C9 /* MixGSRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5182C7E01D08690B000C65C9 /* MixGSRViewController.m */; };
+		5182C9481CFDDAE00012413A /* white_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5182C9461CFDDAE00012413A /* white_bg@2x.png */; };
+		5182C9491CFDDAE00012413A /* white_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5182C9471CFDDAE00012413A /* white_bg.png */; };
+		5182C94F1CFE42860012413A /* MixHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5182C94D1CFE42860012413A /* MixHomeViewController.m */; };
+		5182C9591CFF56580012413A /* custom_gift_circle_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 5182C9531CFF56580012413A /* custom_gift_circle_more.png */; };
+		5182C95A1CFF56580012413A /* custom_gift_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 5182C9541CFF56580012413A /* custom_gift_circle.png */; };
+		5182C95B1CFF56580012413A /* gifting_suggestions_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 5182C9551CFF56580012413A /* gifting_suggestions_more.png */; };
+		5182C95C1CFF56580012413A /* gifting_suggestions.png in Resources */ = {isa = PBXBuildFile; fileRef = 5182C9561CFF56580012413A /* gifting_suggestions.png */; };
+		5182C95D1CFF56580012413A /* grocery_exchange_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 5182C9571CFF56580012413A /* grocery_exchange_more.png */; };
+		5182C95E1CFF56580012413A /* grocery_exchange.png in Resources */ = {isa = PBXBuildFile; fileRef = 5182C9581CFF56580012413A /* grocery_exchange.png */; };
 		51922BB81A30DCEE00DA37FA /* leatherBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 51922BB61A30DCEE00DA37FA /* leatherBackground.png */; };
 		51922BB91A30DCEE00DA37FA /* leatherBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51922BB71A30DCEE00DA37FA /* leatherBackground@2x.png */; };
-		5198DC491A13C30000362CAA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5198DC481A13C30000362CAA /* libz.dylib */; };
+		5196A8851CFF8373006BE575 /* MagentoViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 51B625EB1CD2C6BC00E7918C /* MagentoViewController.h */; };
+		5196A8861CFF8373006BE575 /* MixHomeViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 5182C94E1CFE42860012413A /* MixHomeViewController.h */; };
 		519BB51C1A6CB3AB00A7F854 /* create.png in Resources */ = {isa = PBXBuildFile; fileRef = 519BB5171A6CB3AB00A7F854 /* create.png */; };
 		519BB51D1A6CB3AB00A7F854 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 519BB5181A6CB3AB00A7F854 /* lock.png */; };
 		519BB51E1A6CB3AB00A7F854 /* posts.png in Resources */ = {isa = PBXBuildFile; fileRef = 519BB5191A6CB3AB00A7F854 /* posts.png */; };
 		519BB51F1A6CB3AB00A7F854 /* select.png in Resources */ = {isa = PBXBuildFile; fileRef = 519BB51A1A6CB3AB00A7F854 /* select.png */; };
 		519BB5201A6CB3AB00A7F854 /* unlock.png in Resources */ = {isa = PBXBuildFile; fileRef = 519BB51B1A6CB3AB00A7F854 /* unlock.png */; };
+		51A3D6211CD119710014B901 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A3D61F1CD119710014B901 /* libsqlite3.0.tbd */; };
+		51A3D6221CD119710014B901 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A3D6201CD119710014B901 /* libsqlite3.tbd */; };
+		51A3D6271CD119960014B901 /* libz.1.1.3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A3D6231CD119960014B901 /* libz.1.1.3.tbd */; };
+		51A3D6281CD119960014B901 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A3D6241CD119960014B901 /* libz.1.2.5.tbd */; };
+		51A3D6291CD119960014B901 /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A3D6251CD119960014B901 /* libz.1.tbd */; };
+		51A3D62A1CD119960014B901 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A3D6261CD119960014B901 /* libz.tbd */; };
 		51A4C7EF1A7AEF5B00E652AF /* TellemForgotPasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A4C7EE1A7AEF5B00E652AF /* TellemForgotPasswordView.m */; };
 		51B29E471A83D84500643740 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B29E461A83D84500643740 /* User.m */; };
+		51B625ED1CD2C6BC00E7918C /* MagentoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B625EC1CD2C6BC00E7918C /* MagentoViewController.m */; };
+		51B625F21CD3B53D00E7918C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B625F11CD3B53D00E7918C /* WebKit.framework */; };
 		51C0C3F919F9F8E000A05F86 /* loginview-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 51C0C3F819F9F8E000A05F86 /* loginview-bg.png */; };
 		51D4B6621A6337AC008C94D1 /* facebook-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 51D4B6601A6337AC008C94D1 /* facebook-selected.png */; };
 		51D4B6631A6337AC008C94D1 /* facebook-unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 51D4B6611A6337AC008C94D1 /* facebook-unselected.png */; };
@@ -235,7 +250,7 @@
 		5BD0E47D18D1858600F387AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5BD0E47B18D1858600F387AF /* InfoPlist.strings */; };
 		5BD0E47F18D1858700F387AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0E47E18D1858700F387AF /* main.m */; };
 		5BD0E48318D1858700F387AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0E48218D1858700F387AF /* AppDelegate.m */; };
-		5BD0E48618D1858700F387AF /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BD0E48418D1858700F387AF /* Main_iPhone.storyboard */; };
+		5BD0E48618D1858700F387AF /* Coolmix.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BD0E48418D1858700F387AF /* Coolmix.storyboard */; };
 		971E75771AB4C05200B1401C /* TellemLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 971E75761AB4C05200B1401C /* TellemLabel.m */; };
 		C47A457218F3EC5700581E1F /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = C47A456A18F3EC5700581E1F /* back.png */; };
 		C47A457318F3EC5700581E1F /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C47A456B18F3EC5700581E1F /* bg.png */; };
@@ -282,6 +297,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43D1D59359425F99C8C21FDB /* Pods-Tellem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tellem.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tellem/Pods-Tellem.release.xcconfig"; sourceTree = "<group>"; };
 		441FC4EB18E312C300ED843C /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		441FC4EC18E312C300ED843C /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		441FC4ED18E312C300ED843C /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -295,7 +311,7 @@
 		441FC4F518E312C300ED843C /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		441FC4F618E312C300ED843C /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		441FC4F718E312C300ED843C /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		45959E5D18F2D7FE00CE213A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		4464FFA6C28063866C208FC0 /* libPods-Tellem.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tellem.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D3324618D194C100ABA2C0 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		45D3324718D194C100ABA2C0 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		45D3324A18D194C100ABA2C0 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -304,8 +320,6 @@
 		45D3324E18D194C100ABA2C0 /* TTTTimeIntervalFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTTimeIntervalFormatter.m; sourceTree = "<group>"; };
 		45D3325E18D196A100ABA2C0 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		45D3326018D196A900ABA2C0 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		45D3326218D196B800ABA2C0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		45D3326418D196C700ABA2C0 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		45D3326618D196D100ABA2C0 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		45D3326818D196DF00ABA2C0 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		45D3326A18D196E700ABA2C0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -331,20 +345,22 @@
 		45EB291A1904F074002CBC55 /* AviarySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AviarySDKResources.bundle; sourceTree = "<group>"; };
 		45EB291D1904F0A6002CBC55 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		45EB291F1904F0B9002CBC55 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		45EB29211904F0D0002CBC55 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		45EB29231904F0EB002CBC55 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		45EB29251904F106002CBC55 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		51009C511D0CA744007897AB /* RestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestClient.h; path = Classes/RestClient.h; sourceTree = "<group>"; };
+		51009C521D0CA744007897AB /* RestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestClient.m; path = Classes/RestClient.m; sourceTree = "<group>"; };
 		510469711A683AD700C2A32A /* CircleDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircleDetailsViewController.h; path = Controllers/CircleDetailsViewController.h; sourceTree = "<group>"; };
 		510469721A683AD700C2A32A /* CircleDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CircleDetailsViewController.m; path = Controllers/CircleDetailsViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		510A5A061A9F96FF005A8FA4 /* HomeTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeTimelineViewController.h; path = Controllers/HomeTimelineViewController.h; sourceTree = "<group>"; };
 		510A5A071A9F96FF005A8FA4 /* HomeTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeTimelineViewController.m; path = Controllers/HomeTimelineViewController.m; sourceTree = "<group>"; };
+		510CE7A21CFA450F0088D18F /* TellemSignupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TellemSignupView.m; path = Views/TellemSignupView.m; sourceTree = "<group>"; };
+		510CE7A31CFA450F0088D18F /* TellemSignupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TellemSignupView.h; path = Views/TellemSignupView.h; sourceTree = "<group>"; };
 		510FBE061A93CBDE00FBBE13 /* allcircles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = allcircles.png; path = Tellem/Images/allcircles.png; sourceTree = "<group>"; };
 		511084151A57D48D0017758A /* post.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = post.png; path = Tellem/Images/post.png; sourceTree = "<group>"; };
 		511084171A57D5860017758A /* tellem-login-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tellem-login-icon.png"; path = "Tellem/Images/tellem-login-icon.png"; sourceTree = "<group>"; };
+		5111477B1CCFCFB400F1CEBD /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
 		511482131A57A26900B52B52 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera.png; path = Tellem/Images/camera.png; sourceTree = "<group>"; };
 		511482141A57A26900B52B52 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plus.png; path = Tellem/Images/plus.png; sourceTree = "<group>"; };
 		511482151A57A26900B52B52 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = trash.png; path = Tellem/Images/trash.png; sourceTree = "<group>"; };
-		511482191A57C67D00B52B52 /* silentcircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = silentcircle.png; path = Tellem/Images/silentcircle.png; sourceTree = "<group>"; };
 		511574DD1A737A0100B1635A /* HomeActivitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeActivitiesViewController.h; path = Controllers/HomeActivitiesViewController.h; sourceTree = "<group>"; };
 		511574DE1A737A0100B1635A /* HomeActivitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = HomeActivitiesViewController.m; path = Controllers/HomeActivitiesViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		511B48141A908AEF0036FD94 /* TellemGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TellemGlobals.h; path = Classes/TellemGlobals.h; sourceTree = "<group>"; };
@@ -360,9 +376,6 @@
 		5120C4FF1A74BCC200270562 /* address-unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "address-unselected.png"; path = "Tellem/Images/address-unselected.png"; sourceTree = "<group>"; };
 		5121F4731A671E5A004A3E26 /* CirclesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CirclesListViewController.h; path = Controllers/CirclesListViewController.h; sourceTree = "<group>"; };
 		5121F4741A671E5A004A3E26 /* CirclesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CirclesListViewController.m; path = Controllers/CirclesListViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5126B1031A6F730300F0B9A8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		5126B1041A6F730300F0B9A8 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		5126B1051A6F730300F0B9A8 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		5127CB0D1AA3BF10009A2113 /* asterisk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = asterisk.png; path = Tellem/Images/asterisk.png; sourceTree = "<group>"; };
 		5128B3711A5097ED000FF0AD /* Breweries_clean.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Breweries_clean.csv; path = Tellem/External/HeatMap/Breweries_clean.csv; sourceTree = SOURCE_ROOT; };
 		5128B3721A5097ED000FF0AD /* Breweries_short.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Breweries_short.csv; path = Tellem/External/HeatMap/Breweries_short.csv; sourceTree = SOURCE_ROOT; };
@@ -545,6 +558,8 @@
 		51625A7F1A7C22B5007DF770 /* PlaceHolderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaceHolderView.m; path = Views/PlaceHolderView.m; sourceTree = "<group>"; };
 		516D52CF1A5B3FE600976D5D /* PostCirclesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostCirclesViewController.h; path = Controllers/PostCirclesViewController.h; sourceTree = "<group>"; };
 		516D52D01A5B3FE600976D5D /* PostCirclesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostCirclesViewController.m; path = Controllers/PostCirclesViewController.m; sourceTree = "<group>"; };
+		517807C61D0A28E700A62C34 /* CoolmixUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoolmixUtility.h; path = Utils/CoolmixUtility.h; sourceTree = "<group>"; };
+		517807C71D0A28E700A62C34 /* CoolmixUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoolmixUtility.m; path = Utils/CoolmixUtility.m; sourceTree = "<group>"; };
 		517ADBDC1A79330E009FE0C0 /* register-inputs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "register-inputs.png"; path = "Tellem/Images/register-inputs.png"; sourceTree = "<group>"; };
 		517ADBDD1A79330E009FE0C0 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user.png; path = Tellem/Images/user.png; sourceTree = "<group>"; };
 		517ADBE91A7984E7009FE0C0 /* TellemLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TellemLoginView.h; path = Views/TellemLoginView.h; sourceTree = "<group>"; };
@@ -557,18 +572,39 @@
 		517DE1241A3BA7D700B94A01 /* addpicture.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = addpicture.jpeg; path = Resources/Assets/addpicture.jpeg; sourceTree = "<group>"; };
 		517DE1261A3BA89700B94A01 /* addpicture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = addpicture.png; path = Resources/Assets/addpicture.png; sourceTree = "<group>"; };
 		5181CC021A5906EB00B4CF2D /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check.png; path = Tellem/Images/check.png; sourceTree = "<group>"; };
+		5182C7DF1D08690B000C65C9 /* MixGSRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MixGSRViewController.h; path = Controllers/MixGSRViewController.h; sourceTree = "<group>"; };
+		5182C7E01D08690B000C65C9 /* MixGSRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MixGSRViewController.m; path = Controllers/MixGSRViewController.m; sourceTree = "<group>"; };
+		5182C9461CFDDAE00012413A /* white_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "white_bg@2x.png"; path = "Resources/Assets/white_bg@2x.png"; sourceTree = "<group>"; };
+		5182C9471CFDDAE00012413A /* white_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = white_bg.png; path = Resources/Assets/white_bg.png; sourceTree = "<group>"; };
+		5182C94D1CFE42860012413A /* MixHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MixHomeViewController.m; path = Controllers/MixHomeViewController.m; sourceTree = "<group>"; };
+		5182C94E1CFE42860012413A /* MixHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MixHomeViewController.h; path = Controllers/MixHomeViewController.h; sourceTree = "<group>"; };
+		5182C9531CFF56580012413A /* custom_gift_circle_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = custom_gift_circle_more.png; path = Tellem/Images/custom_gift_circle_more.png; sourceTree = "<group>"; };
+		5182C9541CFF56580012413A /* custom_gift_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = custom_gift_circle.png; path = Tellem/Images/custom_gift_circle.png; sourceTree = "<group>"; };
+		5182C9551CFF56580012413A /* gifting_suggestions_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gifting_suggestions_more.png; path = Tellem/Images/gifting_suggestions_more.png; sourceTree = "<group>"; };
+		5182C9561CFF56580012413A /* gifting_suggestions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gifting_suggestions.png; path = Tellem/Images/gifting_suggestions.png; sourceTree = "<group>"; };
+		5182C9571CFF56580012413A /* grocery_exchange_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grocery_exchange_more.png; path = Tellem/Images/grocery_exchange_more.png; sourceTree = "<group>"; };
+		5182C9581CFF56580012413A /* grocery_exchange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grocery_exchange.png; path = Tellem/Images/grocery_exchange.png; sourceTree = "<group>"; };
 		51922BB61A30DCEE00DA37FA /* leatherBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leatherBackground.png; path = Resources/Assets/leatherBackground.png; sourceTree = "<group>"; };
 		51922BB71A30DCEE00DA37FA /* leatherBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "leatherBackground@2x.png"; path = "Resources/Assets/leatherBackground@2x.png"; sourceTree = "<group>"; };
-		5198DC481A13C30000362CAA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		519BB5171A6CB3AB00A7F854 /* create.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = create.png; path = Tellem/Images/create.png; sourceTree = "<group>"; };
 		519BB5181A6CB3AB00A7F854 /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lock.png; path = Tellem/Images/lock.png; sourceTree = "<group>"; };
 		519BB5191A6CB3AB00A7F854 /* posts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = posts.png; path = Tellem/Images/posts.png; sourceTree = "<group>"; };
 		519BB51A1A6CB3AB00A7F854 /* select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = select.png; path = Tellem/Images/select.png; sourceTree = "<group>"; };
 		519BB51B1A6CB3AB00A7F854 /* unlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unlock.png; path = Tellem/Images/unlock.png; sourceTree = "<group>"; };
+		51A3D61F1CD119710014B901 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		51A3D6201CD119710014B901 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		51A3D6231CD119960014B901 /* libz.1.1.3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.1.3.tbd; path = usr/lib/libz.1.1.3.tbd; sourceTree = SDKROOT; };
+		51A3D6241CD119960014B901 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		51A3D6251CD119960014B901 /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
+		51A3D6261CD119960014B901 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		51A4C7ED1A7AEF5B00E652AF /* TellemForgotPasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TellemForgotPasswordView.h; path = Views/TellemForgotPasswordView.h; sourceTree = "<group>"; };
 		51A4C7EE1A7AEF5B00E652AF /* TellemForgotPasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TellemForgotPasswordView.m; path = Views/TellemForgotPasswordView.m; sourceTree = "<group>"; };
 		51B29E451A83D84500643740 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Classes/User.h; sourceTree = "<group>"; };
 		51B29E461A83D84500643740 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Classes/User.m; sourceTree = "<group>"; };
+		51B625E01CD16D7000E7918C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		51B625EB1CD2C6BC00E7918C /* MagentoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MagentoViewController.h; path = Controllers/MagentoViewController.h; sourceTree = "<group>"; };
+		51B625EC1CD2C6BC00E7918C /* MagentoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MagentoViewController.m; path = Controllers/MagentoViewController.m; sourceTree = "<group>"; };
+		51B625F11CD3B53D00E7918C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		51C0C3F819F9F8E000A05F86 /* loginview-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "loginview-bg.png"; path = "SignIn/loginview-bg.png"; sourceTree = "<group>"; };
 		51D4B6601A6337AC008C94D1 /* facebook-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook-selected.png"; path = "Tellem/Images/facebook-selected.png"; sourceTree = "<group>"; };
 		51D4B6611A6337AC008C94D1 /* facebook-unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook-unselected.png"; path = "Tellem/Images/facebook-unselected.png"; sourceTree = "<group>"; };
@@ -614,12 +650,13 @@
 		5BD0E48018D1858700F387AF /* Tellem-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tellem-Prefix.pch"; sourceTree = "<group>"; };
 		5BD0E48118D1858700F387AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5BD0E48218D1858700F387AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5BD0E48518D1858700F387AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		5BD0E48518D1858700F387AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Coolmix.storyboard; sourceTree = "<group>"; };
 		5BD0E49C18D1858700F387AF /* TellemTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TellemTests-Info.plist"; sourceTree = "<group>"; };
 		5BD0E49E18D1858700F387AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5BD0E4A018D1858700F387AF /* TellemTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TellemTests.m; sourceTree = "<group>"; };
 		971E75751AB4C05200B1401C /* TellemLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TellemLabel.h; path = Classes/TellemLabel.h; sourceTree = "<group>"; };
 		971E75761AB4C05200B1401C /* TellemLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TellemLabel.m; path = Classes/TellemLabel.m; sourceTree = "<group>"; };
+		B650350D9169078E1B1238CB /* Pods-Tellem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tellem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tellem/Pods-Tellem.debug.xcconfig"; sourceTree = "<group>"; };
 		C47A456A18F3EC5700581E1F /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		C47A456B18F3EC5700581E1F /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		C47A456E18F3EC5700581E1F /* setting-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "setting-icon.png"; path = "signUp/setting-icon.png"; sourceTree = "<group>"; };
@@ -705,24 +742,23 @@
 				45EB29201904F0B9002CBC55 /* CoreData.framework in Frameworks */,
 				5BD0E47518D1858600F387AF /* CoreGraphics.framework in Frameworks */,
 				45D3326F18D1970100ABA2C0 /* CoreLocation.framework in Frameworks */,
-				5126B1091A6F74F400F0B9A8 /* FacebookSDK.framework in Frameworks */,
 				5BD0E47318D1858600F387AF /* Foundation.framework in Frameworks */,
 				45D3327118D1970C00ABA2C0 /* ImageIO.framework in Frameworks */,
-				45D3326318D196B800ABA2C0 /* libsqlite3.dylib in Frameworks */,
-				45EB29221904F0D0002CBC55 /* libsqlite3.0.dylib in Frameworks */,
-				45D3326518D196C700ABA2C0 /* libz.1.1.3.dylib in Frameworks */,
-				45EB29241904F0EB002CBC55 /* libz.1.2.5.dylib in Frameworks */,
-				5198DC491A13C30000362CAA /* libz.dylib in Frameworks */,
+				51A3D6271CD119960014B901 /* libz.1.1.3.tbd in Frameworks */,
+				51A3D6281CD119960014B901 /* libz.1.2.5.tbd in Frameworks */,
+				51A3D6291CD119960014B901 /* libz.1.tbd in Frameworks */,
+				51A3D62A1CD119960014B901 /* libz.tbd in Frameworks */,
+				51A3D6211CD119710014B901 /* libsqlite3.0.tbd in Frameworks */,
+				51A3D6221CD119710014B901 /* libsqlite3.tbd in Frameworks */,
 				45D3326B18D196E700ABA2C0 /* MessageUI.framework in Frameworks */,
 				45D3327B18D1974F00ABA2C0 /* MobileCoreServices.framework in Frameworks */,
 				45EB29261904F106002CBC55 /* OpenGLES.framework in Frameworks */,
-				5126B10A1A6F753300F0B9A8 /* Parse.framework in Frameworks */,
-				5126B10B1A6F753300F0B9A8 /* ParseFacebookUtils.framework in Frameworks */,
-				5126B10C1A6F753300F0B9A8 /* ParseUI.framework in Frameworks */,
 				45D3327518D1972800ABA2C0 /* QuartzCore.framework in Frameworks */,
 				45D3327718D1973100ABA2C0 /* Security.framework in Frameworks */,
 				45D3326118D196A900ABA2C0 /* Social.framework in Frameworks */,
+				36D4C2ADF0DF3A04D16D6197 /* libPods-Tellem.a in Frameworks */,
 				5BD0E47718D1858600F387AF /* UIKit.framework in Frameworks */,
+				51B625F21CD3B53D00E7918C /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -786,6 +822,12 @@
 				515505DE1A5061CC00E9ACD5 /* HomeViewController.m */,
 				515505DF1A5061CC00E9ACD5 /* LoginViewController.h */,
 				515505E01A5061CC00E9ACD5 /* LoginViewController.m */,
+				51B625EB1CD2C6BC00E7918C /* MagentoViewController.h */,
+				51B625EC1CD2C6BC00E7918C /* MagentoViewController.m */,
+				5182C7DF1D08690B000C65C9 /* MixGSRViewController.h */,
+				5182C7E01D08690B000C65C9 /* MixGSRViewController.m */,
+				5182C94E1CFE42860012413A /* MixHomeViewController.h */,
+				5182C94D1CFE42860012413A /* MixHomeViewController.m */,
 				515505E71A5061CC00E9ACD5 /* NetworkViewController.h */,
 				51DE46541A71E1AF00C981B8 /* NetworkViewController.m */,
 				5155060A1A50648B00E9ACD5 /* PAPAccountViewController.h */,
@@ -837,7 +879,7 @@
 			isa = PBXGroup;
 			children = (
 				45EB29181904F074002CBC55 /* AviarySDK */,
-				45959E5D18F2D7FE00CE213A /* FacebookSDK.framework */,
+				51B625E01CD16D7000E7918C /* FacebookSDK.framework */,
 				C496A85D18FE9144003939FD /* FHSTwitterEngine */,
 				515146C81A23C4A5003CC911 /* HeatMap */,
 				441FC4EA18E312C300ED843C /* JSON */,
@@ -924,9 +966,7 @@
 		5126B1021A6F730300F0B9A8 /* Parse */ = {
 			isa = PBXGroup;
 			children = (
-				5126B1031A6F730300F0B9A8 /* Parse.framework */,
-				5126B1041A6F730300F0B9A8 /* ParseFacebookUtils.framework */,
-				5126B1051A6F730300F0B9A8 /* ParseUI.framework */,
+				5111477B1CCFCFB400F1CEBD /* ParseTwitterUtils.framework */,
 			);
 			path = Parse;
 			sourceTree = "<group>";
@@ -963,6 +1003,8 @@
 		5146F11319EF067B00B07537 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				517807C61D0A28E700A62C34 /* CoolmixUtility.h */,
+				517807C71D0A28E700A62C34 /* CoolmixUtility.m */,
 				51DE46511A71B6E600C981B8 /* ContactPerson.h */,
 				51DE46521A71B6E600C981B8 /* ContactPerson.m */,
 				51FBC2131A5CAAE100DD5E6B /* CircleActivityCell.h */,
@@ -1134,6 +1176,8 @@
 				51A4C7EE1A7AEF5B00E652AF /* TellemForgotPasswordView.m */,
 				517ADBE91A7984E7009FE0C0 /* TellemLoginView.h */,
 				517ADBEA1A7984E7009FE0C0 /* TellemLoginView.m */,
+				510CE7A31CFA450F0088D18F /* TellemSignupView.h */,
+				510CE7A21CFA450F0088D18F /* TellemSignupView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1141,12 +1185,6 @@
 		518BC57719F5B91A00510F4C /* Images to Update */ = {
 			isa = PBXGroup;
 			children = (
-				5181CC021A5906EB00B4CF2D /* check.png */,
-				511084151A57D48D0017758A /* post.png */,
-				511482191A57C67D00B52B52 /* silentcircle.png */,
-				511482131A57A26900B52B52 /* camera.png */,
-				511482141A57A26900B52B52 /* plus.png */,
-				511482151A57A26900B52B52 /* trash.png */,
 				5155069A1A50710100E9ACD5 /* ActivityFeed.png */,
 				51FA65901A3C159D004018CF /* add.png */,
 				517DE1241A3BA7D700B94A01 /* addpicture.jpeg */,
@@ -1158,11 +1196,24 @@
 				5155069D1A50710100E9ACD5 /* ButtonLike@2x.png */,
 				5155069E1A50710100E9ACD5 /* ButtonLikeSelected.png */,
 				5155069F1A50710100E9ACD5 /* ButtonLikeSelected@2x.png */,
+				511482131A57A26900B52B52 /* camera.png */,
+				5181CC021A5906EB00B4CF2D /* check.png */,
+				5182C9541CFF56580012413A /* custom_gift_circle.png */,
+				5182C9531CFF56580012413A /* custom_gift_circle_more.png */,
+				5182C9561CFF56580012413A /* gifting_suggestions.png */,
+				5182C9551CFF56580012413A /* gifting_suggestions_more.png */,
+				5182C9581CFF56580012413A /* grocery_exchange.png */,
+				5182C9571CFF56580012413A /* grocery_exchange_more.png */,
 				51922BB61A30DCEE00DA37FA /* leatherBackground.png */,
 				51922BB71A30DCEE00DA37FA /* leatherBackground@2x.png */,
 				51C0C3F819F9F8E000A05F86 /* loginview-bg.png */,
+				511482141A57A26900B52B52 /* plus.png */,
+				511084151A57D48D0017758A /* post.png */,
 				51FA65921A3C15B2004018CF /* remove.png */,
 				C47A456E18F3EC5700581E1F /* setting-icon.png */,
+				511482151A57A26900B52B52 /* trash.png */,
+				5182C9471CFDDAE00012413A /* white_bg.png */,
+				5182C9461CFDDAE00012413A /* white_bg@2x.png */,
 				51FFDEE71A322B5A0035B7E9 /* whiteBackgroundComments.png */,
 				51FFDEE81A322B5A0035B7E9 /* whiteBackgroundComments@2x.png */,
 			);
@@ -1181,6 +1232,8 @@
 				512091FF1AA106F800FC6CFD /* DataProvider.h */,
 				512092001AA106F800FC6CFD /* DataProvider.m */,
 				512091FC1AA1000000FC6CFD /* DataReceiver.h */,
+				51009C511D0CA744007897AB /* RestClient.h */,
+				51009C521D0CA744007897AB /* RestClient.m */,
 				51467B471AB3E2C100D9FEA2 /* TellemButton.h */,
 				51467B481AB3E2C100D9FEA2 /* TellemButton.m */,
 				511B48141A908AEF0036FD94 /* TellemGlobals.h */,
@@ -1201,6 +1254,7 @@
 				5BD0E49A18D1858700F387AF /* TellemTests */,
 				5BD0E47118D1858600F387AF /* Frameworks */,
 				5BD0E47018D1858600F387AF /* Products */,
+				C25439DA64A74140C83ACEAE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1215,6 +1269,13 @@
 		5BD0E47118D1858600F387AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				51B625F11CD3B53D00E7918C /* WebKit.framework */,
+				51A3D6231CD119960014B901 /* libz.1.1.3.tbd */,
+				51A3D6241CD119960014B901 /* libz.1.2.5.tbd */,
+				51A3D6251CD119960014B901 /* libz.1.tbd */,
+				51A3D6261CD119960014B901 /* libz.tbd */,
+				51A3D61F1CD119710014B901 /* libsqlite3.0.tbd */,
+				51A3D6201CD119710014B901 /* libsqlite3.tbd */,
 				45EB291D1904F0A6002CBC55 /* Accelerate.framework */,
 				45D3326618D196D100ABA2C0 /* Accounts.framework */,
 				45D3326818D196DF00ABA2C0 /* AddressBook.framework */,
@@ -1228,11 +1289,6 @@
 				45D3326E18D1970100ABA2C0 /* CoreLocation.framework */,
 				5BD0E47218D1858600F387AF /* Foundation.framework */,
 				45D3327018D1970C00ABA2C0 /* ImageIO.framework */,
-				45D3326218D196B800ABA2C0 /* libsqlite3.dylib */,
-				45EB29211904F0D0002CBC55 /* libsqlite3.0.dylib */,
-				45D3326418D196C700ABA2C0 /* libz.1.1.3.dylib */,
-				45EB29231904F0EB002CBC55 /* libz.1.2.5.dylib */,
-				5198DC481A13C30000362CAA /* libz.dylib */,
 				45D3326A18D196E700ABA2C0 /* MessageUI.framework */,
 				45D3327A18D1974F00ABA2C0 /* MobileCoreServices.framework */,
 				45EB29251904F106002CBC55 /* OpenGLES.framework */,
@@ -1242,6 +1298,7 @@
 				45D3327C18D1975C00ABA2C0 /* SystemConfiguration.framework */,
 				C4E8317E18F7E8BD00E18A0C /* UIImageEffects */,
 				5BD0E47618D1858600F387AF /* UIKit.framework */,
+				4464FFA6C28063866C208FC0 /* libPods-Tellem.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1250,7 +1307,7 @@
 			isa = PBXGroup;
 			children = (
 				51453C9019F0313600F49B28 /* Main.storyboard */,
-				5BD0E48418D1858700F387AF /* Main_iPhone.storyboard */,
+				5BD0E48418D1858700F387AF /* Coolmix.storyboard */,
 				5BD0E48118D1858700F387AF /* AppDelegate.h */,
 				5BD0E48218D1858700F387AF /* AppDelegate.m */,
 				C49A08A518F3E0A8001053ED /* AppImages */,
@@ -1294,6 +1351,15 @@
 				5BD0E49D18D1858700F387AF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C25439DA64A74140C83ACEAE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B650350D9169078E1B1238CB /* Pods-Tellem.debug.xcconfig */,
+				43D1D59359425F99C8C21FDB /* Pods-Tellem.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		C47A456918F3EC5700581E1F /* SignUp */ = {
@@ -1487,9 +1553,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BD0E4A418D1858700F387AF /* Build configuration list for PBXNativeTarget "Tellem" */;
 			buildPhases = (
+				81F2236F7896457D3DCB9794 /* Check Pods Manifest.lock */,
 				5BD0E46B18D1858600F387AF /* Sources */,
 				5BD0E46C18D1858600F387AF /* Frameworks */,
 				5BD0E46D18D1858600F387AF /* Resources */,
+				22D61AC73C9EE6A1EDE1D800 /* Embed Pods Frameworks */,
+				B4B05C88185220FD8E94B4FD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1577,6 +1646,7 @@
 				515506AD1A50754500E9ACD5 /* ButtonFollowSelected@2x.png in Resources */,
 				515506A21A50710100E9ACD5 /* ButtonLike.png in Resources */,
 				515506A31A50710100E9ACD5 /* ButtonLike@2x.png in Resources */,
+				5182C95B1CFF56580012413A /* gifting_suggestions_more.png in Resources */,
 				515506A41A50710100E9ACD5 /* ButtonLikeSelected.png in Resources */,
 				5160819E1A762FB100B402C4 /* invite.png in Resources */,
 				515506A51A50710100E9ACD5 /* ButtonLikeSelected@2x.png in Resources */,
@@ -1587,6 +1657,7 @@
 				5142E0101A965F750082282A /* Tellem-globals.plist in Resources */,
 				515506C51A5078C400E9ACD5 /* DetailBackground.png in Resources */,
 				515506C61A5078C400E9ACD5 /* DetailBackground@2x.png in Resources */,
+				5182C9481CFDDAE00012413A /* white_bg@2x.png in Resources */,
 				51D4B6621A6337AC008C94D1 /* facebook-selected.png in Resources */,
 				C47A459018F3FD2900581E1F /* follow-btn.png in Resources */,
 				C47A459118F3FD2900581E1F /* footer-menu-hover.png in Resources */,
@@ -1608,6 +1679,7 @@
 				5120C5011A74BCC200270562 /* address-selected.png in Resources */,
 				515506CC1A5078C400E9ACD5 /* instagram-selected.png in Resources */,
 				515506CD1A5078C400E9ACD5 /* instagram-unselected.png in Resources */,
+				5182C9491CFDDAE00012413A /* white_bg.png in Resources */,
 				5128B37D1A5097ED000FF0AD /* LICENSE in Resources */,
 				51922BB81A30DCEE00DA37FA /* leatherBackground.png in Resources */,
 				51922BB91A30DCEE00DA37FA /* leatherBackground@2x.png in Resources */,
@@ -1618,11 +1690,14 @@
 				51FBC2291A5CE7A400DD5E6B /* network-hover.png in Resources */,
 				51FBC22E1A5CEA1400DD5E6B /* network-normal.png in Resources */,
 				515506E61A507BAC00E9ACD5 /* PlaceholderPhoto.png in Resources */,
+				5182C95A1CFF56580012413A /* custom_gift_circle.png in Resources */,
 				511482171A57A26900B52B52 /* plus.png in Resources */,
+				5182C95C1CFF56580012413A /* gifting_suggestions.png in Resources */,
 				513BEDD51A8730EA00DC7063 /* cloud.png in Resources */,
 				511084161A57D48D0017758A /* post.png in Resources */,
 				519BB51E1A6CB3AB00A7F854 /* posts.png in Resources */,
 				5127CB0E1AA3BF10009A2113 /* asterisk.png in Resources */,
+				5182C9591CFF56580012413A /* custom_gift_circle_more.png in Resources */,
 				51FBC22A1A5CE7A400DD5E6B /* post-hover.png in Resources */,
 				517ADBEF1A7AA10B009FE0C0 /* facebook-login-icon.png in Resources */,
 				51FBC22B1A5CE7A400DD5E6B /* post-normal.png in Resources */,
@@ -1643,6 +1718,8 @@
 				515506EA1A507BAC00E9ACD5 /* SeparatorTimelineDark@2x.png in Resources */,
 				515506EB1A507BAC00E9ACD5 /* shareApp.png in Resources */,
 				C494BAE9191280670072FB5C /* SignIn-btn.png in Resources */,
+				5182C95D1CFF56580012413A /* grocery_exchange_more.png in Resources */,
+				5182C95E1CFF56580012413A /* grocery_exchange.png in Resources */,
 				5128B3871A5098FD000FF0AD /* tabBarBackground.png in Resources */,
 				5128B3881A5098FD000FF0AD /* tabBarBackground@2x.png in Resources */,
 				517ADBF01A7AA10B009FE0C0 /* instagram-login-icon.png in Resources */,
@@ -1664,26 +1741,78 @@
 				51FFDEEA1A322B5A0035B7E9 /* whiteBackgroundComments@2x.png in Resources */,
 				517ADBDF1A79330E009FE0C0 /* user.png in Resources */,
 				51453C9219F0313600F49B28 /* Main.storyboard in Resources */,
-				5BD0E48618D1858700F387AF /* Main_iPhone.storyboard in Resources */,
+				5BD0E48618D1858700F387AF /* Coolmix.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		22D61AC73C9EE6A1EDE1D800 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tellem/Pods-Tellem-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81F2236F7896457D3DCB9794 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B4B05C88185220FD8E94B4FD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tellem/Pods-Tellem-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5BD0E46B18D1858600F387AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5196A8851CFF8373006BE575 /* MagentoViewController.h in Sources */,
+				5196A8861CFF8373006BE575 /* MixHomeViewController.h in Sources */,
 				C496A84E18FE4E9A003939FD /* sha1.c in Sources */,
 				511B48161A908AEF0036FD94 /* TellemGlobals.m in Sources */,
 				515E059A1A6227ED0094792C /* TellemUtility.m in Sources */,
+				517807C81D0A28E700A62C34 /* CoolmixUtility.m in Sources */,
 				511574DF1A737A0100B1635A /* HomeActivitiesViewController.m in Sources */,
 				515506121A50648B00E9ACD5 /* PAPAccountViewController.m in Sources */,
 				5153B1921AB1F70A007CD706 /* AVCamViewController.m in Sources */,
 				515506311A5065F700E9ACD5 /* PAPPhotoDetailsHeaderView.m in Sources */,
 				51EE98241A81509100BFA5D0 /* Circle.m in Sources */,
 				441FC4FB18E312C300ED843C /* SBJsonBase.m in Sources */,
+				51B625ED1CD2C6BC00E7918C /* MagentoViewController.m in Sources */,
 				C496A84918FE4E9A003939FD /* NSMutableURLRequest+Parameters.m in Sources */,
 				5121F4751A671E5A004A3E26 /* CirclesListViewController.m in Sources */,
 				512092011AA106F800FC6CFD /* DataLoadingOperation.m in Sources */,
@@ -1711,6 +1840,7 @@
 				5155063E1A50674B00E9ACD5 /* PAPSettingsButtonItem.m in Sources */,
 				5160A9E21A59B8BD00A9AAB0 /* CirclesPageContentController.m in Sources */,
 				5BD0E48318D1858700F387AF /* AppDelegate.m in Sources */,
+				5182C94F1CFE42860012413A /* MixHomeViewController.m in Sources */,
 				515506331A5065F700E9ACD5 /* PAPSettingsActionSheetDelegate.m in Sources */,
 				51B29E471A83D84500643740 /* User.m in Sources */,
 				515505FB1A5061CC00E9ACD5 /* LoginViewController.m in Sources */,
@@ -1739,6 +1869,7 @@
 				5155068F1A506C2300E9ACD5 /* UIPlaceHolderTextView.m in Sources */,
 				C496A84A18FE4E9A003939FD /* NSString+URLEncoding.m in Sources */,
 				5155068C1A506C2300E9ACD5 /* NSData+Base64.m in Sources */,
+				510CE7A41CFA450F0088D18F /* TellemSignupView.m in Sources */,
 				515506011A5061CC00E9ACD5 /* PAPWelcomeViewController.m in Sources */,
 				515506041A5061CC00E9ACD5 /* PostViewController.m in Sources */,
 				51FBC2151A5CAAE100DD5E6B /* CircleActivityCell.m in Sources */,
@@ -1758,6 +1889,7 @@
 				512E6CC21A5ED3B700809B11 /* CirclePhotoDetailsViewController.m in Sources */,
 				C496A85818FE4E9A003939FD /* OAServiceTicket.m in Sources */,
 				5155067A1A506AA100E9ACD5 /* DragTableFooterView_ot.m in Sources */,
+				5182C7E11D08690B000C65C9 /* MixGSRViewController.m in Sources */,
 				C496A85A18FE4E9A003939FD /* OAToken.m in Sources */,
 				45D3325418D194C100ABA2C0 /* TTTTimeIntervalFormatter.m in Sources */,
 				C496A85618FE4E9A003939FD /* OAProblem.m in Sources */,
@@ -1766,6 +1898,7 @@
 				5155062D1A5065F700E9ACD5 /* PAPFindFriendsCell.m in Sources */,
 				5128B38E1A50A4C8000FF0AD /* CustomCellBackground.m in Sources */,
 				512092021AA106F800FC6CFD /* DataProvider.m in Sources */,
+				51009C531D0CA744007897AB /* RestClient.m in Sources */,
 				971E75771AB4C05200B1401C /* TellemLabel.m in Sources */,
 				441FC4FC18E312C300ED843C /* SBJsonParser.m in Sources */,
 				517ADBF41A7AA251009FE0C0 /* UserProfileController.m in Sources */,
@@ -1815,12 +1948,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		5BD0E48418D1858700F387AF /* Main_iPhone.storyboard */ = {
+		5BD0E48418D1858700F387AF /* Coolmix.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5BD0E48518D1858700F387AF /* Base */,
 			);
-			name = Main_iPhone.storyboard;
+			name = Coolmix.storyboard;
 			sourceTree = "<group>";
 		};
 		5BD0E49D18D1858700F387AF /* InfoPlist.strings */ = {
@@ -1872,7 +2005,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = UTellem;
 				PROVISIONING_PROFILE = "cb46c6b8-3c01-4b97-864a-f5111f8a6bb6";
@@ -1915,7 +2048,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = UTellem;
 				PROVISIONING_PROFILE = "cb46c6b8-3c01-4b97-864a-f5111f8a6bb6";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "cb46c6b8-3c01-4b97-864a-f5111f8a6bb6";
@@ -1928,6 +2061,7 @@
 		};
 		5BD0E4A518D1858700F387AF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B650350D9169078E1B1238CB /* Pods-Tellem.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = (
 					armv7,
@@ -1936,8 +2070,12 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ed Bayudan (6SQ8SJVE56)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ed Bayudan (6SQ8SJVE56)";
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Tellem/External",
@@ -1948,19 +2086,15 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tellem/Tellem-Prefix.pch";
 				INFOPLIST_FILE = "Tellem/Tellem-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Utellem;
-				PROVISIONING_PROFILE = "cb46c6b8-3c01-4b97-864a-f5111f8a6bb6";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "cb46c6b8-3c01-4b97-864a-f5111f8a6bb6";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 				"VALID_ARCHS[sdk=*]" = "armv7 armv7s arm64";
@@ -1970,6 +2104,7 @@
 		};
 		5BD0E4A618D1858700F387AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43D1D59359425F99C8C21FDB /* Pods-Tellem.release.xcconfig */;
 			buildSettings = {
 				ARCHS = (
 					armv7,
@@ -1978,8 +2113,12 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ed Bayudan (6SQ8SJVE56)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ed Bayudan (6SQ8SJVE56)";
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Tellem/External",
@@ -1990,19 +2129,15 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tellem/Tellem-Prefix.pch";
 				INFOPLIST_FILE = "Tellem/Tellem-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Utellem;
-				PROVISIONING_PROFILE = "cb46c6b8-3c01-4b97-864a-f5111f8a6bb6";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "cb46c6b8-3c01-4b97-864a-f5111f8a6bb6";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 				"VALID_ARCHS[sdk=*]" = "armv7 armv7s arm64";

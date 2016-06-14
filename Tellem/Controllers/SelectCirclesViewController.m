@@ -168,8 +168,9 @@
         self.pageCircle = [self.sortedCircles objectAtIndex:selectedButton.tag];
         self.selectedCircleFromSender.circleType = kPAPCircleIsNotNewFromPostCirclesView;
         [self.selectedCircleFromSender setNewCircleName:[self.pageCircle valueForKey:kPAPCircleNameKey]];
-        PFFile *profilePhoto = [[PFFile alloc] init];
+        PFFile *profilePhoto = [PFFile alloc];
         profilePhoto = [self.pageCircle objectForKey:kPAPCircleProfilePicture];
+        
         NSData *profilePhotoData = [profilePhoto getData];
         UIImage * profileImage = [[UIImage alloc] init];
         profileImage = [UIImage imageWithData:profilePhotoData];

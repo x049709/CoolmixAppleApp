@@ -48,6 +48,9 @@
 @property (atomic) PFObject *currentCircle;
 @property (atomic) NSString *searchText;
 @property (atomic) PFUser *circleMember;
+@property (atomic) NSString *serverURL;
+@property (atomic) NSString *serverUser;
+@property (atomic) NSString *serverPassword;
 
 - (BOOL)isLoadingDataAtIndex:(NSUInteger)index;
 - (void)loadDataForIndex:(NSUInteger)index;

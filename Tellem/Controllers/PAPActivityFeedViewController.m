@@ -28,7 +28,7 @@
     UIButton * headerBtnFB;
     UIImage *SelectImg;
 }
-@property (retain, nonatomic) FBFriendPickerViewController *friendPickerController;
+//@property (retain, nonatomic) FBFriendPickerViewController *friendPickerController;
 @property (nonatomic, strong) PAPSettingsActionSheetDelegate *settingsActionSheetDelegate;
 @property (nonatomic, strong) NSDate *lastRefresh;
 @property (nonatomic, strong) UIView *blankTimelineView;
@@ -489,7 +489,7 @@
 {
     switch (buttonIndex) {
         case 0:
-            [self PostImageFacebook];
+//            [self PostImageFacebook];
             break;
         case 1:
             [self getObjectTwitter];
@@ -500,42 +500,42 @@
 }
 #pragma FacebookPost
 
--(void)PostImageFacebook{
-    
-    if (!FBSession.activeSession.isOpen) {
-        // if the session is closed, then we open it here, and establish a handler for state changes
-        [FBSession openActiveSessionWithReadPermissions:nil
-                                           allowLoginUI:YES
-                                      completionHandler:^(FBSession *session,
-                                                          FBSessionState state,
-                                                          NSError *error) {
-                                          if (error) {
-                                              UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Tellem"
-                                                                                                  message:error.localizedDescription
-                                                                                                 delegate:nil
-                                                                                        cancelButtonTitle:@"OK"
-                                                                                        otherButtonTitles:nil];
-                                              [alertView show];
-                                          } else if (session.isOpen) {
-                                              
-                                              ApplicationDelegate.session=session;
-                                              [self PostImageFacebook];
-                                          }
-                                      }];
-        return;
-    }
-    
-    if (self.friendPickerController == nil)
-    {
-        // Create friend picker, and get data loaded into it.
-        self.friendPickerController = [[FBFriendPickerViewController alloc] init];
-        self.friendPickerController.title = @"Pick Friends";
-        self.friendPickerController.delegate = self;
-    }
-    [self.friendPickerController loadData];
-    [self.friendPickerController clearSelection];
-    [self presentViewController:self.friendPickerController animated:YES completion:nil];
-}
+//-(void)PostImageFacebook{
+//    
+//    if (!FBSession.activeSession.isOpen) {
+//        // if the session is closed, then we open it here, and establish a handler for state changes
+//        [FBSession openActiveSessionWithReadPermissions:nil
+//                                           allowLoginUI:YES
+//                                      completionHandler:^(FBSession *session,
+//                                                          FBSessionState state,
+//                                                          NSError *error) {
+//                                          if (error) {
+//                                              UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Tellem"
+//                                                                                                  message:error.localizedDescription
+//                                                                                                 delegate:nil
+//                                                                                        cancelButtonTitle:@"OK"
+//                                                                                        otherButtonTitles:nil];
+//                                              [alertView show];
+//                                          } else if (session.isOpen) {
+//                                              
+//                                              ApplicationDelegate.session=session;
+//                                              [self PostImageFacebook];
+//                                          }
+//                                      }];
+//        return;
+//    }
+//    
+//    if (self.friendPickerController == nil)
+//    {
+//        // Create friend picker, and get data loaded into it.
+//        self.friendPickerController = [[FBFriendPickerViewController alloc] init];
+//        self.friendPickerController.title = @"Pick Friends";
+//        self.friendPickerController.delegate = self;
+//    }
+//    [self.friendPickerController loadData];
+//    [self.friendPickerController clearSelection];
+//    [self presentViewController:self.friendPickerController animated:YES completion:nil];
+//}
 - (void)facebookViewControllerDoneWasPressed:(id)sender {
     [self getObjectFacebook];
     [[sender presentingViewController] dismissViewControllerAnimated:YES completion:nil];
@@ -547,20 +547,20 @@
 }
 -(void)getObjectFacebook{
     
-    if (ApplicationDelegate.session.isOpen)
-    {
-        for (NSDictionary<FBGraphUser> *user in self.friendPickerController.selection) {
-            
-            if (ApplicationDelegate.session.isOpen)
-            {
-                NSMutableDictionary  *postVariablesDictionary = [[NSMutableDictionary alloc] init];
-                [postVariablesDictionary setObject:SelectImg forKey:@"source"];
-                //[postVariablesDictionary setObject:UIImagePNGRepresentation(self.image)  forKey:@"source"];
-                [postVariablesDictionary setObject:@"my image" forKey:@"message"];
-                [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%@/photos",user.objectID] parameters:postVariablesDictionary HTTPMethod:@"POST" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {}];
-            }
-        }
-    }
+//    if (ApplicationDelegate.session.isOpen)
+//    {
+//        for (NSDictionary<FBGraphUser> *user in self.friendPickerController.selection) {
+//            
+//            if (ApplicationDelegate.session.isOpen)
+//            {
+//                NSMutableDictionary  *postVariablesDictionary = [[NSMutableDictionary alloc] init];
+//                [postVariablesDictionary setObject:SelectImg forKey:@"source"];
+//                //[postVariablesDictionary setObject:UIImagePNGRepresentation(self.image)  forKey:@"source"];
+//                [postVariablesDictionary setObject:@"my image" forKey:@"message"];
+//                [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%@/photos",user.objectID] parameters:postVariablesDictionary HTTPMethod:@"POST" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {}];
+//            }
+//        }
+//    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)getObjectTwitter{

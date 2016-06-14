@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
-#import <FacebookSDK/FBRequest.h>
+//TODO FOR V4#import <FacebookSDK/FBRequest.h>
 #import "PAPPhotoTimelineViewController.h"
 #import "PAPActivityFeedViewController.h"
 #import "PAPPhotoDetailsViewController.h"
@@ -19,7 +19,9 @@
 #import "ContactPerson.h"
 @import AddressBook;
 
-@interface NetworkViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,FHSTwitterEngineAccessTokenDelegate,UIActionSheetDelegate,FBRequestDelegate,FBWebDialogsDelegate,UIWebViewDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, AddCirclesSendDataProtocol>{
+@interface NetworkViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,FHSTwitterEngineAccessTokenDelegate,UIActionSheetDelegate,
+    //FBRequestDelegate, TODO FOR V4
+    FBWebDialogsDelegate,UIWebViewDelegate, MFMailComposeViewControllerDelegate,MFMessageComposeViewControllerDelegate, AddCirclesSendDataProtocol>{
     
     UIWebView *webView;
 }

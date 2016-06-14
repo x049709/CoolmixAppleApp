@@ -26,6 +26,10 @@
 @property NSUInteger gActivitiesToShow;
 @property NSUInteger gCurrentTab;
 @property NSUInteger gMaxActivitiesToMap;
+@property NSString   *gCoolmixServerURL;
+@property NSString   *gCoolmixServerUser;
+@property NSString   *gCoolmixServerPassword;
+
 
 
 + (id)globalsManager;

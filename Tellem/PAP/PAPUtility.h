@@ -125,6 +125,9 @@ extern NSString *const kRedirectUri;
 //Twitter
 extern NSString *const kTwitterClientID;
 extern NSString *const kTwitterClientSecret;
+//EULA
+extern NSString *const kEULALink;
+
 
 #pragma mark - User Info Key
 

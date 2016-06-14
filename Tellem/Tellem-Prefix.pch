@@ -21,7 +21,7 @@
     #import "MWLogging.h"
     #import <MapKit/MapKit.h>
     #import <FacebookSDK/FacebookSDK.h>
-    #import <ParseFacebookUtils/PFFacebookUtils.h>
+    #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
     #import "PAPUtility.h"
     #import "PAPCache.h"
     #import "TellemGlobals.h"

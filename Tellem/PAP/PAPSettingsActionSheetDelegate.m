@@ -84,11 +84,11 @@ typedef enum
             NSArray* instagramCookies = [cookies cookiesForURL:[NSURL URLWithString:@"https://instagram.com/"]];
             for (NSHTTPCookie* cookie in instagramCookies)
                [cookies deleteCookie:cookie];
-            
-            [[FBSession activeSession] closeAndClearTokenInformation];
-            NSArray* fbCookies = [cookies cookiesForURL:[NSURL URLWithString:@"https://facebook.com/"]];
-            for (NSHTTPCookie* cookie in fbCookies)
-                [cookies deleteCookie:cookie];
+//TODO FOR V4
+//            [[FBSession activeSession] closeAndClearTokenInformation];
+//            NSArray* fbCookies = [cookies cookiesForURL:[NSURL URLWithString:@"https://facebook.com/"]];
+//            for (NSHTTPCookie* cookie in fbCookies)
+//                [cookies deleteCookie:cookie];
         }
             break;
         default:

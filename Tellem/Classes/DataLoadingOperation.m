@@ -80,4 +80,21 @@ const NSTimeInterval DataLoadingOperationDuration = 0.3;
     return self;
 }
 
+- (instancetype)initWithIndexes:(NSIndexSet *)indexes andGSRServerURL: (NSString *) serverURL  andServerUser: (NSString*) serverUser andServerPassword: (NSString*) serverPassword {
+    self = [super init];
+    if (self) {
+        _indexes = indexes;
+        typeof(self) weakSelf = self;
+        [self addExecutionBlock:^{
+            //getSearchResults
+            NSArray *dataPage = [NSArray array];
+            dataPage = [TellemUtility getCoolmixGSR:serverURL andServerUser:serverUser andServerPassword:serverPassword];
+            weakSelf->_dataPage = dataPage;
+            //NSLog (@"NSIndex: firstIndex is %lu,  lastIndex is %lu, count is %lu", (unsigned long)indexes.firstIndex, (unsigned long)indexes.lastIndex,(unsigned long)indexes.count);
+        }];
+    }
+    
+    return self;
+}
+
 @end

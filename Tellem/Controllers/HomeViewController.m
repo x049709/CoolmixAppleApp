@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) PAPSettingsActionSheetDelegate *settingsActionSheetDelegate;
 @property (nonatomic, strong) UIView *blankTimelineView;
+
 @end
 
 @implementation HomeViewController
@@ -32,6 +33,7 @@
     UINavigationBar *navBar = self.navigationController.navigationBar;
     navBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:kFontThin size:22.0],NSFontAttributeName, nil];
     self.navigationItem.title=@"HOME";
+    _blankTimelineView = [[UIView alloc] initWithFrame:self.tableView.bounds];
     self.blankTimelineView = [[UIView alloc] initWithFrame:self.tableView.bounds];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

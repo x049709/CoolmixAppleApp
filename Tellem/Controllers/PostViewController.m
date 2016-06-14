@@ -14,6 +14,7 @@
 #import "PAPCache.h"
 #import "AppDelegate.h"
 #import "UIImage+ImageEffects.h"
+#import <ParseTwitterUtils/PFTwitterUtils.h>
 
 
 static NSString * const kAviaryAPIKey = @"o1kffu3bdtbctbg7";
@@ -215,7 +216,7 @@ static NSString * const kAviarySecret = @"b1mdl2dbyp5lq2d1";
         tM.gPreferredCircle = nil;
         self.selectedCircle.circleType = kPAPCircleIsNotNewFromPostView;
         [self.selectedCircle setNewCircleName:[self.pageCircle valueForKey:kPAPCircleNameKey]];
-        PFFile *profilePhoto = [[PFFile alloc] init];
+        PFFile *profilePhoto = [PFFile alloc];
         profilePhoto = [self.pageCircle objectForKey:kPAPCircleProfilePicture];
         NSData *profilePhotoData = [profilePhoto getData];
         UIImage * profileImage = [[UIImage alloc] init];
@@ -238,7 +239,7 @@ static NSString * const kAviarySecret = @"b1mdl2dbyp5lq2d1";
             self.pageCircle = [self.sortedCircles objectAtIndex:0];
             self.selectedCircle.circleType = kPAPCircleIsNotNewFromPostView;
             [self.selectedCircle setNewCircleName:[self.pageCircle valueForKey:kPAPCircleNameKey]];
-            PFFile *profilePhoto = [[PFFile alloc] init];
+            PFFile *profilePhoto = [PFFile alloc];
             profilePhoto = [self.pageCircle objectForKey:kPAPCircleProfilePicture];
             NSData *profilePhotoData = [profilePhoto getData];
             UIImage * profileImage = [[UIImage alloc] init];
@@ -756,7 +757,7 @@ static NSString * const kAviarySecret = @"b1mdl2dbyp5lq2d1";
         [circle setObject:self.profilePictureFile forKey:kPAPCircleProfilePicture];
         [circle setObject:self.profileThumbnailFile forKey:kPAPCircleProfileThumbnail];
         circle.ACL = ACL;
-        [circle save];
+        //[circle save];
     }
     else
     //pageCircle should have either the circle from PostCircles or the selected circle from PostCirclesView
@@ -812,69 +813,69 @@ static NSString * const kAviarySecret = @"b1mdl2dbyp5lq2d1";
 
 -(void)postOnFaceBook:(NSString *)commentText
 {
-    NSLog(@"PostViewController postOnFaceBook commentText: %@", commentText);
-    ApplicationDelegate.session=[FBSession activeSession];
-    FBSession *activeFBSession = [FBSession activeSession];
-    [FBSession setActiveSession:activeFBSession];
-    
-    NSArray *permissionsNeeded = @[@"publish_actions"];
+//TODO FOR V4
+//    NSLog(@"PostViewController postOnFaceBook commentText: %@", commentText);
+//    ApplicationDelegate.session=[FBSession activeSession];
+//    FBSession *activeFBSession = [FBSession activeSession];
+//    [FBSession setActiveSession:activeFBSession];
+//    
+//    NSArray *permissionsNeeded = @[@"publish_actions"];
     // Request the permissions the user currently has
-        
-    [FBRequestConnection startWithGraphPath:@"/me/permissions" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        if (!error)
-        {
-            NSDictionary *currentPermissions= [(NSArray *)[result data] objectAtIndex:0];
-            NSMutableArray *requestPermissions = [[NSMutableArray alloc] initWithArray:@[]];
-
-            // Check if all the permissions we need are present in the user's current permissions
-            // If they are not present add them to the permissions to be requested
-            for (NSString *permission in permissionsNeeded)
-            {
-                if (![currentPermissions objectForKey:permission])
-                {
-                    [requestPermissions addObject:permission];
-                }
-            }
-            // If we have permissions to request
-            if ([requestPermissions count] > 0)
-            {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self requestPermissionToPost:requestPermissions];
-                });
-            }
-            else
-            {
-            // Permissions are present We can request the user information
-                [self getAllObjects];
-            }
-                                      
-        } else
-        {
-            // An error occurred, we need to handle the error
-            // Check out our error handling guide: https://developers.facebook.com/docs/ios/errors/
-            NSLog (@"PostViewController: Error posting picture to Facebook,%@", error);
-        }
-    }];
+//    [FBRequestConnection startWithGraphPath:@"/me/permissions" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+//        if (!error)
+//        {
+//            NSDictionary *currentPermissions= [(NSArray *)[result data] objectAtIndex:0];
+//            NSMutableArray *requestPermissions = [[NSMutableArray alloc] initWithArray:@[]];
+//
+//            // Check if all the permissions we need are present in the user's current permissions
+//            // If they are not present add them to the permissions to be requested
+//            for (NSString *permission in permissionsNeeded)
+//            {
+//                if (![currentPermissions objectForKey:permission])
+//                {
+//                    [requestPermissions addObject:permission];
+//                }
+//            }
+//            // If we have permissions to request
+//            if ([requestPermissions count] > 0)
+//            {
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [self requestPermissionToPost:requestPermissions];
+//                });
+//            }
+//            else
+//            {
+//            // Permissions are present We can request the user information
+//                [self getAllObjects];
+//            }
+//                                      
+//        } else
+//        {
+//            // An error occurred, we need to handle the error
+//            // Check out our error handling guide: https://developers.facebook.com/docs/ios/errors/
+//            NSLog (@"PostViewController: Error posting picture to Facebook,%@", error);
+//        }
+//    }];
 }
 
 -(void)requestPermissionToPost:(NSMutableArray *)requestPermissions
 {
-    
+//TODO FOR V4
     // Ask for the missing permissions
-    [FBSession.activeSession requestNewPublishPermissions:requestPermissions defaultAudience:FBSessionDefaultAudienceFriends
-                                        completionHandler:^(FBSession *session, NSError *error)
-     {
-         if (!error) {
-             // Permission granted, we can request the user information[self makeRequestToPostObject];
-             [self getAllObjects];
-         }
-         else
-         {
-             // An error occurred, we need to handle the error
-             // Check out our error handling guide: https://developers.facebook.com/docs/ios/errors/
-             NSLog (@"PostViewController: Error posting picture  to Facebook,%@", error);
-         }
-     }];
+//    [FBSession.activeSession requestNewPublishPermissions:requestPermissions defaultAudience:FBSessionDefaultAudienceFriends
+//                                        completionHandler:^(FBSession *session, NSError *error)
+//     {
+//         if (!error) {
+//             // Permission granted, we can request the user information[self makeRequestToPostObject];
+//             [self getAllObjects];
+//         }
+//         else
+//         {
+//             // An error occurred, we need to handle the error
+//             // Check out our error handling guide: https://developers.facebook.com/docs/ios/errors/
+//             NSLog (@"PostViewController: Error posting picture  to Facebook,%@", error);
+//         }
+//     }];
 }
 
 -(void)getAllObjects
@@ -890,22 +891,22 @@ static NSString * const kAviarySecret = @"b1mdl2dbyp5lq2d1";
     {
         [params setObject:UIImagePNGRepresentation(self.imageToPostToOtherNetworks) forKey:@"picture"];
     }
-    
-    [FBRequestConnection startWithGraphPath:@"me/photos" parameters:params HTTPMethod:@"POST" completionHandler:^(FBRequestConnection *connection, id result, NSError *error)
-    {
-        NSString *str;
-        if (error)
-        {
-            [ApplicationDelegate.hudd hide:YES];
-            NSLog (@"PostViewController: Error posting picture to Facebook,%@", error);
-        }
-        else
-        {
-            [ApplicationDelegate.hudd hide:YES];
-            str=@"Successfully posted on Facebook";
-            NSLog (@"PostViewController: %@", str);
-        }
-     }];
+    //TODO FOR V4
+//    [FBRequestConnection startWithGraphPath:@"me/photos" parameters:params HTTPMethod:@"POST" completionHandler:^(FBRequestConnection *connection, id result, NSError *error)
+//    {
+//        NSString *str;
+//        if (error)
+//        {
+//            [ApplicationDelegate.hudd hide:YES];
+//            NSLog (@"PostViewController: Error posting picture to Facebook,%@", error);
+//        }
+//        else
+//        {
+//            [ApplicationDelegate.hudd hide:YES];
+//            str=@"Successfully posted on Facebook";
+//            NSLog (@"PostViewController: %@", str);
+//        }
+//     }];
 }
 
 -(void)postOnInstagram:(NSString *)commentText{

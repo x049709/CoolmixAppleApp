@@ -563,40 +563,41 @@ static NSString * const kAviarySecret = @"b1mdl2dbyp5lq2d1";
 #pragma mark Photo & Comments Sharing FB and Twitter Events
 -(void)FacebookSahring
 {
-    if (ApplicationDelegate.session.isOpen)
-    {
-        if (ApplicationDelegate.session.isOpen)
-        {
-            NSMutableDictionary  *postVariablesDictionary = [[NSMutableDictionary alloc] init];
-            if (image==nil)
-            {
-                [postVariablesDictionary setObject:defoultImg forKey:@"source"];
-            }
-            else{
-                [postVariablesDictionary setObject:image forKey:@"source"];
-                //[postVariablesDictionary setObject:UIImagePNGRepresentation(self.image)  forKey:@"source"];
-            }
-            [postVariablesDictionary setObject:fbMessage forKey:@"message"];
-            //NSLog(@"%@",fb_userId);
-            [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%@/photos",fb_userId] parameters:postVariablesDictionary HTTPMethod:@"POST" completionHandler:^(FBRequestConnection *connection, id result, NSError *error)
-            {
-                if (!error)
-                {
-                    [ApplicationDelegate.hudd hide:YES];
-                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Tellem" message:@"Posted on Facebook" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                    alert.tag=111;
-                    [alert show];
-                }
-                else
-                {
-                    [ApplicationDelegate.hudd hide:YES];
-                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Tellem" message:@"Posted on Facebook" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                    [alert show];
-                }
-            }];
-            
-        }
-    }
+    //TODO FOR V4
+//    if (ApplicationDelegate.session.isOpen)
+//    {
+//        if (ApplicationDelegate.session.isOpen)
+//        {
+//            NSMutableDictionary  *postVariablesDictionary = [[NSMutableDictionary alloc] init];
+//            if (image==nil)
+//            {
+//                [postVariablesDictionary setObject:defoultImg forKey:@"source"];
+//            }
+//            else{
+//                [postVariablesDictionary setObject:image forKey:@"source"];
+//                //[postVariablesDictionary setObject:UIImagePNGRepresentation(self.image)  forKey:@"source"];
+//            }
+//            [postVariablesDictionary setObject:fbMessage forKey:@"message"];
+//            //NSLog(@"%@",fb_userId);
+//            [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%@/photos",fb_userId] parameters:postVariablesDictionary HTTPMethod:@"POST" completionHandler:^(FBRequestConnection *connection, id result, NSError *error)
+//            {
+//                if (!error)
+//                {
+//                    [ApplicationDelegate.hudd hide:YES];
+//                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Tellem" message:@"Posted on Facebook" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//                    alert.tag=111;
+//                    [alert show];
+//                }
+//                else
+//                {
+//                    [ApplicationDelegate.hudd hide:YES];
+//                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Tellem" message:@"Posted on Facebook" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//                    [alert show];
+//                }
+//            }];
+//            
+//        }
+//    }
 }
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {

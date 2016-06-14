@@ -110,6 +110,11 @@ const NSUInteger DataProviderDataCount = 151;
                 {
                     operation = [[DataLoadingOperation alloc] initWithIndexes:indexes andCircleMember:_circleMember];
                 }
+                else
+                    if (_dataLoader == 4) //load data for GSR list
+                    {
+                        operation = [[DataLoadingOperation alloc] initWithIndexes:indexes andGSRServerURL:_serverURL andServerUser:_serverUser andServerPassword:_serverPassword];
+                    }
     
     // Remember to not retain self in block since we store the operation
     __weak typeof(self) weakSelf = self;

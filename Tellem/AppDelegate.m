@@ -25,7 +25,11 @@
 #import "HomeActivitiesViewController.h"
 #import "HomeTimelineViewController.h"
 #import "AVCamViewController.h"
+#import "MagentoViewController.h"
+#import "MixHomeViewController.h"
 #import "PAPUtility.h"
+
+//NSString *const BFTaskMultipleExceptionsException = @"BFMultipleExceptionsException";
 
 @interface AppDelegate ()
 {
@@ -44,6 +48,8 @@
 @property (nonatomic, strong) AVCamViewController *postCameraViewController;
 @property (nonatomic, strong) HomeTimelineViewController *homeTimelineViewController;
 @property (nonatomic, strong) CirclesViewController *circlesViewController;
+@property (nonatomic, strong) MagentoViewController *magentoViewController;
+@property (nonatomic, strong) MixHomeViewController *mixHomeViewController;
 @property (nonatomic, strong) MBProgressHUD *hud;
 @property (nonatomic, strong) NSTimer *autoFollowTimer;
 @property (nonatomic, strong) Reachability *hostReach;
@@ -75,6 +81,8 @@
 @synthesize circlesListViewController;
 @synthesize postCameraViewController;
 @synthesize homeTimelineViewController;
+@synthesize magentoViewController;
+@synthesize mixHomeViewController;
 @synthesize hud,tabIndex,pushPayload;
 @synthesize autoFollowTimer;
 
@@ -89,15 +97,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //MWLogDebug(@"\nAppDelegate didFinishLaunchingWithOptions: Started.");
 
-    // Parse initialization
-    // Use Ed's Parse Profile
-    //[Parse setApplicationId:@"igU1VYwhW2RMdK2wrbcOSZCK3u5pdxk80SbEIH1p" clientKey:@"j5zjaON8AQAuTmEIaTyDen3YhN1SEJZsoGRp6Msl"];
-    //Tellemtest @x083492
-    [Parse setApplicationId:@"Jj9pqOROnauM0CKU65HAyHUbztrFIEu8QINy86ef" clientKey:@"hMTxORApTCRTL62VXoLhvkDm1XOMyEyAOWeirP4E"];
-    //Tellemonly @x049709
-    //[Parse setApplicationId:@"DMDwhk2NEJlW4VfTuAQV1Qh3TGZYAVsHRzkDhuPJ" clientKey:@"fyHAAXtE59yDOQNvm6ovVCfSFgXUAN0NDC7d9lwp"];
+    //Tellem in Digital Ocean
+    [Parse initializeWithConfiguration:[ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+        configuration.applicationId = @"Utellem";
+        configuration.clientKey = @"DummyClientKey";
+        configuration.server = @"http://162.243.212.149:1337/parse";
+    }]];
     
-    [PFFacebookUtils initializeFacebook];
+    [PFFacebookUtils initialize];
     
     // Track app opens.
 
@@ -132,66 +139,67 @@
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id) annotation {
-    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication withSession:[PFFacebookUtils session]];
-}
+//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id) annotation {
+//    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication withSession:[PFFacebookUtils session]];
+//}
 
-- (void)sessionStateChanged:(FBSession *)session state:(FBSessionState) state error:(NSError *)error {
-    // If the session was opened successfully
-    if (!error && state == FBSessionStateOpen) {
-        //MWLogDebug(@"\nAppDelegate sessionStateChanged: Session opened.");
-        // Show the user the logged-in UI
-        //[self userLoggedIn];
-        return;
-    }
-
-    if (state == FBSessionStateClosed || state == FBSessionStateClosedLoginFailed) {
-        //MWLogDebug(@"\nAppDelegate sessionStateChanged: Session closed.");
-        // If the session is closed show the user the logged-out UI
-        //[self userLoggedOut];
-        [FBSession.activeSession closeAndClearTokenInformation];
-    }
-    
-    // Handle errors
-    if (error)
-    {
-        //MWLogDebug(@"\nAppDelegate sessionStateChanged: Oops. Error.");
-        NSString *alertText;
-        NSString *alertTitle;
-        // If the error requires people using an app to make an action outside of the app in order to recover
-        if ([FBErrorUtility shouldNotifyUserForError:error] == YES) {
-            alertTitle = @"Something went wrong";
-            alertText = [FBErrorUtility userMessageForError:error];
-            //[self showMessage:alertText withTitle:alertTitle];
-        } else {
-            
-            // If the user cancelled login, do nothing
-            if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryUserCancelled) {
-                //MWLogDebug(@"\nAppDelegate sessionStateChanged: User cancelled login.");
-                // Handle session closures that happen outside of the app
-            } else if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryAuthenticationReopenSession) {
-                alertTitle = @"Session Error";
-                alertText = @"Your current session is no longer valid. Please log in again.";
-                //[self showMessage:alertText withTitle:alertTitle];
-                //
-                // Here we will handle all other errors with a generic error message.
-                // We recommend you check our Handling Errors guide for more information
-                // https://developers.facebook.com/docs/ios/errors/
-            } else {
-                // Get more error information from the error
-                NSDictionary *errorInformation = [[[error.userInfo objectForKey:@"com.facebook.sdk:ParsedJSONResponseKey"] objectForKey:@"body"] objectForKey:@"error"];
-                // Show the user an error message
-                alertTitle = @"Something went wrong";
-                alertText = [NSString stringWithFormat:@"Please retry. \n If the problem persists contact us and mention this error code: %@", [errorInformation objectForKey:@"message"]];
-                //[self showMessage:alertText withTitle:alertTitle];
-            }
-        }
-        // Clear this token
-        [FBSession.activeSession closeAndClearTokenInformation];
-        // Show the user the logged-out UI
-        // [self userLoggedOut];
-    }
-}
+//TODO FOR V4
+//- (void)sessionStateChanged:(FBSession *)session state:(FBSessionState) state error:(NSError *)error {
+//    // If the session was opened successfully
+//    if (!error && state == FBSessionStateOpen) {
+//        //MWLogDebug(@"\nAppDelegate sessionStateChanged: Session opened.");
+//        // Show the user the logged-in UI
+//        //[self userLoggedIn];
+//        return;
+//    }
+//
+//    if (state == FBSessionStateClosed || state == FBSessionStateClosedLoginFailed) {
+//        //MWLogDebug(@"\nAppDelegate sessionStateChanged: Session closed.");
+//        // If the session is closed show the user the logged-out UI
+//        //[self userLoggedOut];
+//        [FBSession.activeSession closeAndClearTokenInformation];
+//    }
+//    
+//    // Handle errors
+//    if (error)
+//    {
+//        //MWLogDebug(@"\nAppDelegate sessionStateChanged: Oops. Error.");
+//        NSString *alertText;
+//        NSString *alertTitle;
+//        // If the error requires people using an app to make an action outside of the app in order to recover
+//        if ([FBErrorUtility shouldNotifyUserForError:error] == YES) {
+//            alertTitle = @"Something went wrong";
+//            alertText = [FBErrorUtility userMessageForError:error];
+//            //[self showMessage:alertText withTitle:alertTitle];
+//        } else {
+//            
+//            // If the user cancelled login, do nothing
+//            if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryUserCancelled) {
+//                //MWLogDebug(@"\nAppDelegate sessionStateChanged: User cancelled login.");
+//                // Handle session closures that happen outside of the app
+//            } else if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryAuthenticationReopenSession) {
+//                alertTitle = @"Session Error";
+//                alertText = @"Your current session is no longer valid. Please log in again.";
+//                //[self showMessage:alertText withTitle:alertTitle];
+//                //
+//                // Here we will handle all other errors with a generic error message.
+//                // We recommend you check our Handling Errors guide for more information
+//                // https://developers.facebook.com/docs/ios/errors/
+//            } else {
+//                // Get more error information from the error
+//                NSDictionary *errorInformation = [[[error.userInfo objectForKey:@"com.facebook.sdk:ParsedJSONResponseKey"] objectForKey:@"body"] objectForKey:@"error"];
+//                // Show the user an error message
+//                alertTitle = @"Something went wrong";
+//                alertText = [NSString stringWithFormat:@"Please retry. \n If the problem persists contact us and mention this error code: %@", [errorInformation objectForKey:@"message"]];
+//                //[self showMessage:alertText withTitle:alertTitle];
+//            }
+//        }
+//        // Clear this token
+//        [FBSession.activeSession closeAndClearTokenInformation];
+//        // Show the user the logged-out UI
+//        // [self userLoggedOut];
+//    }
+//}
 
 - (void)registerForPushNotifications:(UIApplication *)application {
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound);
@@ -397,7 +405,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    [[FBSession activeSession] handleDidBecomeActive];
+    //TODO FOR V4
+    //[[FBSession activeSession] handleDidBecomeActive];
     
     // Clear badge and update installation, required for auto-incrementing badges.
     if (application.applicationIconBadgeNumber != 0) {
@@ -414,59 +423,60 @@
 
 - (void) requestPublishPermissions
 {
-    //NSLog(@"PostViewController postOnFaceBook commentText: %@", commentText);
-    ApplicationDelegate.session=[FBSession activeSession];
-    
-    [FBSession setActiveSession:[FBSession activeSession]];
-    
-    NSArray *permissionsNeeded = @[@"publish_actions"];
-    // Request the permissions the user currently has
-    
-    [FBRequestConnection startWithGraphPath:@"/me/permissions" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        if (!error)
-        {
-            NSDictionary *currentPermissions= [(NSArray *)[result data] objectAtIndex:0];
-            NSMutableArray *requestPermissions = [[NSMutableArray alloc] initWithArray:@[]];
-            
-            // Check if all the permissions we need are present in the user's current permissions
-            // If they are not present add them to the permissions to be requested
-            for (NSString *permission in permissionsNeeded)
-            {
-                if (![currentPermissions objectForKey:permission])
-                {
-                    [requestPermissions addObject:permission];
-                }
-            }
-            // If we have permissions to request
-            if ([requestPermissions count] > 0)
-            {
-                // Ask for the missing permissions
-                [FBSession.activeSession requestNewPublishPermissions:requestPermissions defaultAudience:FBSessionDefaultAudienceFriends
-                                                    completionHandler:^(FBSession *session, NSError *error)
-                 {
-                     if (!error) {
-                         // Permission granted, we can request the user information[self makeRequestToPostObject];
-                     }
-                     else
-                     {
-                         // An error occurred, we need to handle the error
-                         // Check out our error handling guide: https://developers.facebook.com/docs/ios/errors/
-                         NSLog (@"AppDelegate: Error posting picture  to Facebook,%@", error);
-                     }
-                 }];
-            }
-            else
-            {
-                // Permissions are present We can request the user information
-            }
-            
-        } else
-        {
-            // An error occurred, we need to handle the error
-            // Check out our error handling guide: https://developers.facebook.com/docs/ios/errors/
-            NSLog (@"AppDelegate: Error posting picture to Facebook,%@", error);
-        }
-    }];
+//TODO FOR V4.0
+//    //NSLog(@"PostViewController postOnFaceBook commentText: %@", commentText);
+//    ApplicationDelegate.session=[FBSession activeSession];
+//    
+//    [FBSession setActiveSession:[FBSession activeSession]];
+//    
+//    NSArray *permissionsNeeded = @[@"publish_actions"];
+//    // Request the permissions the user currently has
+//    
+//    [FBRequestConnection startWithGraphPath:@"/me/permissions" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+//        if (!error)
+//        {
+//            NSDictionary *currentPermissions= [(NSArray *)[result data] objectAtIndex:0];
+//            NSMutableArray *requestPermissions = [[NSMutableArray alloc] initWithArray:@[]];
+//            
+//            // Check if all the permissions we need are present in the user's current permissions
+//            // If they are not present add them to the permissions to be requested
+//            for (NSString *permission in permissionsNeeded)
+//            {
+//                if (![currentPermissions objectForKey:permission])
+//                {
+//                    [requestPermissions addObject:permission];
+//                }
+//            }
+//            // If we have permissions to request
+//            if ([requestPermissions count] > 0)
+//            {
+//                // Ask for the missing permissions
+//                [FBSession.activeSession requestNewPublishPermissions:requestPermissions defaultAudience:FBSessionDefaultAudienceFriends
+//                                                    completionHandler:^(FBSession *session, NSError *error)
+//                 {
+//                     if (!error) {
+//                         // Permission granted, we can request the user information[self makeRequestToPostObject];
+//                     }
+//                     else
+//                     {
+//                         // An error occurred, we need to handle the error
+//                         // Check out our error handling guide: https://developers.facebook.com/docs/ios/errors/
+//                         NSLog (@"AppDelegate: Error posting picture  to Facebook,%@", error);
+//                     }
+//                 }];
+//            }
+//            else
+//            {
+//                // Permissions are present We can request the user information
+//            }
+//            
+//        } else
+//        {
+//            // An error occurred, we need to handle the error
+//            // Check out our error handling guide: https://developers.facebook.com/docs/ios/errors/
+//            NSLog (@"AppDelegate: Error posting picture to Facebook,%@", error);
+//        }
+//    }];
 }
 
 #pragma mark - UITabBarControllerDelegate
@@ -490,14 +500,15 @@
         self.hud.dimBackground = YES;
     }
     
-    [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        if (!error) {
-            [self facebookRequestDidLoad:result];
-        }
-        else {
-            [self facebookRequestDidFailWithError:error];
-        }
-    }];
+    //TODO FOR V4
+    //[FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+    //    if (!error) {
+    //        [self facebookRequestDidLoad:result];
+    //    }
+    //    else {
+    //        [self facebookRequestDidFailWithError:error];
+    //    }
+    //}];
 }
 
 #pragma mark - NSURLConnectionDataDelegate
@@ -544,29 +555,25 @@
     
     self.navController=(UINavigationController *)self.window.rootViewController;
     self.tabBarController = [[MokriyaUITabBarController alloc] init];
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Coolmix" bundle:nil];
     
-    self.homeViewController = (HomeViewController *)[sb instantiateViewControllerWithIdentifier:@"HomeViewController"];
+    self.mixHomeViewController=(MixHomeViewController *)[sb instantiateViewControllerWithIdentifier:@"MixHomeViewController"];
     self.networkViewController=(PeopleViewController *)[sb instantiateViewControllerWithIdentifier:@"PeopleViewController"];
-    self.postViewController=(PostViewController *)[sb instantiateViewControllerWithIdentifier:@"PostViewController"];
-    self.heatMapViewController=(HeatMapViewController *) [sb instantiateViewControllerWithIdentifier:@"HeatMapViewController"];
-    self.circlesPageViewController=(CirclesPageViewController *)[sb instantiateViewControllerWithIdentifier:@"CirclesPageViewController"];
-    self.circlesListViewController=(CirclesListViewController *)[sb instantiateViewControllerWithIdentifier:@"CirclesListViewController"];
     self.postCameraViewController=(AVCamViewController *)[sb instantiateViewControllerWithIdentifier:@"AVCamViewController"];
-    self.homeTimelineViewController=(HomeTimelineViewController *)[sb instantiateViewControllerWithIdentifier:@"HomeTimelineViewController"];
+    self.magentoViewController=(MagentoViewController *) [sb instantiateViewControllerWithIdentifier:@"MagentoViewController"];
+    self.circlesListViewController=(CirclesListViewController *)[sb instantiateViewControllerWithIdentifier:@"CirclesListViewController"];
 
+    UINavigationController *mixHomeViewNavigationController = [[UINavigationController alloc] initWithRootViewController:self.mixHomeViewController];
     UINavigationController *networkNavigationController=[[UINavigationController alloc]initWithRootViewController:self.networkViewController];
     UINavigationController *postNavigationController = [[UINavigationController alloc] initWithRootViewController:self.postCameraViewController];
-    UINavigationController *heatMapNavigationController = [[UINavigationController alloc] initWithRootViewController:self.heatMapViewController];
-    //UINavigationController *homeActivitiesNavigationController = [[UINavigationController alloc] initWithRootViewController:self.homeActivitiesViewController];
-    UINavigationController *homeTimelineNavigationController = [[UINavigationController alloc] initWithRootViewController:self.homeTimelineViewController];
+    UINavigationController *magentoNavigationController = [[UINavigationController alloc] initWithRootViewController:self.magentoViewController];
     UINavigationController *circlesListNavigationController = [[UINavigationController alloc] initWithRootViewController:self.circlesListViewController];
 
     self.tabBarController.allViewControllers = [NSMutableArray arrayWithObjects:
-        homeTimelineNavigationController,
+        mixHomeViewNavigationController,
         networkNavigationController,
         postNavigationController,
-        heatMapNavigationController,
+        magentoNavigationController,
         circlesListNavigationController,
         nil];
     
@@ -593,7 +600,7 @@
                                                @"Home",
                                                @"Network",
                                                @"Post",
-                                               @"Map",
+                                               @"Maps",
                                                @"Circles",
                                                nil];
     if (self.pushPayload) {
@@ -648,9 +655,10 @@
    self.homeViewController = nil;
     
     // Clear out Facebook session
-    [[FBSession activeSession] closeAndClearTokenInformation];
-    [[FBSession activeSession] close];
-    [FBSession setActiveSession:nil];
+    //TODO FOR V4
+    //[[FBSession activeSession] closeAndClearTokenInformation];
+    //[[FBSession activeSession] close];
+    //[FBSession setActiveSession:nil];
     //NSLog(@"The active facebook session: %@", [[FBSession activeSession] description]);
     
     // Clear out Twitter session
@@ -761,6 +769,12 @@
         return UIInterfaceOrientationMaskAll;
     else
         return UIInterfaceOrientationMaskPortrait;
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    
+    // Depending on the architecture of your app, grab the handler to your controller that contains the webView
+    [self.magentoViewController.view setNeedsDisplay];
 }
 
 @end

@@ -58,6 +58,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated
 {
+    //MWLogDebug(@"\nMixGSRViewController viewWillAppear started.");
     [super viewWillAppear:animated];
     self.tM.gCurrentTab = 0;
     [self.view setBackgroundColor:[UIColor whiteColor]];

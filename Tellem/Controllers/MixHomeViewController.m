@@ -50,6 +50,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    //MWLogDebug(@"\nMixHomeViewController viewWillAppear started.");
     [super viewWillAppear:animated];
     self.tM.gCurrentTab = 0;
     [self.view setBackgroundColor:[UIColor whiteColor]];

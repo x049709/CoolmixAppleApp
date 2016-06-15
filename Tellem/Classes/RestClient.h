@@ -23,6 +23,6 @@
 - (void)getImageFromMix;
 - (void)postToMix;
 - (UIImage*)getTestImageFromMix;
-
+- (UIImage*)getImageFromMix: (NSString *) serverURL andServerUser: (NSString*) serverUser andServerPassword: (NSString*) serverPassword andImageFilePath: (NSString *) imageFilePath andImageFileName: (NSString *) imageFileName;
 
 @end

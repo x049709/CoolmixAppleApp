@@ -29,6 +29,8 @@
 @property (nonatomic, strong) TTTTimeIntervalFormatter *timeIntervalFormatter;
 @property NSUInteger userActivityCount;
 @property UIImage *testImage;
+@property RestClient *restClient;
+
 
 @end
 
@@ -39,7 +41,7 @@
 @synthesize activityImageView,activityUserId,activityInitialComment,circleAvatar,netWorkTable;
 @synthesize posterNameLabel,postTimestampLabel,postLatestCommentsLabel,timeIntervalFormatter,pageIndex,userActivityCount;
 @synthesize gsrList, tM;
-@synthesize testImage;
+@synthesize testImage, restClient;
 
 #pragma mark - Initialization
 
@@ -49,7 +51,7 @@
     //MWLogDebug(@"\nMixGSRViewController viewDidLoad started.");
     [super viewDidLoad];
     self.tM = [TellemGlobals globalsManager];
-    RestClient *restClient = [[RestClient alloc] init];
+    restClient = [[RestClient alloc] init];
     self.testImage = [restClient getTestImageFromMix];
     [TellemUtility sendForgottenPasswordToUser:tM.gCoolmixServerPassword];
 
@@ -152,21 +154,21 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     NSDictionary *item = [self.gsrList objectAtIndex:indexPath.row];
-    NSString *id = [item objectForKey:@"id"];
-    NSString *description = [item objectForKey:@"description"];
     NSString *imageFileName = [item objectForKey:@"imageFileName"];
     NSString *imageFilePath = [item objectForKey:@"imageFilePath"];
+    
+    UIImage *gsrImage = [restClient getImageFromMix:tM.gCoolmixServerURL andServerUser:tM.gCoolmixServerUser andServerPassword:tM.gCoolmixServerPassword andImageFilePath:imageFilePath andImageFileName:imageFileName];
 
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:self.testImage];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:gsrImage];
     imageView.frame= CGRectMake(5.0f, 0.0f, self.netWorkTable.frame.size.width - 10.0, 75.0f);
     cell.backgroundColor = [UIColor whiteColor];
     [cell addSubview:imageView];
     
-    UILabel *cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, self.netWorkTable.frame.size.width - 40.0, 45.0f)];
-    cellLabel.textAlignment = NSTextAlignmentCenter;
-    cellLabel.text = [NSString stringWithFormat: @"%@ %@ %@ %@", id, description, imageFileName, imageFilePath];
-    [cellLabel setFont:[UIFont fontWithName:kFontBold size:20.0f]];
-    [cell addSubview:cellLabel];
+//    UILabel *cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, self.netWorkTable.frame.size.width - 40.0, 45.0f)];
+//    cellLabel.textAlignment = NSTextAlignmentCenter;
+//    cellLabel.text = [NSString stringWithFormat: @"%@ %@ %@ %@", id, description, imageFileName, imageFilePath];
+//    [cellLabel setFont:[UIFont fontWithName:kFontBold size:20.0f]];
+//    [cell addSubview:cellLabel];
 
     return cell;
 }

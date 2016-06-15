@@ -240,4 +240,35 @@
     
 }
 
+- (UIImage*)getImageFromMix: (NSString *) serverURL andServerUser: (NSString*) serverUser andServerPassword: (NSString*) serverPassword andImageFilePath: (NSString *) imageFilePath andImageFileName: (NSString *) imageFileName
+{
+    UIImage *imgToReturn = nil;
+    NSString *requestURL = [NSString stringWithFormat: @"%@%@%@/", serverURL, @"/userApi/getImage/", imageFileName];
+
+    NSString *requestUser = serverUser;
+    NSString *requestPassword = serverPassword;
+    NSString *escapedURL = [requestURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
+    NSURL *url = [NSURL URLWithString:escapedURL];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"GET"];
+    [NSMutableURLRequest basicAuthForRequest:request withUsername:requestUser andPassword:requestPassword];
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    NSData * data = [NSURLConnection sendSynchronousRequest:request
+                                          returningResponse:&response
+                                                      error:&error];
+    
+    if (error == nil)
+    {
+        //NSData *decodedData = [[NSData alloc]initWithBase64EncodedData:data options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        UIImage *img = [UIImage imageWithData:data];
+        imgToReturn = img;
+    }
+    
+    return imgToReturn;
+    
+}
+
+
 @end

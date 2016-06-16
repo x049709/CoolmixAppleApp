@@ -20,6 +20,8 @@
     UIWebView *webView;
 }
 @property (strong, nonatomic) IBOutlet UITableView *netWorkTable;
+@property (weak, nonatomic) IBOutlet UIButton *cgrButton;
+@property (weak, nonatomic) IBOutlet UIButton *categoryButton;
 @property (nonatomic, strong) IBOutlet UINavigationItem *navItem;
 @property (nonatomic, retain) NSMutableArray *userCircle;
 @property (weak, nonatomic) IBOutlet UITableView *circleTableView;

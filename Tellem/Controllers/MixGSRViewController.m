@@ -41,7 +41,7 @@
 @synthesize activityImageView,activityUserId,activityInitialComment,circleAvatar,netWorkTable;
 @synthesize posterNameLabel,postTimestampLabel,postLatestCommentsLabel,timeIntervalFormatter,pageIndex,userActivityCount;
 @synthesize gsrList, tM;
-@synthesize testImage, restClient;
+@synthesize testImage, restClient, cgrButton, categoryButton;
 
 #pragma mark - Initialization
 
@@ -69,7 +69,7 @@
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],
                               NSFontAttributeName:[UIFont fontWithName:kFontNormal size:22.0] }];
-    self.navigationItem.title=@"GSR";
+    self.navigationItem.title=@"REGISTRY";
     self.navigationItem.rightBarButtonItem = [[PAPSettingsButtonItem alloc] initWithTarget:self action:@selector(settingsButtonAction:)];
     //Reset tab bar notification
     MokriyaUITabBarController *tabBarController = [(AppDelegate*)[[UIApplication sharedApplication] delegate] tabBarController];
@@ -78,15 +78,34 @@
         [tabBarController customizeTabBar:0];
     }
     
-    self.titleLabel.frame=CGRectMake(15.0f, 10.0f, self.view.frame.size.width - 30.0f, 50.0f);
+    self.titleLabel.frame=CGRectMake(15.0f, 10.0f, self.view.frame.size.width - 30.0f, 25.0f);
     self.titleLabel.layer.cornerRadius = 0.0;
     self.titleLabel.layer.borderWidth = 1.0;
     self.titleLabel.layer.borderColor = [UIColor clearColor].CGColor;
     self.titleLabel.layer.backgroundColor =[UIColor blackColor].CGColor;
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.titleLabel.text = @"COOLMIX";
+    self.titleLabel.text = @"LET'S START GIFTING! WHAT DO YOU LIKE?";
     self.titleLabel.textColor = [UIColor whiteColor];
-    [self.titleLabel setFont:[UIFont fontWithName:kFontBold size:40.0f]];
+    [self.titleLabel setFont:[UIFont fontWithName:kFontBold size:14.0f]];
+
+    self.categoryButton.frame=CGRectMake(15.0f, 45.0f, 125.0f, 25.0f);
+    self.categoryButton.layer.borderColor = [UIColor clearColor].CGColor;
+    self.categoryButton.layer.backgroundColor =[UIColor blackColor].CGColor;
+    [self.categoryButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.categoryButton setTitle:@"CATEGORIES" forState:UIControlStateNormal];
+    [self.categoryButton.titleLabel setFont:[UIFont fontWithName:kFontThin size:12.0f]];
+    [self.categoryButton setSelected:NO];
+    self.categoryButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+
+    self.cgrButton.frame=CGRectMake(self.view.frame.size.width - 140.0f, 45.0f, 125.0f, 25.0f);
+    self.cgrButton.layer.borderColor = [UIColor clearColor].CGColor;
+    self.cgrButton.layer.backgroundColor =[UIColor blackColor].CGColor;
+    [self.cgrButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.cgrButton setTitle:@"CREATE YOUR OWN!" forState:UIControlStateNormal];
+    [self.cgrButton.titleLabel setFont:[UIFont fontWithName:kFontThin size:12.0f]];
+    [self.cgrButton setSelected:NO];
+    self.cgrButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+
     
 }
 

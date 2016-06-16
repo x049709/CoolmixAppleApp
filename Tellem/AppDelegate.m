@@ -535,7 +535,7 @@
 }
 
 - (void)presentLoginViewControllerAnimated:(BOOL)animated {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Coolmix" bundle:nil];
     LoginViewController *loginViewController = (LoginViewController *)[storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     [self.window.rootViewController presentViewController:loginViewController animated:YES completion:Nil];
 }

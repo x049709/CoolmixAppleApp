@@ -549,15 +549,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ekw-zi-rT9" id="OdA-2m-Kb3">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="88"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="igO-oY-NMp">
-                                                    <rect key="frame" x="50" y="10" width="210" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
@@ -567,12 +558,24 @@
                                     <outlet property="delegate" destination="K5k-yi-FBY" id="fht-uC-wsr"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6fT-T4-6VY">
+                                <rect key="frame" x="184" y="20" width="126" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create your own"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JBh-vH-VFJ">
+                                <rect key="frame" x="10" y="20" width="91" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="CATEGORIES"/>
+                            </button>
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" id="sNi-T4-vEx">
                         <barButtonItem key="backBarButtonItem" title=" " id="u71-jO-HXg"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="categoryButton" destination="JBh-vH-VFJ" id="E5Y-nY-DE0"/>
+                        <outlet property="cgrButton" destination="6fT-T4-6VY" id="cbL-Hk-tb3"/>
                         <outlet property="navItem" destination="sNi-T4-vEx" id="1Py-dH-qLc"/>
                         <outlet property="netWorkTable" destination="URl-rs-ZgD" id="7Eq-q6-32o"/>
                         <outlet property="titleLabel" destination="eUQ-hw-z3S" id="yCs-3o-S3n"/>

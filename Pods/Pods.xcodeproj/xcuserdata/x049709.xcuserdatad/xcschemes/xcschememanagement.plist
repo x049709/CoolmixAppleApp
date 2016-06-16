@@ -49,7 +49,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Tellem.xcscheme</key>
+		<key>Pods-Coolmix.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -63,11 +63,6 @@
 			<true/>
 		</dict>
 		<key>4E286D373D75563CE26E479A68203892</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>524D505CF5EF63EF974F623A4E6F5C85</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -88,6 +83,11 @@
 			<true/>
 		</dict>
 		<key>C43DEF8E5BFEC36D943258BA3F21834D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CB20D43E8400F946C64C44180C301F36</key>
 		<dict>
 			<key>primary</key>
 			<true/>

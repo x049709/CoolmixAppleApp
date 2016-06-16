@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '2013A3CC931467610240CB28'
+               BlueprintIdentifier = '1309245E6A0B8E0237E65A77'
                BlueprintName = 'NSMutableURLRequest-BasicAuth'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libNSMutableURLRequest-BasicAuth.a'>

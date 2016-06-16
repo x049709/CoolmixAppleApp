@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:UTellem.xcodeproj">
+      location = "self:/Users/x049709/Documents/Xcode Applications/CoolmixAppleApp/Coolmix.xcodeproj">
    </FileRef>
 </Workspace>

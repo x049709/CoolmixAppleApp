@@ -2079,10 +2079,10 @@
 					"$(PROJECT_DIR)",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.coolmix.coolmix;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coolmix.coolmixer;
 				PRODUCT_NAME = Coolmix;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "fe37a9cd-7006-4c46-a7de-70eb1642c781";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "fe37a9cd-7006-4c46-a7de-70eb1642c781";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 				"VALID_ARCHS[sdk=*]" = "armv7 armv7s arm64";
@@ -2118,10 +2118,10 @@
 					"$(PROJECT_DIR)",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.coolmix.coolmix;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coolmix.coolmixer;
 				PRODUCT_NAME = Coolmix;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "fe37a9cd-7006-4c46-a7de-70eb1642c781";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "fe37a9cd-7006-4c46-a7de-70eb1642c781";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 				"VALID_ARCHS[sdk=*]" = "armv7 armv7s arm64";

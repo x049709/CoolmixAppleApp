@@ -41,5 +41,6 @@
 @property NSDictionary *pushPayload;
 @property TellemGlobals *tM;
 @property NSMutableArray *gsrList;
+@property NSMutableArray *gsrImages;
 
 @end

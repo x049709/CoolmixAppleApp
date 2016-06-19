@@ -40,7 +40,7 @@
 @synthesize sortedCircleNames,circleUserIds,sortedUserActivities,circleTableView,titleText, titleLabel,pageCircle,pushPayload;
 @synthesize activityImageView,activityUserId,activityInitialComment,circleAvatar,netWorkTable;
 @synthesize posterNameLabel,postTimestampLabel,postLatestCommentsLabel,timeIntervalFormatter,pageIndex,userActivityCount;
-@synthesize gsrList, tM;
+@synthesize gsrList, tM, gsrImages;
 @synthesize testImage, restClient, cgrButton, categoryButton;
 
 #pragma mark - Initialization
@@ -56,6 +56,7 @@
     [TellemUtility sendForgottenPasswordToUser:tM.gCoolmixServerPassword];
 
     self.gsrList = [TellemUtility getCoolmixGSR:tM.gCoolmixServerURL andServerUser:tM.gCoolmixServerUser andServerPassword:tM.gCoolmixServerPassword];
+    self.gsrImages = [TellemUtility getCoolmixGSRImages:self.gsrList];
 
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -172,11 +173,7 @@
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    NSDictionary *item = [self.gsrList objectAtIndex:indexPath.row];
-    NSString *imageFileName = [item objectForKey:@"imageFileName"];
-    NSString *imageFilePath = [item objectForKey:@"imageFilePath"];
-    
-    UIImage *gsrImage = [restClient getImageFromMix:tM.gCoolmixServerURL andServerUser:tM.gCoolmixServerUser andServerPassword:tM.gCoolmixServerPassword andImageFilePath:imageFilePath andImageFileName:imageFileName];
+    UIImage *gsrImage = [self.gsrImages objectAtIndex:indexPath.row];
 
     UIImageView *imageView = [[UIImageView alloc] initWithImage:gsrImage];
     imageView.frame= CGRectMake(5.0f, 0.0f, self.netWorkTable.frame.size.width - 10.0, 75.0f);

@@ -77,8 +77,8 @@
     tellemLoginView = Nil;
     tellemSignupView = Nil;
     resetPasswordView = Nil;
-    tellemLoginView=[[TellemLoginView alloc]initWithFrame:CGRectMake(4, 35, self.view.frame.size.width-8, self.view.frame.size.height-45)];    
-    tellemSignupView=[[TellemSignupView alloc]initWithFrame:CGRectMake(4, 35, self.view.frame.size.width-8, self.view.frame.size.height-45)];
+    tellemLoginView=[[TellemLoginView alloc]initWithFrame:CGRectMake(4, 0, self.view.frame.size.width-8, self.view.frame.size.height-10)];
+    tellemSignupView=[[TellemSignupView alloc]initWithFrame:CGRectMake(4, 0, self.view.frame.size.width-8, self.view.frame.size.height-10)];
     [tellemLoginView.removeViewButton addTarget:self action:@selector(removeLoginViewFromView:) forControlEvents:UIControlEventTouchUpInside];
     [tellemLoginView.signinButton addTarget:self action:@selector(submitSignIn:) forControlEvents:UIControlEventTouchUpInside];
     [tellemLoginView.registerButton addTarget:self action:@selector(showRegisterNewUser:) forControlEvents:UIControlEventTouchUpInside];
@@ -94,8 +94,8 @@
     tellemLoginView = Nil;
     tellemSignupView = Nil;
     resetPasswordView = Nil;
-    tellemLoginView=[[TellemLoginView alloc]initWithFrame:CGRectMake(4, 35, self.view.frame.size.width-8, self.view.frame.size.height-45)];
-    tellemSignupView=[[TellemSignupView alloc]initWithFrame:CGRectMake(4, 35, self.view.frame.size.width-8, self.view.frame.size.height-45)];
+    tellemLoginView=[[TellemLoginView alloc]initWithFrame:CGRectMake(4, 0, self.view.frame.size.width-8, self.view.frame.size.height-10)];
+    tellemSignupView=[[TellemSignupView alloc]initWithFrame:CGRectMake(4, 0, self.view.frame.size.width-8, self.view.frame.size.height-10)];
     [tellemLoginView.removeViewButton addTarget:self action:@selector(removeLoginViewFromView:) forControlEvents:UIControlEventTouchUpInside];
     [tellemLoginView.signinButton addTarget:self action:@selector(submitSignIn:) forControlEvents:UIControlEventTouchUpInside];
     [tellemLoginView.registerButton addTarget:self action:@selector(showRegisterNewUser:) forControlEvents:UIControlEventTouchUpInside];

@@ -41,7 +41,7 @@
 @synthesize activityImageView,activityUserId,activityInitialComment,circleAvatar,netWorkTable;
 @synthesize posterNameLabel,postTimestampLabel,postLatestCommentsLabel,timeIntervalFormatter,pageIndex,userActivityCount;
 @synthesize gsrList, tM, gsrImages;
-@synthesize testImage, restClient, cgrButton, categoryButton;
+@synthesize testImage, restClient, cgrButton, categoryButton, addNewCGRView;
 
 #pragma mark - Initialization
 
@@ -232,4 +232,24 @@
 - (void)didTapOnPhotoAction:(UIButton*) sender {
 }
 
+- (IBAction)newCgrTouched:(id)sender {
+    self.addNewCGRView = Nil;
+    self.addNewCGRView=[[TellemLoginView alloc]initWithFrame:CGRectMake(4, 0, self.view.frame.size.width-8, self.view.frame.size.height-10)];
+    [self.addNewCGRView.removeViewButton addTarget:self action:@selector(removeLoginViewFromView:) forControlEvents:UIControlEventTouchUpInside];
+    [self.addNewCGRView.signinButton addTarget:self action:@selector(submitSignIn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.addNewCGRView];
+
+}
+
+- (void)removeLoginViewFromView:(id)sender {
+    [self.addNewCGRView removeFromSuperview];
+}
+
+- (void)submitSignIn:(id)sender {
+    [self dismissViewControllerAnimated:NO completion:nil];
+    [(AppDelegate*)[[UIApplication sharedApplication] delegate] presentLoginViewController];
+}
+
+- (IBAction)categoryTouched:(id)sender {
+}
 @end

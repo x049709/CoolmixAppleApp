@@ -562,11 +562,17 @@
                                 <rect key="frame" x="184" y="20" width="126" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create your own"/>
+                                <connections>
+                                    <action selector="newCgrTouched:" destination="K5k-yi-FBY" eventType="touchUpInside" id="nUb-Fb-dsM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JBh-vH-VFJ">
                                 <rect key="frame" x="10" y="20" width="91" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="CATEGORIES"/>
+                                <connections>
+                                    <action selector="categoryTouched:" destination="K5k-yi-FBY" eventType="touchUpInside" id="YJl-F4-Pjz"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>

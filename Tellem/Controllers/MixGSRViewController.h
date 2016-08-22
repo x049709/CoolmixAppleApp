@@ -14,7 +14,7 @@
 #import "TTTTimeIntervalFormatter.h"
 #import "TellemUtility.h"
 #import "RestClient.h"
-#import "TellemLoginView.h"
+#import "NewCGRView.h"
 
 
 @interface MixGSRViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate>{
@@ -44,7 +44,7 @@
 @property TellemGlobals *tM;
 @property NSMutableArray *gsrList;
 @property NSMutableArray *gsrImages;
-@property (nonatomic, strong) TellemLoginView *addNewCGRView;
+@property (nonatomic, strong) NewCGRView *addNewCGRView;
 
 
 - (IBAction)newCgrTouched:(id)sender;

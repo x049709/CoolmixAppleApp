@@ -180,12 +180,6 @@
     cell.backgroundColor = [UIColor whiteColor];
     [cell addSubview:imageView];
     
-//    UILabel *cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, self.netWorkTable.frame.size.width - 40.0, 45.0f)];
-//    cellLabel.textAlignment = NSTextAlignmentCenter;
-//    cellLabel.text = [NSString stringWithFormat: @"%@ %@ %@ %@", id, description, imageFileName, imageFilePath];
-//    [cellLabel setFont:[UIFont fontWithName:kFontBold size:20.0f]];
-//    [cell addSubview:cellLabel];
-
     return cell;
 }
 
@@ -234,9 +228,9 @@
 
 - (IBAction)newCgrTouched:(id)sender {
     self.addNewCGRView = Nil;
-    self.addNewCGRView=[[TellemLoginView alloc]initWithFrame:CGRectMake(4, 0, self.view.frame.size.width-8, self.view.frame.size.height-10)];
+    self.addNewCGRView=[[NewCGRView alloc]initWithFrame:CGRectMake(4, 0, self.view.frame.size.width-8, self.view.frame.size.height-10)];
     [self.addNewCGRView.removeViewButton addTarget:self action:@selector(removeLoginViewFromView:) forControlEvents:UIControlEventTouchUpInside];
-    [self.addNewCGRView.signinButton addTarget:self action:@selector(submitSignIn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.addNewCGRView.addNewCGRButton addTarget:self action:@selector(addNewCGR:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.addNewCGRView];
 
 }
@@ -245,9 +239,10 @@
     [self.addNewCGRView removeFromSuperview];
 }
 
-- (void)submitSignIn:(id)sender {
-    [self dismissViewControllerAnimated:NO completion:nil];
-    [(AppDelegate*)[[UIApplication sharedApplication] delegate] presentLoginViewController];
+- (void)addNewCGR:(id)sender {
+    NSString *msg = [NSString stringWithFormat: @" HELLO %@", self.addNewCGRView.inputCGRName.text];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Coolmix" message:msg delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+    [alert show];
 }
 
 - (IBAction)categoryTouched:(id)sender {

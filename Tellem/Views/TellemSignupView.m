@@ -94,7 +94,7 @@
         [userLabel setTextColor:[UIColor blackColor]];
         [userLabel setBackgroundColor:[UIColor clearColor]];
         [userLabel setFont:[UIFont fontWithName: kFontBold size: 10.0f]];
-        userLabel.text = @"EMAIL";
+        userLabel.text = @"EMAIL ADDRESS";
         [scrollView addSubview:userLabel];
         
         inputUserName = [[UITextField alloc] initWithFrame:CGRectMake(20, 150, scrollView.frame.size.width - 40, 30)];

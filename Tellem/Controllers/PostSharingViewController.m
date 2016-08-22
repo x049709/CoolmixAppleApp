@@ -436,48 +436,48 @@ static NSString * const kAviarySecret = @"b1mdl2dbyp5lq2d1";
     UIImage *New_Image = [info objectForKey:UIImagePickerControllerOriginalImage];
     IMagePicked=New_Image;
     [picker dismissViewControllerAnimated:YES completion:Nil];
-    [self displayEditorForImage:New_Image];
+    //[self displayEditorForImage:New_Image];
 }
 
 #pragma mark Photo Editor Events
-- (void)displayEditorForImage:(UIImage *)imageToEdit
-{
-    // kAviaryAPIKey and kAviarySecret are developer defined
-    // and contain your API key and secret respectively
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [AFPhotoEditorController setAPIKey:kAviaryAPIKey secret:kAviarySecret];
-    });
-    
-    AFPhotoEditorController *editorController = [[AFPhotoEditorController alloc] initWithImage:imageToEdit];
-    [editorController setDelegate:self];
-    //    UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:editorController];
-    self.navigationController.navigationBarHidden=YES;
-    self.tabBarController.tabBar.hidden=YES;
-    self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
-    [self.navigationController pushViewController:editorController animated:YES];    //    [ApplicationDelegate.navController presentViewController:editorController animated:YES completion:nil];
-}
-- (void) photoEditorCanceled:(AFPhotoEditorController *)editor
-{
-    SelectImageView.hidden=YES;
-    SelectImageView.image = IMagePicked;
-    //self.image =IMagePicked;
-    [self shouldUploadImage:IMagePicked];
-    [self.navigationController popViewControllerAnimated:YES];
-    self.tabBarController.tabBar.hidden=NO;
-    self.navigationController.navigationBarHidden=NO;
-}
-- (void) photoEditor:(AFPhotoEditorController *)editor finishedWithImage:(UIImage *)image
-{
-    SelectImageView.hidden=NO;
-    SelectImageView.image = image;
-    self.image =image;
-    [self shouldUploadImage:self.image];
-    [self.navigationController popViewControllerAnimated:YES];
-    self.tabBarController.tabBar.hidden=NO;
-    self.navigationController.navigationBarHidden=NO;
-    
-}
+//- (void)displayEditorForImage:(UIImage *)imageToEdit
+//{
+//    // kAviaryAPIKey and kAviarySecret are developer defined
+//    // and contain your API key and secret respectively
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [AFPhotoEditorController setAPIKey:kAviaryAPIKey secret:kAviarySecret];
+//    });
+//    
+//    AFPhotoEditorController *editorController = [[AFPhotoEditorController alloc] initWithImage:imageToEdit];
+//    [editorController setDelegate:self];
+//    //    UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:editorController];
+//    self.navigationController.navigationBarHidden=YES;
+//    self.tabBarController.tabBar.hidden=YES;
+//    self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
+//    [self.navigationController pushViewController:editorController animated:YES];    //    [ApplicationDelegate.navController presentViewController:editorController animated:YES completion:nil];
+//}
+//- (void) photoEditorCanceled:(AFPhotoEditorController *)editor
+//{
+//    SelectImageView.hidden=YES;
+//    SelectImageView.image = IMagePicked;
+//    //self.image =IMagePicked;
+//    [self shouldUploadImage:IMagePicked];
+//    [self.navigationController popViewControllerAnimated:YES];
+//    self.tabBarController.tabBar.hidden=NO;
+//    self.navigationController.navigationBarHidden=NO;
+//}
+//- (void) photoEditor:(AFPhotoEditorController *)editor finishedWithImage:(UIImage *)image
+//{
+//    SelectImageView.hidden=NO;
+//    SelectImageView.image = image;
+//    self.image =image;
+//    [self shouldUploadImage:self.image];
+//    [self.navigationController popViewControllerAnimated:YES];
+//    self.tabBarController.tabBar.hidden=NO;
+//    self.navigationController.navigationBarHidden=NO;
+//    
+//}
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [picker dismissViewControllerAnimated:YES completion:Nil];

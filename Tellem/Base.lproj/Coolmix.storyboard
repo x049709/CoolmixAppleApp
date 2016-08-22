@@ -52,7 +52,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="94Y-j2-o3z">
-                                        <rect key="frame" x="70" y="100" width="180" height="55"/>
+                                        <rect key="frame" x="70" y="125" width="180" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="MIX" backgroundImage="white_bg.png">
@@ -64,7 +64,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vJb-iU-xVm">
-                                        <rect key="frame" x="70" y="300" width="180" height="55"/>
+                                        <rect key="frame" x="70" y="393" width="180" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="SHOP" backgroundImage="white_bg.png">

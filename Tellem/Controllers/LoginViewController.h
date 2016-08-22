@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import "TellemLoginView.h"
 #import "TellemSignupView.h"
+#import "TellemSignupInterestsView.h"
 #import "TellemForgotPasswordView.h"
 #import "PAPUtility.h"
 #import "TellemGlobals.h"
@@ -36,6 +37,7 @@
 @property (nonatomic, strong) MokriyaUITabBarController *tabBarController;
 @property (nonatomic, strong) TellemLoginView *tellemLoginView;
 @property (nonatomic, strong) TellemSignupView *tellemSignupView;
+@property (nonatomic, strong) TellemSignupInterestsView *tellemSignupInterestsView;
 @property (nonatomic, strong) TellemForgotPasswordView *resetPasswordView;
 @property (strong, nonatomic) IBOutlet UIButton *mixSigninButton;
 @property (strong, nonatomic) IBOutlet UIButton *shopSigninButton;

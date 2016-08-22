@@ -34,7 +34,6 @@
 		45D3329718D1989D00ABA2C0 /* UIImage+AlphaAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D3329118D1989D00ABA2C0 /* UIImage+AlphaAdditions.m */; };
 		45D3329818D1989D00ABA2C0 /* UIImage+ResizeAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D3329318D1989D00ABA2C0 /* UIImage+ResizeAdditions.m */; };
 		45D3329918D1989D00ABA2C0 /* UIImage+RoundedCornerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D3329518D1989D00ABA2C0 /* UIImage+RoundedCornerAdditions.m */; };
-		45EB291B1904F074002CBC55 /* AviarySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EB29191904F074002CBC55 /* AviarySDK.framework */; };
 		45EB291C1904F074002CBC55 /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 45EB291A1904F074002CBC55 /* AviarySDKResources.bundle */; };
 		45EB291E1904F0A6002CBC55 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EB291D1904F0A6002CBC55 /* Accelerate.framework */; };
 		45EB29201904F0B9002CBC55 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EB291F1904F0B9002CBC55 /* CoreData.framework */; };
@@ -212,6 +211,7 @@
 		51A3D6291CD119960014B901 /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A3D6251CD119960014B901 /* libz.1.tbd */; };
 		51A3D62A1CD119960014B901 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A3D6261CD119960014B901 /* libz.tbd */; };
 		51A4C7EF1A7AEF5B00E652AF /* TellemForgotPasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A4C7EE1A7AEF5B00E652AF /* TellemForgotPasswordView.m */; };
+		51AC3F3B1D19FD2C00B5A9E7 /* NewCGRView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC3F3A1D19FD2C00B5A9E7 /* NewCGRView.m */; };
 		51B29E471A83D84500643740 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B29E461A83D84500643740 /* User.m */; };
 		51B625ED1CD2C6BC00E7918C /* MagentoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B625EC1CD2C6BC00E7918C /* MagentoViewController.m */; };
 		51B625F21CD3B53D00E7918C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B625F11CD3B53D00E7918C /* WebKit.framework */; };
@@ -219,6 +219,9 @@
 		51D4B6621A6337AC008C94D1 /* facebook-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 51D4B6601A6337AC008C94D1 /* facebook-selected.png */; };
 		51D4B6631A6337AC008C94D1 /* facebook-unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 51D4B6611A6337AC008C94D1 /* facebook-unselected.png */; };
 		51D59B4F1A9B741C00A01774 /* ZoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D59B4E1A9B741C00A01774 /* ZoomViewController.m */; };
+		51D9E3D21D6A16B2003B0D0E /* landingbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 51D9E3D11D6A16B2003B0D0E /* landingbackground.png */; };
+		51D9E3D41D6A26DA003B0D0E /* landingbackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51D9E3D31D6A26DA003B0D0E /* landingbackground@2x.png */; };
+		51D9E3D71D6A2E47003B0D0E /* TellemSignupInterestsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D9E3D61D6A2E47003B0D0E /* TellemSignupInterestsView.m */; };
 		51DE46531A71B6E600C981B8 /* ContactPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DE46521A71B6E600C981B8 /* ContactPerson.m */; };
 		51DE46551A71E1AF00C981B8 /* NetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DE46541A71E1AF00C981B8 /* NetworkViewController.m */; };
 		51EE98241A81509100BFA5D0 /* Circle.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EE98231A81509100BFA5D0 /* Circle.m */; };
@@ -599,6 +602,8 @@
 		51A3D6261CD119960014B901 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		51A4C7ED1A7AEF5B00E652AF /* TellemForgotPasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TellemForgotPasswordView.h; path = Views/TellemForgotPasswordView.h; sourceTree = "<group>"; };
 		51A4C7EE1A7AEF5B00E652AF /* TellemForgotPasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TellemForgotPasswordView.m; path = Views/TellemForgotPasswordView.m; sourceTree = "<group>"; };
+		51AC3F391D19FD2C00B5A9E7 /* NewCGRView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewCGRView.h; path = Views/NewCGRView.h; sourceTree = "<group>"; };
+		51AC3F3A1D19FD2C00B5A9E7 /* NewCGRView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewCGRView.m; path = Views/NewCGRView.m; sourceTree = "<group>"; };
 		51B29E451A83D84500643740 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Classes/User.h; sourceTree = "<group>"; };
 		51B29E461A83D84500643740 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Classes/User.m; sourceTree = "<group>"; };
 		51B625E01CD16D7000E7918C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -610,6 +615,10 @@
 		51D4B6611A6337AC008C94D1 /* facebook-unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook-unselected.png"; path = "Tellem/Images/facebook-unselected.png"; sourceTree = "<group>"; };
 		51D59B4D1A9B741C00A01774 /* ZoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZoomViewController.h; path = Controllers/ZoomViewController.h; sourceTree = "<group>"; };
 		51D59B4E1A9B741C00A01774 /* ZoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZoomViewController.m; path = Controllers/ZoomViewController.m; sourceTree = "<group>"; };
+		51D9E3D11D6A16B2003B0D0E /* landingbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = landingbackground.png; path = Tellem/Images/landingbackground.png; sourceTree = "<group>"; };
+		51D9E3D31D6A26DA003B0D0E /* landingbackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "landingbackground@2x.png"; path = "Tellem/Images/landingbackground@2x.png"; sourceTree = "<group>"; };
+		51D9E3D51D6A2E47003B0D0E /* TellemSignupInterestsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TellemSignupInterestsView.h; path = Views/TellemSignupInterestsView.h; sourceTree = "<group>"; };
+		51D9E3D61D6A2E47003B0D0E /* TellemSignupInterestsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TellemSignupInterestsView.m; path = Views/TellemSignupInterestsView.m; sourceTree = "<group>"; };
 		51DE46511A71B6E600C981B8 /* ContactPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactPerson.h; path = Utils/ContactPerson.h; sourceTree = "<group>"; };
 		51DE46521A71B6E600C981B8 /* ContactPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactPerson.m; path = Utils/ContactPerson.m; sourceTree = "<group>"; };
 		51DE46541A71E1AF00C981B8 /* NetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = NetworkViewController.m; path = Controllers/NetworkViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -737,7 +746,6 @@
 				45D3325F18D196A100ABA2C0 /* AdSupport.framework in Frameworks */,
 				45D3327918D1973F00ABA2C0 /* AudioToolbox.framework in Frameworks */,
 				45D3327318D1971B00ABA2C0 /* AVFoundation.framework in Frameworks */,
-				45EB291B1904F074002CBC55 /* AviarySDK.framework in Frameworks */,
 				45D3327F18D1976700ABA2C0 /* CFNetwork.framework in Frameworks */,
 				45EB29201904F0B9002CBC55 /* CoreData.framework in Frameworks */,
 				5BD0E47518D1858600F387AF /* CoreGraphics.framework in Frameworks */,
@@ -1137,6 +1145,8 @@
 				515506D01A507A4000E9ACD5 /* ImageBorder.png */,
 				515506D11A507A4000E9ACD5 /* img.png */,
 				5160819D1A762FB100B402C4 /* invite.png */,
+				51D9E3D11D6A16B2003B0D0E /* landingbackground.png */,
+				51D9E3D31D6A26DA003B0D0E /* landingbackground@2x.png */,
 				519BB5181A6CB3AB00A7F854 /* lock.png */,
 				51FBC21D1A5CE7A400DD5E6B /* map-hover.png */,
 				51FBC21E1A5CE7A400DD5E6B /* map-normal.png */,
@@ -1168,6 +1178,8 @@
 		517ADBE81A796A03009FE0C0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				51AC3F391D19FD2C00B5A9E7 /* NewCGRView.h */,
+				51AC3F3A1D19FD2C00B5A9E7 /* NewCGRView.m */,
 				5153B18D1AB1F6F9007CD706 /* AVCamPreviewView.h */,
 				5153B18E1AB1F6F9007CD706 /* AVCamPreviewView.m */,
 				51625A7E1A7C22B5007DF770 /* PlaceHolderView.h */,
@@ -1176,6 +1188,8 @@
 				51A4C7EE1A7AEF5B00E652AF /* TellemForgotPasswordView.m */,
 				517ADBE91A7984E7009FE0C0 /* TellemLoginView.h */,
 				517ADBEA1A7984E7009FE0C0 /* TellemLoginView.m */,
+				51D9E3D51D6A2E47003B0D0E /* TellemSignupInterestsView.h */,
+				51D9E3D61D6A2E47003B0D0E /* TellemSignupInterestsView.m */,
 				510CE7A31CFA450F0088D18F /* TellemSignupView.h */,
 				510CE7A21CFA450F0088D18F /* TellemSignupView.m */,
 			);
@@ -1585,6 +1599,9 @@
 							com.apple.InAppPurchase = {
 								enabled = 0;
 							};
+							com.apple.Push = {
+								enabled = 0;
+							};
 						};
 					};
 				};
@@ -1613,11 +1630,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				515506A01A50710100E9ACD5 /* ActivityFeed.png in Resources */,
+				51D9E3D21D6A16B2003B0D0E /* landingbackground.png in Resources */,
 				5120C5021A74BCC200270562 /* address-unselected.png in Resources */,
 				515506B51A5076D600E9ACD5 /* ActivityFeedBlank.png in Resources */,
 				51FBC2231A5CE7A400DD5E6B /* activities-hover.png in Resources */,
 				51FBC2241A5CE7A400DD5E6B /* activities-normal.png in Resources */,
 				51FA65911A3C159D004018CF /* add.png in Resources */,
+				51D9E3D41D6A26DA003B0D0E /* landingbackground@2x.png in Resources */,
 				517DE1251A3BA7D700B94A01 /* addpicture.jpeg in Resources */,
 				517DE1271A3BA89700B94A01 /* addpicture.png in Resources */,
 				513BEDD11A867AB300DC7063 /* pickphoto.png in Resources */,
@@ -1833,6 +1852,7 @@
 				C496A84B18FE4E9A003939FD /* NSURL+Base.m in Sources */,
 				5153B18F1AB1F6F9007CD706 /* AVCamPreviewView.m in Sources */,
 				C496A85518FE4E9A003939FD /* OAPlaintextSignatureProvider.m in Sources */,
+				51AC3F3B1D19FD2C00B5A9E7 /* NewCGRView.m in Sources */,
 				515506091A5062C800E9ACD5 /* MokriyaUITabBarController.m in Sources */,
 				5155067B1A506AA100E9ACD5 /* DragTableGestureObserver_ot.m in Sources */,
 				515506961A506F1400E9ACD5 /* UIImage+ImageEffects.m in Sources */,
@@ -1907,6 +1927,7 @@
 				512092051AA10DA600FC6CFD /* AWPagedArray.m in Sources */,
 				515506051A5061CC00E9ACD5 /* TwitterFriendViewController.m in Sources */,
 				515506471A50681200E9ACD5 /* SharingView.m in Sources */,
+				51D9E3D71D6A2E47003B0D0E /* TellemSignupInterestsView.m in Sources */,
 				C496A85218FE4E9A003939FD /* OADataFetcher.m in Sources */,
 				C496A85B18FE4E9A003939FD /* OATokenManager.m in Sources */,
 				515506461A50681200E9ACD5 /* RegisterUser.m in Sources */,
@@ -2073,7 +2094,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tellem/Tellem-Prefix.pch";
 				INFOPLIST_FILE = "Tellem/Tellem-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2112,7 +2133,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tellem/Tellem-Prefix.pch";
 				INFOPLIST_FILE = "Tellem/Tellem-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

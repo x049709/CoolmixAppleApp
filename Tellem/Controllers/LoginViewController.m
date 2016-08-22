@@ -30,7 +30,7 @@
 @implementation LoginViewController
 
 @synthesize tabBarController,titleLbl,titlImg,textfielImg;
-@synthesize isLogin,tellemLoginView,tellemSignupView,resetPasswordView;
+@synthesize isLogin,tellemLoginView,tellemSignupView,tellemSignupInterestsView,resetPasswordView;
 @synthesize user_id;
 @synthesize mixSigninButton,shopSigninButton;
 
@@ -69,23 +69,29 @@
 {
     //MWLogDebug(@"\nLoginViewController viewWillAppear: Started.");
    [super viewWillAppear:YES];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"loginview-bg.png"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"landingbackground.png"]];
 }
 
 - (IBAction)mixSigninTouched:(id)sender
 {
     tellemLoginView = Nil;
     tellemSignupView = Nil;
+    tellemSignupInterestsView = Nil;
     resetPasswordView = Nil;
     tellemLoginView=[[TellemLoginView alloc]initWithFrame:CGRectMake(4, 0, self.view.frame.size.width-8, self.view.frame.size.height-10)];
     tellemSignupView=[[TellemSignupView alloc]initWithFrame:CGRectMake(4, 0, self.view.frame.size.width-8, self.view.frame.size.height-10)];
+    tellemSignupInterestsView=[[TellemSignupInterestsView alloc]initWithFrame:CGRectMake(4, 0, self.view.frame.size.width-8, self.view.frame.size.height-10)];
     [tellemLoginView.removeViewButton addTarget:self action:@selector(removeLoginViewFromView:) forControlEvents:UIControlEventTouchUpInside];
     [tellemLoginView.signinButton addTarget:self action:@selector(submitSignIn:) forControlEvents:UIControlEventTouchUpInside];
     [tellemLoginView.registerButton addTarget:self action:@selector(showRegisterNewUser:) forControlEvents:UIControlEventTouchUpInside];
     [tellemLoginView.forgotPasswordButton addTarget:self action:@selector(resetPassword:) forControlEvents:UIControlEventTouchUpInside];
     [tellemSignupView.removeViewButton addTarget:self action:@selector(removeLoginViewFromView:) forControlEvents:UIControlEventTouchUpInside];
     [tellemSignupView.signinButton addTarget:self action:@selector(showSigninUser:) forControlEvents:UIControlEventTouchUpInside];
-    [tellemSignupView.registerButton addTarget:self action:@selector(registerNewUser:) forControlEvents:UIControlEventTouchUpInside];
+    [tellemSignupView.registerButton addTarget:self action:@selector(showSignupInterests:) forControlEvents:UIControlEventTouchUpInside];
+    //[tellemSignupView.registerButton addTarget:self action:@selector(registerNewUser:) forControlEvents:UIControlEventTouchUpInside];
+    [tellemSignupInterestsView.registerButton addTarget:self action:@selector(showSignupProfilePicture:) forControlEvents:UIControlEventTouchUpInside];
+    [tellemSignupInterestsView.signinButton addTarget:self action:@selector(showSigninUser:) forControlEvents:UIControlEventTouchUpInside];
+
     [self.view addSubview:tellemLoginView];
 }
 
@@ -274,11 +280,33 @@
     
 }
 
+- (void)showSignupInterests:(id)sender {
+    
+    [self.view.window addSubview:ApplicationDelegate.hudd];
+    [ApplicationDelegate.hudd show:YES];
+    [self.tellemSignupView removeFromSuperview];
+    [self.tellemLoginView removeFromSuperview];
+    [self.view addSubview:tellemSignupInterestsView];
+    [ApplicationDelegate.hudd hide:YES];
+    
+}
+
+- (void)showSignupProfilePicture:(id)sender {
+    
+    NSString * msgText = @"Yo man";
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Coolmix" message:msgText delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    
+}
+
+
+
 - (void)showRegisterNewUser:(id)sender {
     
     [self.view.window addSubview:ApplicationDelegate.hudd];
     [ApplicationDelegate.hudd show:YES];
     [self.tellemLoginView removeFromSuperview];
+    [self.tellemSignupView removeFromSuperview];
     [self.view addSubview:tellemSignupView];
     [ApplicationDelegate.hudd hide:YES];
 

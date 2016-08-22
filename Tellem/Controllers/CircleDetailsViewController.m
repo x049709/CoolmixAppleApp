@@ -452,50 +452,50 @@ static NSString * const kAviarySecret = @"b1mdl2dbyp5lq2d1";
     UIImage *imagePicked = [info objectForKey:UIImagePickerControllerOriginalImage];
     imagePickedFromGalleryOrCamera=imagePicked;
     [picker dismissViewControllerAnimated:YES completion:Nil];
-    [self displayEditorForImage:imagePicked];
+    //[self displayEditorForImage:imagePicked];
     
 }
 
-- (void)displayEditorForImage:(UIImage *)imageToEdit
-{
-    // kAviaryAPIKey and kAviarySecret are developer defined
-    // and contain your API key and secret respectively
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [AFPhotoEditorController setAPIKey:kAviaryAPIKey secret:kAviarySecret];
-    });
-    
-    AFPhotoEditorController *editorController = [[AFPhotoEditorController alloc] initWithImage:imageToEdit];
-    [editorController setDelegate:self];
-    self.navigationController.navigationBarHidden=NO;
-    self.tabBarController.tabBar.hidden=NO;
-    self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
-    [self.navigationController pushViewController:editorController animated:YES];
-}
-
-- (void) photoEditorCanceled:(AFPhotoEditorController *)editor
-{
-    self.circleImage.image = Nil;;
-    [self.navigationController popViewControllerAnimated:YES];
-    self.tabBarController.tabBar.hidden=NO;
-    self.navigationController.navigationBarHidden=NO;
-    
-}
-
-- (void) photoEditor:(AFPhotoEditorController *)editor finishedWithImage:(UIImage *)editedImage
-{
-    UIImage *resizedImage = [editedImage resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(560.0f, 560.0f) interpolationQuality:kCGInterpolationHigh];
-    NSData *imageData = UIImageJPEGRepresentation(resizedImage, 0.8f);
-    if (!imageData) {
-        return;
-    }
-    
-    self.photoFile = [PFFile fileWithData:imageData];
-    self.circleImage.image =  resizedImage;
-    [self shouldUploadImage:editedImage];
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
+//- (void)displayEditorForImage:(UIImage *)imageToEdit
+//{
+//    // kAviaryAPIKey and kAviarySecret are developer defined
+//    // and contain your API key and secret respectively
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [AFPhotoEditorController setAPIKey:kAviaryAPIKey secret:kAviarySecret];
+//    });
+//    
+//    AFPhotoEditorController *editorController = [[AFPhotoEditorController alloc] initWithImage:imageToEdit];
+//    [editorController setDelegate:self];
+//    self.navigationController.navigationBarHidden=NO;
+//    self.tabBarController.tabBar.hidden=NO;
+//    self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
+//    [self.navigationController pushViewController:editorController animated:YES];
+//}
+//
+//- (void) photoEditorCanceled:(AFPhotoEditorController *)editor
+//{
+//    self.circleImage.image = Nil;;
+//    [self.navigationController popViewControllerAnimated:YES];
+//    self.tabBarController.tabBar.hidden=NO;
+//    self.navigationController.navigationBarHidden=NO;
+//    
+//}
+//
+//- (void) photoEditor:(AFPhotoEditorController *)editor finishedWithImage:(UIImage *)editedImage
+//{
+//    UIImage *resizedImage = [editedImage resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(560.0f, 560.0f) interpolationQuality:kCGInterpolationHigh];
+//    NSData *imageData = UIImageJPEGRepresentation(resizedImage, 0.8f);
+//    if (!imageData) {
+//        return;
+//    }
+//    
+//    self.photoFile = [PFFile fileWithData:imageData];
+//    self.circleImage.image =  resizedImage;
+//    [self shouldUploadImage:editedImage];
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
+//
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [picker dismissViewControllerAnimated:YES completion:Nil];

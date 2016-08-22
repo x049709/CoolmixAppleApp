@@ -9,14 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "PAPImageView.h"
 #import "User.h"
-#import <AviarySDK/AviarySDK.h>
 #import "UIImage+ImageEffects.h"
 #import "UIImage+ResizeAdditions.h"
 #import "PAPUtility.h"
 
 
 
-@interface UserProfileController : UIViewController <UITextFieldDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,AFPhotoEditorControllerDelegate>
+@interface UserProfileController : UIViewController <UITextFieldDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
 }
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;

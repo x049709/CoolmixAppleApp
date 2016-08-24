@@ -250,6 +250,11 @@
 		5BD0E47F18D1858700F387AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0E47E18D1858700F387AF /* main.m */; };
 		5BD0E48318D1858700F387AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0E48218D1858700F387AF /* AppDelegate.m */; };
 		5BD0E48618D1858700F387AF /* Coolmix.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BD0E48418D1858700F387AF /* Coolmix.storyboard */; };
+		7F89B62B3F25550E31595292 /* libPods-Coolmix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D5EC69A7C0BBAE5F239D9F /* libPods-Coolmix.a */; };
+		970143491D6E0AC1005E1E9B /* TellemSignupInterestsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 970143481D6E0AC1005E1E9B /* TellemSignupInterestsView.m */; };
+		9701434C1D6E0AE9005E1E9B /* landingbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 9701434A1D6E0AE9005E1E9B /* landingbackground.png */; };
+		9701434D1D6E0AE9005E1E9B /* landingbackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9701434B1D6E0AE9005E1E9B /* landingbackground@2x.png */; };
+		970143501D6E1368005E1E9B /* TellemSignupPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9701434E1D6E1368005E1E9B /* TellemSignupPictureView.m */; };
 		971E75771AB4C05200B1401C /* TellemLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 971E75761AB4C05200B1401C /* TellemLabel.m */; };
 		C47A457218F3EC5700581E1F /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = C47A456A18F3EC5700581E1F /* back.png */; };
 		C47A457318F3EC5700581E1F /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C47A456B18F3EC5700581E1F /* bg.png */; };
@@ -293,12 +298,11 @@
 		C49A08B318F3E0C1001053ED /* title-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C49A08AC18F3E0C1001053ED /* title-bg.png */; };
 		C4E8318118F7E8BD00E18A0C /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E8318018F7E8BD00E18A0C /* UIImage+ImageEffects.m */; };
 		C4E8318518F8399F00E18A0C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4E8318418F8399F00E18A0C /* Images.xcassets */; };
-		E76E4C0A45B1642C9F3834AD /* libPods-Coolmix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E18012A94B362A9B53A63510 /* libPods-Coolmix.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1C40BD8AEBC62E3218262157 /* Pods-Coolmix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coolmix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coolmix/Pods-Coolmix.debug.xcconfig"; sourceTree = "<group>"; };
-		349E2F0118D7816A335B70A7 /* Pods-Coolmix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coolmix.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coolmix/Pods-Coolmix.release.xcconfig"; sourceTree = "<group>"; };
+		3018D2766719C6119FA0A22E /* Pods-Coolmix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coolmix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coolmix/Pods-Coolmix.debug.xcconfig"; sourceTree = "<group>"; };
+		37F81621454AC5137746D6CF /* Pods-Coolmix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coolmix.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coolmix/Pods-Coolmix.release.xcconfig"; sourceTree = "<group>"; };
 		441FC4EB18E312C300ED843C /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		441FC4EC18E312C300ED843C /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		441FC4ED18E312C300ED843C /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -640,6 +644,7 @@
 		51FFDEE41A3229770035B7E9 /* backgroundComments@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "backgroundComments@2x.png"; path = "Resources/Assets/backgroundComments@2x.png"; sourceTree = "<group>"; };
 		51FFDEE71A322B5A0035B7E9 /* whiteBackgroundComments.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteBackgroundComments.png; path = Resources/Assets/whiteBackgroundComments.png; sourceTree = "<group>"; };
 		51FFDEE81A322B5A0035B7E9 /* whiteBackgroundComments@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "whiteBackgroundComments@2x.png"; path = "Resources/Assets/whiteBackgroundComments@2x.png"; sourceTree = "<group>"; };
+		55D5EC69A7C0BBAE5F239D9F /* libPods-Coolmix.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Coolmix.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD0E46F18D1858600F387AF /* Coolmix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coolmix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD0E47218D1858600F387AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5BD0E47418D1858600F387AF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -654,6 +659,12 @@
 		5BD0E49C18D1858700F387AF /* TellemTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TellemTests-Info.plist"; sourceTree = "<group>"; };
 		5BD0E49E18D1858700F387AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5BD0E4A018D1858700F387AF /* TellemTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TellemTests.m; sourceTree = "<group>"; };
+		970143471D6E0AC1005E1E9B /* TellemSignupInterestsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TellemSignupInterestsView.h; path = Views/TellemSignupInterestsView.h; sourceTree = "<group>"; };
+		970143481D6E0AC1005E1E9B /* TellemSignupInterestsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TellemSignupInterestsView.m; path = Views/TellemSignupInterestsView.m; sourceTree = "<group>"; };
+		9701434A1D6E0AE9005E1E9B /* landingbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = landingbackground.png; path = Tellem/Images/landingbackground.png; sourceTree = "<group>"; };
+		9701434B1D6E0AE9005E1E9B /* landingbackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "landingbackground@2x.png"; path = "Tellem/Images/landingbackground@2x.png"; sourceTree = "<group>"; };
+		9701434E1D6E1368005E1E9B /* TellemSignupPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TellemSignupPictureView.m; path = Views/TellemSignupPictureView.m; sourceTree = "<group>"; };
+		9701434F1D6E1368005E1E9B /* TellemSignupPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TellemSignupPictureView.h; path = Views/TellemSignupPictureView.h; sourceTree = "<group>"; };
 		971E75751AB4C05200B1401C /* TellemLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TellemLabel.h; path = Classes/TellemLabel.h; sourceTree = "<group>"; };
 		971E75761AB4C05200B1401C /* TellemLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TellemLabel.m; path = Classes/TellemLabel.m; sourceTree = "<group>"; };
 		C47A456A18F3EC5700581E1F /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
@@ -721,7 +732,6 @@
 		C4E8317F18F7E8BD00E18A0C /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		C4E8318018F7E8BD00E18A0C /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		C4E8318418F8399F00E18A0C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		E18012A94B362A9B53A63510 /* libPods-Coolmix.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Coolmix.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -758,7 +768,7 @@
 				45D3326118D196A900ABA2C0 /* Social.framework in Frameworks */,
 				5BD0E47718D1858600F387AF /* UIKit.framework in Frameworks */,
 				51B625F21CD3B53D00E7918C /* WebKit.framework in Frameworks */,
-				E76E4C0A45B1642C9F3834AD /* libPods-Coolmix.a in Frameworks */,
+				7F89B62B3F25550E31595292 /* libPods-Coolmix.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1137,6 +1147,8 @@
 				515506D01A507A4000E9ACD5 /* ImageBorder.png */,
 				515506D11A507A4000E9ACD5 /* img.png */,
 				5160819D1A762FB100B402C4 /* invite.png */,
+				9701434A1D6E0AE9005E1E9B /* landingbackground.png */,
+				9701434B1D6E0AE9005E1E9B /* landingbackground@2x.png */,
 				519BB5181A6CB3AB00A7F854 /* lock.png */,
 				51FBC21D1A5CE7A400DD5E6B /* map-hover.png */,
 				51FBC21E1A5CE7A400DD5E6B /* map-normal.png */,
@@ -1178,6 +1190,10 @@
 				517ADBEA1A7984E7009FE0C0 /* TellemLoginView.m */,
 				510CE7A31CFA450F0088D18F /* TellemSignupView.h */,
 				510CE7A21CFA450F0088D18F /* TellemSignupView.m */,
+				970143471D6E0AC1005E1E9B /* TellemSignupInterestsView.h */,
+				970143481D6E0AC1005E1E9B /* TellemSignupInterestsView.m */,
+				9701434F1D6E1368005E1E9B /* TellemSignupPictureView.h */,
+				9701434E1D6E1368005E1E9B /* TellemSignupPictureView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1246,6 +1262,15 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
+		57ACD0FE97EB74E39E94EB07 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3018D2766719C6119FA0A22E /* Pods-Coolmix.debug.xcconfig */,
+				37F81621454AC5137746D6CF /* Pods-Coolmix.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		5BD0E46618D1858600F387AF = {
 			isa = PBXGroup;
 			children = (
@@ -1254,7 +1279,7 @@
 				5BD0E49A18D1858700F387AF /* TellemTests */,
 				5BD0E47118D1858600F387AF /* Frameworks */,
 				5BD0E47018D1858600F387AF /* Products */,
-				A516E297234EB800246EBEDB /* Pods */,
+				57ACD0FE97EB74E39E94EB07 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1298,7 +1323,7 @@
 				45D3327C18D1975C00ABA2C0 /* SystemConfiguration.framework */,
 				C4E8317E18F7E8BD00E18A0C /* UIImageEffects */,
 				5BD0E47618D1858600F387AF /* UIKit.framework */,
-				E18012A94B362A9B53A63510 /* libPods-Coolmix.a */,
+				55D5EC69A7C0BBAE5F239D9F /* libPods-Coolmix.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1352,15 +1377,6 @@
 				5BD0E49D18D1858700F387AF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A516E297234EB800246EBEDB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1C40BD8AEBC62E3218262157 /* Pods-Coolmix.debug.xcconfig */,
-				349E2F0118D7816A335B70A7 /* Pods-Coolmix.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		C47A456918F3EC5700581E1F /* SignUp */ = {
@@ -1554,12 +1570,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BD0E4A418D1858700F387AF /* Build configuration list for PBXNativeTarget "Coolmix" */;
 			buildPhases = (
-				3BEFAE6FD18210EC11965DF1 /* Check Pods Manifest.lock */,
+				50C986DA1C6F11598013E1D9 /* [CP] Check Pods Manifest.lock */,
 				5BD0E46B18D1858600F387AF /* Sources */,
 				5BD0E46C18D1858600F387AF /* Frameworks */,
 				5BD0E46D18D1858600F387AF /* Resources */,
-				1EC77D70B6E1935E04B57FFD /* Embed Pods Frameworks */,
-				3DF2E6A4231DF319EA246D17 /* Copy Pods Resources */,
+				AE7F341D347E12FF116EE37D /* [CP] Embed Pods Frameworks */,
+				C262AE092FF817A9DCC4B1C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1580,7 +1596,7 @@
 				ORGANIZATIONNAME = "Tellem, Inc";
 				TargetAttributes = {
 					5BD0E46E18D1858600F387AF = {
-						DevelopmentTeam = B9RP24A4VD;
+						DevelopmentTeam = 36DG2399HA;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 0;
@@ -1613,11 +1629,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				515506A01A50710100E9ACD5 /* ActivityFeed.png in Resources */,
+				9701434C1D6E0AE9005E1E9B /* landingbackground.png in Resources */,
 				5120C5021A74BCC200270562 /* address-unselected.png in Resources */,
 				515506B51A5076D600E9ACD5 /* ActivityFeedBlank.png in Resources */,
 				51FBC2231A5CE7A400DD5E6B /* activities-hover.png in Resources */,
 				51FBC2241A5CE7A400DD5E6B /* activities-normal.png in Resources */,
 				51FA65911A3C159D004018CF /* add.png in Resources */,
+				9701434D1D6E0AE9005E1E9B /* landingbackground@2x.png in Resources */,
 				517DE1251A3BA7D700B94A01 /* addpicture.jpeg in Resources */,
 				517DE1271A3BA89700B94A01 /* addpicture.png in Resources */,
 				513BEDD11A867AB300DC7063 /* pickphoto.png in Resources */,
@@ -1749,29 +1767,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1EC77D70B6E1935E04B57FFD /* Embed Pods Frameworks */ = {
+		50C986DA1C6F11598013E1D9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Coolmix/Pods-Coolmix-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3BEFAE6FD18210EC11965DF1 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1779,14 +1782,29 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		3DF2E6A4231DF319EA246D17 /* Copy Pods Resources */ = {
+		AE7F341D347E12FF116EE37D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Coolmix/Pods-Coolmix-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C262AE092FF817A9DCC4B1C7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1805,6 +1823,7 @@
 				5196A8861CFF8373006BE575 /* MixHomeViewController.h in Sources */,
 				C496A84E18FE4E9A003939FD /* sha1.c in Sources */,
 				511B48161A908AEF0036FD94 /* TellemGlobals.m in Sources */,
+				970143501D6E1368005E1E9B /* TellemSignupPictureView.m in Sources */,
 				515E059A1A6227ED0094792C /* TellemUtility.m in Sources */,
 				517807C81D0A28E700A62C34 /* CoolmixUtility.m in Sources */,
 				511574DF1A737A0100B1635A /* HomeActivitiesViewController.m in Sources */,
@@ -1873,6 +1892,7 @@
 				510CE7A41CFA450F0088D18F /* TellemSignupView.m in Sources */,
 				515506011A5061CC00E9ACD5 /* PAPWelcomeViewController.m in Sources */,
 				515506041A5061CC00E9ACD5 /* PostViewController.m in Sources */,
+				970143491D6E0AC1005E1E9B /* TellemSignupInterestsView.m in Sources */,
 				51FBC2151A5CAAE100DD5E6B /* CircleActivityCell.m in Sources */,
 				441FC4F818E312C300ED843C /* NSObject+SBJSON.m in Sources */,
 				510A5A081A9F96FF005A8FA4 /* HomeTimelineViewController.m in Sources */,
@@ -1984,8 +2004,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ed Bayudan (6SQ8SJVE56)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ed Bayudan (6SQ8SJVE56)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2029,8 +2049,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ed Bayudan (6SQ8SJVE56)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ed Bayudan (6SQ8SJVE56)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2053,7 +2073,7 @@
 		};
 		5BD0E4A518D1858700F387AF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C40BD8AEBC62E3218262157 /* Pods-Coolmix.debug.xcconfig */;
+			baseConfigurationReference = 3018D2766719C6119FA0A22E /* Pods-Coolmix.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -2079,10 +2099,10 @@
 					"$(PROJECT_DIR)",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.coolmix.coolmix;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coolmix.coolmixer;
 				PRODUCT_NAME = Coolmix;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "fe37a9cd-7006-4c46-a7de-70eb1642c781";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "fe37a9cd-7006-4c46-a7de-70eb1642c781";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 				"VALID_ARCHS[sdk=*]" = "armv7 armv7s arm64";
@@ -2092,7 +2112,7 @@
 		};
 		5BD0E4A618D1858700F387AF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 349E2F0118D7816A335B70A7 /* Pods-Coolmix.release.xcconfig */;
+			baseConfigurationReference = 37F81621454AC5137746D6CF /* Pods-Coolmix.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -2118,10 +2138,10 @@
 					"$(PROJECT_DIR)",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.coolmix.coolmix;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coolmix.coolmixer;
 				PRODUCT_NAME = Coolmix;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "fe37a9cd-7006-4c46-a7de-70eb1642c781";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "fe37a9cd-7006-4c46-a7de-70eb1642c781";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 				"VALID_ARCHS[sdk=*]" = "armv7 armv7s arm64";

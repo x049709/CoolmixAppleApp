@@ -33,7 +33,7 @@
         [self setBackgroundColor:[UIColor clearColor]];
         self.layer.cornerRadius = 0.0;
         self.layer.borderWidth = 0.0;
-        scrollView=[[TPKeyboardAvoidingScrollView alloc]initWithFrame:CGRectMake(30, 60, self.frame.size.width-60, self.frame.size.height-180)];
+        scrollView=[[TPKeyboardAvoidingScrollView alloc]initWithFrame:CGRectMake(30, 60, self.frame.size.width-60, self.frame.size.height-110)];
         scrollView.layer.cornerRadius = 0.0;
         scrollView.layer.masksToBounds = YES;
         scrollView.layer.borderWidth = 0.5;
@@ -64,7 +64,7 @@
         [userLabel setTextColor:[UIColor blackColor]];
         [userLabel setBackgroundColor:[UIColor clearColor]];
         [userLabel setFont:[UIFont fontWithName: kFontBold size: 10.0f]];
-        userLabel.text = @"EMAIL";
+        userLabel.text = @"EMAIL ADDRESS";
         [scrollView addSubview:userLabel];
         
         inputUserName = [[UITextField alloc] initWithFrame:CGRectMake(20, 110, scrollView.frame.size.width - 40, 30)];

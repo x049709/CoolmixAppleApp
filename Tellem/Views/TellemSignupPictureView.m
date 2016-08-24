@@ -1,29 +1,32 @@
 //
-//  TellemSignupView.m
+//  TellemSignupPictureView.m
 //  Tellem
 //
 //  Created by Ed Bayudan on 1/28/15.
 //  Copyright (c) 2015 Tellem, LLC All rights reserved.
 //
 
-#import "TellemSignupView.h"
+#import "TellemSignupPictureView.h"
 
 
-@interface TellemSignupView ()
+@interface TellemSignupPictureView ()
 @end
 
 
-@implementation TellemSignupView
+@implementation TellemSignupPictureView
 @synthesize scrollView;
 @synthesize inputBackgroundImageView;
 @synthesize inputBackgroundImage;
 @synthesize removeViewButton;
 @synthesize inputUserName, inputFirstName, inputLastName;
 @synthesize inputPassword,retypePassword;
-@synthesize signinButton;
-@synthesize registerButton;
-@synthesize forgotPasswordButton,guestButton;
-
+@synthesize continueButton,skipButton;
+@synthesize alreadyButton;
+@synthesize forgotPasswordButton;
+@synthesize sportsButton, newsButton, musicButton;
+@synthesize entertainmentButton, lifestyleButton, techscienceButton;
+@synthesize artButton, gamingButton, foodButton;
+@synthesize fashionButton, outdoorsadventureButton;
 
 #pragma mark - Initialization
 
@@ -53,119 +56,96 @@
         [signupLabel setTextColor:[UIColor whiteColor]];
         [signupLabel setBackgroundColor:[UIColor blackColor]];
         [signupLabel setFont:[UIFont fontWithName: kFontBold size: 14.0f]];
-        signupLabel.text = @"HEY COOLMIXER! SIGN UP HERE.";
+        signupLabel.text = @"ADD A PROFILE PICTURE";
         signupLabel.textAlignment = NSTextAlignmentCenter;
         [scrollView addSubview:signupLabel];
         
-        float nameWidth = scrollView.frame.size.width - 40;
-        UILabel *fNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 70, nameWidth/2 - 2.5, 20)];
-        [fNameLabel setTextColor:[UIColor blackColor]];
-        [fNameLabel setBackgroundColor:[UIColor clearColor]];
-        [fNameLabel setFont:[UIFont fontWithName: kFontBold size: 10.0f]];
-        fNameLabel.text = @"FIRST NAME";
-        [scrollView addSubview:fNameLabel];
+        UILabel *interestLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 70, scrollView.frame.size.width - 40, 15)];
+        [interestLabel setTextColor:[UIColor blackColor]];
+        [interestLabel setBackgroundColor:[UIColor lightGrayColor]];
+        [interestLabel setFont:[UIFont fontWithName: kFontBold size: 8.0f]];
+        interestLabel.text = @"Add your unique interests";
+        [scrollView addSubview:interestLabel];
         
-        inputFirstName = [[UITextField alloc] initWithFrame:CGRectMake(20, 90, nameWidth/2 - 2.5, 30)];
-        inputFirstName.backgroundColor = [UIColor whiteColor];
-        inputFirstName.layer.borderWidth = 0.5;
-        [inputFirstName setTextColor:[UIColor blackColor]];
-        [inputFirstName setFont:[UIFont fontWithName:kFontNormal size:14.0f]];
-        inputFirstName.delegate=self;
-        inputFirstName.userInteractionEnabled=YES;
-        [scrollView addSubview:inputFirstName];
+        continueButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [continueButton setFrame:CGRectMake(scrollView.frame.size.width - 80, scrollView.frame.size.height - 40, 60, 25)];
+        [continueButton setBackgroundColor:[UIColor whiteColor]];
+        [continueButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [continueButton setTitle:@"CONTINUE" forState:UIControlStateNormal];
+        [continueButton.titleLabel setFont:[UIFont fontWithName:kFontNormal size:10.0f]];
+        [continueButton setSelected:NO];
+        continueButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        [scrollView addSubview:continueButton];
         
-        UILabel *lNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(22.5 + nameWidth/2, 70, nameWidth/2 - 2.5, 20)];
-        [lNameLabel setTextColor:[UIColor blackColor]];
-        [lNameLabel setBackgroundColor:[UIColor clearColor]];
-        [lNameLabel setFont:[UIFont fontWithName: kFontBold size: 10.0f]];
-        lNameLabel.text = @"LAST NAME";
-        [scrollView addSubview:lNameLabel];
+        skipButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [skipButton setFrame:CGRectMake(20, scrollView.frame.size.height - 40, 60, 25)];
+        [skipButton setBackgroundColor:[UIColor whiteColor]];
+        [skipButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [skipButton setTitle:@"SKIP" forState:UIControlStateNormal];
+        [skipButton.titleLabel setFont:[UIFont fontWithName:kFontNormal size:10.0f]];
+        [skipButton setSelected:NO];
+        skipButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        [scrollView addSubview:skipButton];
         
-        inputLastName = [[UITextField alloc] initWithFrame:CGRectMake(22.5 + nameWidth/2, 90, nameWidth/2 - 2.5, 30)];
-        inputLastName.backgroundColor = [UIColor whiteColor];
-        inputLastName.layer.borderWidth = 0.5;
-        [inputLastName setTextColor:[UIColor blackColor]];
-        [inputLastName setFont:[UIFont fontWithName:kFontNormal size:14.0f]];
-        inputLastName.delegate=self;
-        inputLastName.userInteractionEnabled=YES;
-        [scrollView addSubview:inputLastName];
-        
-        UILabel *userLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 130, scrollView.frame.size.width - 40, 20)];
-        [userLabel setTextColor:[UIColor blackColor]];
-        [userLabel setBackgroundColor:[UIColor clearColor]];
-        [userLabel setFont:[UIFont fontWithName: kFontBold size: 10.0f]];
-        userLabel.text = @"EMAIL ADDRESS";
-        [scrollView addSubview:userLabel];
-        
-        inputUserName = [[UITextField alloc] initWithFrame:CGRectMake(20, 150, scrollView.frame.size.width - 40, 30)];
-        inputUserName.delegate = self;
-        inputUserName.backgroundColor = [UIColor whiteColor];
-        inputUserName.layer.borderWidth = 0.5;
-        [inputUserName setTextColor:[UIColor blackColor]];
-        [inputUserName setFont:[UIFont fontWithName:kFontNormal size:14.0f]];
-        inputUserName.delegate=self;
-        inputUserName.userInteractionEnabled=YES;
-        [scrollView addSubview:inputUserName];
-
-        UILabel *passwordLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 190, (scrollView.frame.size.width - 40)/2, 20)];
-        [passwordLabel setTextColor:[UIColor blackColor]];
-        [passwordLabel setBackgroundColor:[UIColor clearColor]];
-        [passwordLabel setFont:[UIFont fontWithName: kFontBold size: 10.0f]];
-        passwordLabel.text = @"PASSWORD";
-        [scrollView addSubview:passwordLabel];
-        
-        inputPassword = [[UITextField alloc]  initWithFrame:CGRectMake(20, 210, scrollView.frame.size.width - 40, 30)];
-        inputPassword.delegate = self;
-        inputPassword.secureTextEntry = YES;
-        inputPassword.backgroundColor = [UIColor whiteColor];
-        inputPassword.layer.borderWidth = 0.5;
-        [inputPassword setTextColor:[UIColor blackColor]];
-        [inputPassword setFont:[UIFont fontWithName:kFontNormal size:14.0f]];
-        inputPassword.delegate=self;
-        inputPassword.userInteractionEnabled=YES;
-        [scrollView addSubview:inputPassword];
-        
-        UILabel *retypePasswordLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 250, (scrollView.frame.size.width - 40)/2, 20)];
-        [retypePasswordLabel setTextColor:[UIColor blackColor]];
-        [retypePasswordLabel setBackgroundColor:[UIColor clearColor]];
-        [retypePasswordLabel setFont:[UIFont fontWithName: kFontBold size: 10.0f]];
-        retypePasswordLabel.text = @"REPEAT PASSWORD";
-        [scrollView addSubview:retypePasswordLabel];
-        
-        retypePassword = [[UITextField alloc]  initWithFrame:CGRectMake(20, 270, scrollView.frame.size.width - 40, 30)];
-        retypePassword.delegate = self;
-        retypePassword.secureTextEntry = YES;
-        retypePassword.backgroundColor = [UIColor whiteColor];
-        retypePassword.layer.borderWidth = 0.5;
-        [retypePassword setTextColor:[UIColor blackColor]];
-        [retypePassword setFont:[UIFont fontWithName:kFontNormal size:14.0f]];
-        retypePassword.delegate=self;
-        retypePassword.userInteractionEnabled=YES;
-        [scrollView addSubview:retypePassword];
-        
-        registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [registerButton setFrame:CGRectMake(inputPassword.frame.size.width - 40, 310, 60, 25)];
-        [registerButton setBackgroundColor:[UIColor blackColor]];
-        [registerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [registerButton setTitle:@"SIGN UP" forState:UIControlStateNormal];
-        [registerButton.titleLabel setFont:[UIFont fontWithName:kFontBold size:14.0f]];
-        [registerButton setSelected:NO];
-        registerButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        [scrollView addSubview:registerButton];
-        
-        signinButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [signinButton setFrame:CGRectMake(30, scrollView.frame.size.height +80, scrollView.frame.size.width, 30.0)];
-        [signinButton setBackgroundColor:[UIColor blackColor]];
-        [signinButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [signinButton setTitle:@"ALREADY A MIXER? LOG IN HERE." forState:UIControlStateNormal];
-        [signinButton.titleLabel setFont:[UIFont fontWithName:kFontBold size:14.0f]];
-        [signinButton setSelected:NO];
-        [self addSubview:signinButton];
+        alreadyButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [alreadyButton setFrame:CGRectMake(30, scrollView.frame.size.height +80, scrollView.frame.size.width, 30.0)];
+        [alreadyButton setBackgroundColor:[UIColor blackColor]];
+        [alreadyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [alreadyButton setTitle:@"ALREADY A MIXER? LOG IN HERE." forState:UIControlStateNormal];
+        [alreadyButton.titleLabel setFont:[UIFont fontWithName:kFontBold size:14.0f]];
+        [alreadyButton setSelected:NO];
+        [self addSubview:alreadyButton];
         
     }
     
     return self;
 }
+
+- (UIButton*)createButtonWithFrame:(CGRect)frame andTitle:(NSString*)btnTitle
+{
+    UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setFrame:frame];
+    btn.layer.borderWidth = 0.5;
+    btn.tag = 0;
+    [btn setBackgroundColor:[UIColor whiteColor]];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn setTitle:btnTitle forState:UIControlStateNormal];
+    [btn.titleLabel setFont:[UIFont fontWithName:kFontBold size:12.0f]];
+    [btn setSelected:NO];
+    btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    [btn addTarget:self action:@selector(changeButtonColor:) forControlEvents:UIControlEventTouchUpInside];
+    [scrollView addSubview:btn];
+    
+    
+    return btn;
+}
+
+- (void)changeButtonColor:(id)sender {
+    
+    UIButton* btn = (UIButton*)sender;
+    if (btn.tag == 0) {
+        btn.tag = 1;
+        [btn setBackgroundColor:[UIColor blackColor]];
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        continueButton.tag++;
+    } else {
+        btn.tag = 0;
+        [btn setBackgroundColor:[UIColor whiteColor]];
+        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        continueButton.tag--;
+    }
+    
+    if (continueButton.tag>0) {
+        [continueButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [continueButton setEnabled:TRUE];
+    }
+    else {
+        [continueButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [continueButton setEnabled:FALSE];
+    }
+    
+}
+
 
 -(UIToolbar*)configureKeyboardToolbars: (UITextField*) textField
 {
@@ -266,12 +246,6 @@
     {
         [self.inputPassword insertText:sender.title];
     }
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
 }
 
 

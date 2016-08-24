@@ -14,13 +14,15 @@
 #import "AppDelegate.h"
 #import "TellemLoginView.h"
 #import "TellemSignupView.h"
+#import "TellemSignupInterestsView.h"
+#import "TellemSignupPictureView.h"
 #import "TellemForgotPasswordView.h"
 #import "PAPUtility.h"
 #import "TellemGlobals.h"
 #import "RestClient.h"
 
 
-@interface LoginViewController : UIViewController<UIWebViewDelegate,PFLogInViewControllerDelegate,UIScrollViewDelegate>
+@interface LoginViewController : UIViewController<UITextFieldDelegate,UIWebViewDelegate,PFLogInViewControllerDelegate,UIScrollViewDelegate>
 {
     UIScrollView *scrollView;
     BOOL firstLaunch;
@@ -36,6 +38,8 @@
 @property (nonatomic, strong) MokriyaUITabBarController *tabBarController;
 @property (nonatomic, strong) TellemLoginView *tellemLoginView;
 @property (nonatomic, strong) TellemSignupView *tellemSignupView;
+@property (nonatomic, strong) TellemSignupInterestsView *tellemSignupInterestsView;
+@property (nonatomic, strong) TellemSignupPictureView *tellemSignupPictureView;
 @property (nonatomic, strong) TellemForgotPasswordView *resetPasswordView;
 @property (strong, nonatomic) IBOutlet UIButton *mixSigninButton;
 @property (strong, nonatomic) IBOutlet UIButton *shopSigninButton;

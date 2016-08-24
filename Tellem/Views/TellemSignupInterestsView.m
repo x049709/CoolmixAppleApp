@@ -67,47 +67,18 @@
         interestLabel.text = @"Add your unique interests";
         [scrollView addSubview:interestLabel];
         
-        sportsButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [sportsButton setFrame:CGRectMake(20, 90, 60, 25)];
-        sportsButton.layer.borderWidth = 0.5;
-        sportsButton.tag = 0;
-        [sportsButton setBackgroundColor:[UIColor whiteColor]];
-        [sportsButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [sportsButton setTitle:@"SPORTS +" forState:UIControlStateNormal];
-        [sportsButton.titleLabel setFont:[UIFont fontWithName:kFontBold size:12.0f]];
-        [sportsButton setSelected:NO];
-        sportsButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        [scrollView addSubview:sportsButton];
+        sportsButton = [self createButtonWithFrame:CGRectMake(20, 90, 60, 15) andTitle:@"SPORTS +"];
+        newsButton = [self createButtonWithFrame:CGRectMake(90, 90, 50, 15) andTitle:@"NEWS +"];
+        musicButton = [self createButtonWithFrame:CGRectMake(150, 90, 50, 15) andTitle:@"MUSIC +"];
+        entertainmentButton = [self createButtonWithFrame:CGRectMake(20, 110, 110, 15) andTitle:@"ENTERTAINMENT +"];
+        lifestyleButton = [self createButtonWithFrame:CGRectMake(140, 110, 80, 15) andTitle:@"LIFESTYLE +"];
+        techscienceButton = [self createButtonWithFrame:CGRectMake(20, 130, 150, 15) andTitle:@"TECHNOLOGY & SCIENCE +"];
+        artButton = [self createButtonWithFrame:CGRectMake(180, 130, 40, 15) andTitle:@"ART +"];
+        gamingButton = [self createButtonWithFrame:CGRectMake(20, 150, 60, 15) andTitle:@"GAMING +"];
+        foodButton = [self createButtonWithFrame:CGRectMake(90, 150, 50, 15) andTitle:@"FOOD +"];
+        fashionButton = [self createButtonWithFrame:CGRectMake(20, 170, 60, 15) andTitle:@"FASHION +"];
+        outdoorsadventureButton = [self createButtonWithFrame:CGRectMake(90, 170, 150, 15) andTitle:@"OUTDOORS & ADVENTURE +"];
 
-        newsButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [newsButton setFrame:CGRectMake(90, 90, 50, 25)];
-        newsButton.layer.borderWidth = 0.5;
-        newsButton.tag = 0;
-        [newsButton setBackgroundColor:[UIColor whiteColor]];
-        [newsButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [newsButton setTitle:@"NEWS +" forState:UIControlStateNormal];
-        [newsButton.titleLabel setFont:[UIFont fontWithName:kFontBold size:12.0f]];
-        [newsButton setSelected:NO];
-        newsButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        [scrollView addSubview:newsButton];
-        
-        UILabel *retypePasswordLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 250, (scrollView.frame.size.width - 40)/2, 20)];
-        [retypePasswordLabel setTextColor:[UIColor blackColor]];
-        [retypePasswordLabel setBackgroundColor:[UIColor clearColor]];
-        [retypePasswordLabel setFont:[UIFont fontWithName: kFontBold size: 10.0f]];
-        retypePasswordLabel.text = @"REPEAT PASSWORD";
-        [scrollView addSubview:retypePasswordLabel];
-        
-        retypePassword = [[UITextField alloc]  initWithFrame:CGRectMake(20, 270, scrollView.frame.size.width - 40, 30)];
-        retypePassword.secureTextEntry = YES;
-        retypePassword.backgroundColor = [UIColor whiteColor];
-        retypePassword.layer.borderWidth = 0.5;
-        [retypePassword setTextColor:[UIColor blackColor]];
-        [retypePassword setFont:[UIFont fontWithName:kFontNormal size:14.0f]];
-        retypePassword.delegate=self;
-        retypePassword.userInteractionEnabled=YES;
-        [scrollView addSubview:retypePassword];
-        
         continueButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [continueButton setFrame:CGRectMake(scrollView.frame.size.width - 70, scrollView.frame.size.height - 40, 60, 25)];
         [continueButton setBackgroundColor:[UIColor whiteColor]];
@@ -131,6 +102,50 @@
     
     return self;
 }
+
+- (UIButton*)createButtonWithFrame:(CGRect)frame andTitle:(NSString*)btnTitle
+{
+    UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setFrame:frame];
+    btn.layer.borderWidth = 0.5;
+    btn.tag = 0;
+    [btn setBackgroundColor:[UIColor whiteColor]];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn setTitle:btnTitle forState:UIControlStateNormal];
+    [btn.titleLabel setFont:[UIFont fontWithName:kFontBold size:12.0f]];
+    [btn setSelected:NO];
+    btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    [btn addTarget:self action:@selector(changeButtonColor:) forControlEvents:UIControlEventTouchUpInside];
+    [scrollView addSubview:btn];
+    
+    
+    return btn;
+}
+
+- (void)changeButtonColor:(id)sender {
+    
+    UIButton* btn = (UIButton*)sender;
+    if (btn.tag == 0) {
+        btn.tag = 1;
+        [btn setBackgroundColor:[UIColor blackColor]];
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        continueButton.tag++;
+    } else {
+        btn.tag = 0;
+        [btn setBackgroundColor:[UIColor whiteColor]];
+        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        continueButton.tag--;
+    }
+    
+    if (continueButton.tag>0) {
+        [continueButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }
+    else {
+        [continueButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    }
+    
+}
+
 
 -(UIToolbar*)configureKeyboardToolbars: (UITextField*) textField
 {

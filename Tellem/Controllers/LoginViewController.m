@@ -275,8 +275,6 @@
     [tellemSignupInterestsView.removeViewButton addTarget:self action:@selector(removeView:) forControlEvents:UIControlEventTouchUpInside];
     [tellemSignupInterestsView.continueButton addTarget:self action:@selector(showSignupProfilePicture:) forControlEvents:UIControlEventTouchUpInside];
     [tellemSignupInterestsView.alreadyButton addTarget:self action:@selector(showSigninUser:) forControlEvents:UIControlEventTouchUpInside];
-    [tellemSignupInterestsView.sportsButton addTarget:self action:@selector(changeButtonColor:) forControlEvents:UIControlEventTouchUpInside];
-    [tellemSignupInterestsView.newsButton addTarget:self action:@selector(changeButtonColor:) forControlEvents:UIControlEventTouchUpInside];
     [self.view.window addSubview:ApplicationDelegate.hudd];
     [ApplicationDelegate.hudd show:YES];
     [self.view addSubview:tellemSignupInterestsView];
@@ -291,32 +289,6 @@
     [alert show];
     
 }
-
-- (void)changeButtonColor:(id)sender {
-
-    UIButton* btn = (UIButton*)sender;
-    if (btn.tag == 0) {
-        btn.tag = 1;
-        [btn setBackgroundColor:[UIColor blackColor]];
-        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        tellemSignupInterestsView.continueButton.tag++;
-     } else {
-        btn.tag = 0;
-        [btn setBackgroundColor:[UIColor whiteColor]];
-        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        tellemSignupInterestsView.continueButton.tag--;
-    }
-    
-    if (tellemSignupInterestsView.continueButton.tag>0) {
-        [tellemSignupInterestsView.continueButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    }
-    else {
-        [tellemSignupInterestsView.continueButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-    }
-    
-}
-
-
 
 - (void)registerNewUser:(id)sender {
     

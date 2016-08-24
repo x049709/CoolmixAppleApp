@@ -1,0 +1,238 @@
+//
+//  TellemSignupInterestsView.m
+//  Tellem
+//
+//  Created by Ed Bayudan on 1/28/15.
+//  Copyright (c) 2015 Tellem, LLC All rights reserved.
+//
+
+#import "TellemSignupInterestsView.h"
+
+
+@interface TellemSignupInterestsView ()
+@end
+
+
+@implementation TellemSignupInterestsView
+@synthesize scrollView;
+@synthesize inputBackgroundImageView;
+@synthesize inputBackgroundImage;
+@synthesize removeViewButton;
+@synthesize inputUserName, inputFirstName, inputLastName;
+@synthesize inputPassword,retypePassword;
+@synthesize continueButton;
+@synthesize alreadyButton;
+@synthesize forgotPasswordButton;
+@synthesize sportsButton, newsButton, musicButton;
+@synthesize entertainmentButton, lifestyleButton, techscienceButton;
+@synthesize artButton, gamingButton, foodButton;
+@synthesize fashionButton, outdoorsadventureButton;
+
+#pragma mark - Initialization
+
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setBackgroundColor:[UIColor clearColor]];
+        self.layer.cornerRadius = 0.0;
+        self.layer.borderWidth = 0.0;
+        scrollView=[[TPKeyboardAvoidingScrollView alloc]initWithFrame:CGRectMake(30, 60, self.frame.size.width-60, self.frame.size.height-110)];
+        scrollView.layer.cornerRadius = 0.0;
+        scrollView.layer.masksToBounds = YES;
+        scrollView.layer.borderWidth = 0.5;
+        [scrollView setScrollEnabled:YES];
+        scrollView.backgroundColor = [UIColor whiteColor];
+        [self addSubview:scrollView];
+        
+        removeViewButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [removeViewButton setFrame:CGRectMake(self.bounds.origin.x+self.bounds.size.width-40, 25.0f, 32.0f, 32.0f)];
+        [removeViewButton setBackgroundColor:[UIColor clearColor]];
+        [[removeViewButton titleLabel] setAdjustsFontSizeToFitWidth:YES];
+        [removeViewButton setBackgroundImage:[UIImage imageNamed:@"cancel.png"] forState:UIControlStateNormal];
+        [removeViewButton setSelected:NO];
+        [self addSubview:removeViewButton];
+        
+        UILabel *signupLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, scrollView.frame.size.width - 40, 30)];
+        [signupLabel setTextColor:[UIColor whiteColor]];
+        [signupLabel setBackgroundColor:[UIColor blackColor]];
+        [signupLabel setFont:[UIFont fontWithName: kFontBold size: 14.0f]];
+        signupLabel.text = @"WHAT ARE YOU INTERESTED IN?";
+        signupLabel.textAlignment = NSTextAlignmentCenter;
+        [scrollView addSubview:signupLabel];
+        
+        UILabel *interestLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 70, scrollView.frame.size.width - 40, 15)];
+        [interestLabel setTextColor:[UIColor blackColor]];
+        [interestLabel setBackgroundColor:[UIColor lightGrayColor]];
+        [interestLabel setFont:[UIFont fontWithName: kFontBold size: 8.0f]];
+        interestLabel.text = @"Add your unique interests";
+        [scrollView addSubview:interestLabel];
+        
+        sportsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [sportsButton setFrame:CGRectMake(20, 90, 60, 25)];
+        sportsButton.layer.borderWidth = 0.5;
+        sportsButton.tag = 0;
+        [sportsButton setBackgroundColor:[UIColor whiteColor]];
+        [sportsButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [sportsButton setTitle:@"SPORTS +" forState:UIControlStateNormal];
+        [sportsButton.titleLabel setFont:[UIFont fontWithName:kFontBold size:12.0f]];
+        [sportsButton setSelected:NO];
+        sportsButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        [scrollView addSubview:sportsButton];
+
+        newsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [newsButton setFrame:CGRectMake(90, 90, 50, 25)];
+        newsButton.layer.borderWidth = 0.5;
+        newsButton.tag = 0;
+        [newsButton setBackgroundColor:[UIColor whiteColor]];
+        [newsButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [newsButton setTitle:@"NEWS +" forState:UIControlStateNormal];
+        [newsButton.titleLabel setFont:[UIFont fontWithName:kFontBold size:12.0f]];
+        [newsButton setSelected:NO];
+        newsButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        [scrollView addSubview:newsButton];
+        
+        UILabel *retypePasswordLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 250, (scrollView.frame.size.width - 40)/2, 20)];
+        [retypePasswordLabel setTextColor:[UIColor blackColor]];
+        [retypePasswordLabel setBackgroundColor:[UIColor clearColor]];
+        [retypePasswordLabel setFont:[UIFont fontWithName: kFontBold size: 10.0f]];
+        retypePasswordLabel.text = @"REPEAT PASSWORD";
+        [scrollView addSubview:retypePasswordLabel];
+        
+        retypePassword = [[UITextField alloc]  initWithFrame:CGRectMake(20, 270, scrollView.frame.size.width - 40, 30)];
+        retypePassword.secureTextEntry = YES;
+        retypePassword.backgroundColor = [UIColor whiteColor];
+        retypePassword.layer.borderWidth = 0.5;
+        [retypePassword setTextColor:[UIColor blackColor]];
+        [retypePassword setFont:[UIFont fontWithName:kFontNormal size:14.0f]];
+        retypePassword.delegate=self;
+        retypePassword.userInteractionEnabled=YES;
+        [scrollView addSubview:retypePassword];
+        
+        continueButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [continueButton setFrame:CGRectMake(scrollView.frame.size.width - 70, scrollView.frame.size.height - 40, 60, 25)];
+        [continueButton setBackgroundColor:[UIColor whiteColor]];
+        [continueButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [continueButton setTitle:@"CONTINUE" forState:UIControlStateNormal];
+        [continueButton.titleLabel setFont:[UIFont fontWithName:kFontNormal size:10.0f]];
+        [continueButton setSelected:NO];
+        continueButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        [scrollView addSubview:continueButton];
+        
+        alreadyButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [alreadyButton setFrame:CGRectMake(30, scrollView.frame.size.height +80, scrollView.frame.size.width, 30.0)];
+        [alreadyButton setBackgroundColor:[UIColor blackColor]];
+        [alreadyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [alreadyButton setTitle:@"ALREADY A MIXER? LOG IN HERE." forState:UIControlStateNormal];
+        [alreadyButton.titleLabel setFont:[UIFont fontWithName:kFontBold size:14.0f]];
+        [alreadyButton setSelected:NO];
+        [self addSubview:alreadyButton];
+        
+    }
+    
+    return self;
+}
+
+-(UIToolbar*)configureKeyboardToolbars: (UITextField*) textField
+{
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, 0.0f,self.window.frame.size.width, 40.0f)];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        toolBar.barTintColor = [UIColor grayColor];
+        toolBar.tintColor = [UIColor colorWithRed:0.6f green:0.6f blue:0.64f alpha:1.0f];
+    }
+    else
+    {
+        toolBar.barTintColor = [UIColor grayColor];
+        toolBar.tintColor = [UIColor colorWithRed:0.6f green:0.6f blue:0.64f alpha:1.0f];
+    }
+    toolBar.translucent = NO;
+    toolBar.items =   @[ [[UIBarButtonItem alloc] initWithTitle:@"."
+                                                          style:UIBarButtonItemStyleBordered
+                                                         target:self
+                                                         action:@selector(barButtonAddText:)],
+                         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                       target:nil
+                                                                       action:nil],
+                         [[UIBarButtonItem alloc] initWithTitle:@"@"
+                                                          style:UIBarButtonItemStyleBordered
+                                                         target:self
+                                                         action:@selector(barButtonAddText:)],
+                         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                       target:nil
+                                                                       action:nil],
+                         [[UIBarButtonItem alloc] initWithTitle:@"_"
+                                                          style:UIBarButtonItemStyleBordered
+                                                         target:self
+                                                         action:@selector(barButtonAddText:)],
+                         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                       target:nil
+                                                                       action:nil],
+                         [[UIBarButtonItem alloc] initWithTitle:@"#"
+                                                          style:UIBarButtonItemStyleBordered
+                                                         target:self
+                                                         action:@selector(barButtonAddText:)],
+                         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                       target:nil
+                                                                       action:nil],
+                         [[UIBarButtonItem alloc] initWithTitle:@"$"
+                                                          style:UIBarButtonItemStyleBordered
+                                                         target:self
+                                                         action:@selector(barButtonAddText:)],
+                         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                       target:nil
+                                                                       action:nil],
+                         [[UIBarButtonItem alloc] initWithTitle:@"("
+                                                          style:UIBarButtonItemStyleBordered
+                                                         target:self
+                                                         action:@selector(barButtonAddText:)],
+                         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                       target:nil
+                                                                       action:nil],
+                         [[UIBarButtonItem alloc] initWithTitle:@")"
+                                                          style:UIBarButtonItemStyleBordered
+                                                         target:self
+                                                         action:@selector(barButtonAddText:)],
+                         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                       target:nil
+                                                                       action:nil],
+                         [[UIBarButtonItem alloc] initWithTitle:@"_"
+                                                          style:UIBarButtonItemStyleBordered
+                                                         target:self
+                                                         action:@selector(barButtonAddText:)],
+                         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                       target:nil
+                                                                       action:nil],
+                         [[UIBarButtonItem alloc] initWithTitle:@"*"
+                                                          style:UIBarButtonItemStyleBordered
+                                                         target:self
+                                                         action:@selector(barButtonAddText:)],
+                         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                       target:nil
+                                                                       action:nil],
+                         [[UIBarButtonItem alloc] initWithTitle:@"+"
+                                                          style:UIBarButtonItemStyleBordered
+                                                         target:self
+                                                         action:@selector(barButtonAddText:)],
+                         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                       target:nil
+                                                                       action:nil],
+                         ];
+    
+    return toolBar;
+}
+
+-(IBAction)barButtonAddText:(UIBarButtonItem*)sender
+{
+    if (self.inputUserName.isFirstResponder)
+    {
+        [self.inputUserName insertText:sender.title];
+    }
+    else if (self.inputPassword.isFirstResponder)
+    {
+        [self.inputPassword insertText:sender.title];
+    }
+}
+
+
+
+@end

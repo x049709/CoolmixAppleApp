@@ -433,7 +433,7 @@ static NSString * const kAviarySecret = @"b1mdl2dbyp5lq2d1";
     UIImage *imagePicked = [info objectForKey:UIImagePickerControllerOriginalImage];
     self.imagePickedFromGalleryOrCamera=imagePicked;
     [picker dismissViewControllerAnimated:YES completion:Nil];
-    [self displayEditorForImage:imagePicked];
+    //[self displayEditorForImage:imagePicked];
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -442,41 +442,41 @@ static NSString * const kAviarySecret = @"b1mdl2dbyp5lq2d1";
     [self.scrollView setNeedsLayout];
 }
 
-- (void)displayEditorForImage:(UIImage *)imageToEdit
-{
-    // kAviaryAPIKey and kAviarySecret are developer defined
-    // and contain your API key and secret respectively
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [AFPhotoEditorController setAPIKey:kAviaryAPIKey secret:kAviarySecret];
-    });
-    
-    AFPhotoEditorController *editorController = [[AFPhotoEditorController alloc] initWithImage:imageToEdit];
-    [editorController setDelegate:self];
-    self.navigationController.navigationBarHidden=NO;
-    self.tabBarController.tabBar.hidden=NO;
-    self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
-    [self.navigationController pushViewController:editorController animated:YES];
-}
-
-- (void) photoEditorCanceled:(AFPhotoEditorController *)editor
-{
-    [self.navigationController popViewControllerAnimated:YES];
-    self.tabBarController.tabBar.hidden=NO;
-    self.navigationController.navigationBarHidden=NO;
-}
-
-- (void) photoEditor:(AFPhotoEditorController *)editor finishedWithImage:(UIImage *)editedImage
-{
-    UIImage *resizedImage = [editedImage resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(560.0f, 560.0f) interpolationQuality:kCGInterpolationHigh];
-    NSData *imageData = UIImageJPEGRepresentation(resizedImage, 0.8f);
-    if (!imageData) {
-        return;
-    }
-    
-    [self shouldUploadImage:editedImage];
-    [self.navigationController popViewControllerAnimated:YES];
-}
+//- (void)displayEditorForImage:(UIImage *)imageToEdit
+//{
+//    // kAviaryAPIKey and kAviarySecret are developer defined
+//    // and contain your API key and secret respectively
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [AFPhotoEditorController setAPIKey:kAviaryAPIKey secret:kAviarySecret];
+//    });
+//    
+//    AFPhotoEditorController *editorController = [[AFPhotoEditorController alloc] initWithImage:imageToEdit];
+//    [editorController setDelegate:self];
+//    self.navigationController.navigationBarHidden=NO;
+//    self.tabBarController.tabBar.hidden=NO;
+//    self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
+//    [self.navigationController pushViewController:editorController animated:YES];
+//}
+//
+//- (void) photoEditorCanceled:(AFPhotoEditorController *)editor
+//{
+//    [self.navigationController popViewControllerAnimated:YES];
+//    self.tabBarController.tabBar.hidden=NO;
+//    self.navigationController.navigationBarHidden=NO;
+//}
+//
+//- (void) photoEditor:(AFPhotoEditorController *)editor finishedWithImage:(UIImage *)editedImage
+//{
+//    UIImage *resizedImage = [editedImage resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(560.0f, 560.0f) interpolationQuality:kCGInterpolationHigh];
+//    NSData *imageData = UIImageJPEGRepresentation(resizedImage, 0.8f);
+//    if (!imageData) {
+//        return;
+//    }
+//    
+//    [self shouldUploadImage:editedImage];
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 
 - (BOOL)shouldUploadImage:(UIImage *)anImage {
     PFUser *currentUser = [PFUser currentUser];

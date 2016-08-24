@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import <AviarySDK/AviarySDK.h>
 
-@interface PostSharingViewController : UIViewController<CLLocationManagerDelegate,UIActionSheetDelegate,AFPhotoEditorControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate,UITableViewDataSource,UITableViewDelegate>{
+@interface PostSharingViewController : UIViewController<CLLocationManagerDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate,UITableViewDataSource,UITableViewDelegate>{
     
      CLLocationManager *locationManager;
     NSMutableArray *pastUrls;

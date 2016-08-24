@@ -20,7 +20,11 @@
 @synthesize removeViewButton;
 @synthesize inputUserName, inputFirstName, inputLastName;
 @synthesize inputPassword,retypePassword;
+<<<<<<< HEAD
 @synthesize continueButton,skipButton;
+=======
+@synthesize continueButton;
+>>>>>>> 2999dc7adeb68339e4c8d8db651d6db35cd01898
 @synthesize alreadyButton;
 @synthesize forgotPasswordButton;
 @synthesize sportsButton, newsButton, musicButton;
@@ -76,16 +80,25 @@
         artButton = [self createButtonWithFrame:CGRectMake(180, 130, 40, 15) andTitle:@"ART +"];
         gamingButton = [self createButtonWithFrame:CGRectMake(20, 150, 60, 15) andTitle:@"GAMING +"];
         foodButton = [self createButtonWithFrame:CGRectMake(90, 150, 50, 15) andTitle:@"FOOD +"];
+<<<<<<< HEAD
         fashionButton = [self createButtonWithFrame:CGRectMake(80, 170, 60, 15) andTitle:@"FASHION +"];
         outdoorsadventureButton = [self createButtonWithFrame:CGRectMake(20, 170, 150, 15) andTitle:@"OUTDOORS & ADVENTURE +"];
 
         continueButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [continueButton setFrame:CGRectMake(scrollView.frame.size.width - 80, scrollView.frame.size.height - 40, 60, 25)];
+=======
+        fashionButton = [self createButtonWithFrame:CGRectMake(20, 170, 60, 15) andTitle:@"FASHION +"];
+        outdoorsadventureButton = [self createButtonWithFrame:CGRectMake(90, 170, 150, 15) andTitle:@"OUTDOORS & ADVENTURE +"];
+
+        continueButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [continueButton setFrame:CGRectMake(scrollView.frame.size.width - 70, scrollView.frame.size.height - 40, 60, 25)];
+>>>>>>> 2999dc7adeb68339e4c8d8db651d6db35cd01898
         [continueButton setBackgroundColor:[UIColor whiteColor]];
         [continueButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [continueButton setTitle:@"CONTINUE" forState:UIControlStateNormal];
         [continueButton.titleLabel setFont:[UIFont fontWithName:kFontNormal size:10.0f]];
         [continueButton setSelected:NO];
+<<<<<<< HEAD
         [continueButton setEnabled:FALSE];
         continueButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         [scrollView addSubview:continueButton];
@@ -100,6 +113,11 @@
         skipButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [scrollView addSubview:skipButton];
         
+=======
+        continueButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        [scrollView addSubview:continueButton];
+        
+>>>>>>> 2999dc7adeb68339e4c8d8db651d6db35cd01898
         alreadyButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [alreadyButton setFrame:CGRectMake(30, scrollView.frame.size.height +80, scrollView.frame.size.width, 30.0)];
         [alreadyButton setBackgroundColor:[UIColor blackColor]];
@@ -150,11 +168,17 @@
     
     if (continueButton.tag>0) {
         [continueButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+<<<<<<< HEAD
         [continueButton setEnabled:TRUE];
     }
     else {
         [continueButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [continueButton setEnabled:FALSE];
+=======
+    }
+    else {
+        [continueButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+>>>>>>> 2999dc7adeb68339e4c8d8db651d6db35cd01898
     }
     
 }
@@ -261,11 +285,14 @@
     }
 }
 
+<<<<<<< HEAD
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     return YES;
 }
+=======
+>>>>>>> 2999dc7adeb68339e4c8d8db651d6db35cd01898
 
 
 @end

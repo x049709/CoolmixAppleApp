@@ -333,40 +333,38 @@ static NSString * const kAviarySecret = @"b1mdl2dbyp5lq2d1";
 }
 - (void)displayEditorForImage:(UIImage *)imageToEdit
 {
-    // kAviaryAPIKey and kAviarySecret are developer defined
-    // and contain your API key and secret respectively
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [AFPhotoEditorController setAPIKey:kAviaryAPIKey secret:kAviarySecret];
-    });
-    
-    AFPhotoEditorController *editorController = [[AFPhotoEditorController alloc] initWithImage:imageToEdit];
-    [editorController setDelegate:self];
-    self.navigationController.navigationBarHidden=YES;
-    self.tabBarController.tabBar.hidden=YES;
-    self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
-    [self.navigationController pushViewController:editorController animated:YES];
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [AFPhotoEditorController setAPIKey:kAviaryAPIKey secret:kAviarySecret];
+//    });
+//    
+//    AFPhotoEditorController *editorController = [[AFPhotoEditorController alloc] initWithImage:imageToEdit];
+//    [editorController setDelegate:self];
+//    self.navigationController.navigationBarHidden=YES;
+//    self.tabBarController.tabBar.hidden=YES;
+//    self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
+//    [self.navigationController pushViewController:editorController animated:YES];
 }
 
-- (void) photoEditorCanceled:(AFPhotoEditorController *)editor
-{
-    self.postImg.image=nil;
-    self.postImg.hidden=YES;
-    [removePicture removeFromSuperview];
-    self.postPhoto.hidden=NO;
-    [self.navigationController popViewControllerAnimated:YES];
-    self.tabBarController.tabBar.hidden=NO;
-    self.navigationController.navigationBarHidden=NO;
+//- (void) photoEditorCanceled:(AFPhotoEditorController *)editor
+//{
+//    self.postImg.image=nil;
+//    self.postImg.hidden=YES;
+//    [removePicture removeFromSuperview];
+//    self.postPhoto.hidden=NO;
+//    [self.navigationController popViewControllerAnimated:YES];
+//    self.tabBarController.tabBar.hidden=NO;
+//    self.navigationController.navigationBarHidden=NO;
+//
+//}
 
-}
-
-- (void) photoEditor:(AFPhotoEditorController *)editor finishedWithImage:(UIImage *)editedImage
-{
-    [self finishedWithImage:editedImage];
-    self.tabBarController.tabBar.hidden=NO;
-    self.navigationController.navigationBarHidden=NO;
-    [self.navigationController popViewControllerAnimated:YES];
-}
+//- (void) photoEditor:(AFPhotoEditorController *)editor finishedWithImage:(UIImage *)editedImage
+//{
+//    [self finishedWithImage:editedImage];
+//    self.tabBarController.tabBar.hidden=NO;
+//    self.navigationController.navigationBarHidden=NO;
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 
 - (void) finishedWithImage:(UIImage *)editedImage
 {

@@ -40,8 +40,8 @@
 @synthesize sortedCircleNames,circleUserIds,sortedUserActivities,circleTableView,titleText, titleLabel,pageCircle,pushPayload;
 @synthesize activityImageView,activityUserId,activityInitialComment,circleAvatar,netWorkTable;
 @synthesize posterNameLabel,postTimestampLabel,postLatestCommentsLabel,timeIntervalFormatter,pageIndex,userActivityCount;
-@synthesize gsrList, tM;
-@synthesize testImage, restClient, cgrButton, categoryButton;
+@synthesize gsrList, tM, gsrImages;
+@synthesize testImage, restClient, cgrButton, categoryButton, addNewCGRView;
 
 #pragma mark - Initialization
 
@@ -56,6 +56,7 @@
     [TellemUtility sendForgottenPasswordToUser:tM.gCoolmixServerPassword];
 
     self.gsrList = [TellemUtility getCoolmixGSR:tM.gCoolmixServerURL andServerUser:tM.gCoolmixServerUser andServerPassword:tM.gCoolmixServerPassword];
+    self.gsrImages = [TellemUtility getCoolmixGSRImages:self.gsrList];
 
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -172,23 +173,13 @@
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    NSDictionary *item = [self.gsrList objectAtIndex:indexPath.row];
-    NSString *imageFileName = [item objectForKey:@"imageFileName"];
-    NSString *imageFilePath = [item objectForKey:@"imageFilePath"];
-    
-    UIImage *gsrImage = [restClient getImageFromMix:tM.gCoolmixServerURL andServerUser:tM.gCoolmixServerUser andServerPassword:tM.gCoolmixServerPassword andImageFilePath:imageFilePath andImageFileName:imageFileName];
+    UIImage *gsrImage = [self.gsrImages objectAtIndex:indexPath.row];
 
     UIImageView *imageView = [[UIImageView alloc] initWithImage:gsrImage];
     imageView.frame= CGRectMake(5.0f, 0.0f, self.netWorkTable.frame.size.width - 10.0, 75.0f);
     cell.backgroundColor = [UIColor whiteColor];
     [cell addSubview:imageView];
     
-//    UILabel *cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, self.netWorkTable.frame.size.width - 40.0, 45.0f)];
-//    cellLabel.textAlignment = NSTextAlignmentCenter;
-//    cellLabel.text = [NSString stringWithFormat: @"%@ %@ %@ %@", id, description, imageFileName, imageFilePath];
-//    [cellLabel setFont:[UIFont fontWithName:kFontBold size:20.0f]];
-//    [cell addSubview:cellLabel];
-
     return cell;
 }
 
@@ -235,4 +226,25 @@
 - (void)didTapOnPhotoAction:(UIButton*) sender {
 }
 
+- (IBAction)newCgrTouched:(id)sender {
+    self.addNewCGRView = Nil;
+    self.addNewCGRView=[[NewCGRView alloc]initWithFrame:CGRectMake(4, 0, self.view.frame.size.width-8, self.view.frame.size.height-10)];
+    [self.addNewCGRView.removeViewButton addTarget:self action:@selector(removeLoginViewFromView:) forControlEvents:UIControlEventTouchUpInside];
+    [self.addNewCGRView.addNewCGRButton addTarget:self action:@selector(addNewCGR:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.addNewCGRView];
+
+}
+
+- (void)removeLoginViewFromView:(id)sender {
+    [self.addNewCGRView removeFromSuperview];
+}
+
+- (void)addNewCGR:(id)sender {
+    NSString *msg = [NSString stringWithFormat: @" HELLO %@", self.addNewCGRView.inputCGRName.text];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Coolmix" message:msg delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+    [alert show];
+}
+
+- (IBAction)categoryTouched:(id)sender {
+}
 @end

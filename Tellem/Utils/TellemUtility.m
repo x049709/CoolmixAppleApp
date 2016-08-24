@@ -711,8 +711,6 @@
 
 + (NSMutableArray*) getCoolmixGSR: (NSString *) serverURL andServerUser: (NSString*) serverUser andServerPassword: (NSString*) serverPassword
 {
-    //MWLogDebug(@"\nMixHomeViewController viewDidLoad started.");
-    
     NSMutableArray *gsrList = [NSMutableArray new];
     NSString *requestURL = [serverURL stringByAppendingString:@"/gsrApi/gsr/"];
     NSString *requestUser = serverUser;
@@ -735,6 +733,22 @@
 
 }
 
++ (NSMutableArray*) getCoolmixGSRImages: (NSMutableArray *) gsrList
+{
+    NSMutableArray *gsrImages = [NSMutableArray new];
+    RestClient *restClient = [[RestClient alloc] init];
+    TellemGlobals *tM = [TellemGlobals globalsManager];
+
+    for (NSDictionary *item in gsrList) {
+        NSString *imageFileName = [item objectForKey:@"imageFileName"];
+        NSString *imageFilePath = [item objectForKey:@"imageFilePath"];
+        UIImage *gsrImage = [restClient getImageFromMix:tM.gCoolmixServerURL andServerUser:tM.gCoolmixServerUser andServerPassword:tM.gCoolmixServerPassword andImageFilePath:imageFilePath andImageFileName:imageFileName];
+        [gsrImages addObject:gsrImage];
+    }
+    
+    return gsrImages;
+    
+}
 
 @end
 

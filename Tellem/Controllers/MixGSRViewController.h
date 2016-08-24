@@ -14,6 +14,8 @@
 #import "TTTTimeIntervalFormatter.h"
 #import "TellemUtility.h"
 #import "RestClient.h"
+#import "NewCGRView.h"
+
 
 @interface MixGSRViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate>{
     
@@ -41,5 +43,12 @@
 @property NSDictionary *pushPayload;
 @property TellemGlobals *tM;
 @property NSMutableArray *gsrList;
+@property NSMutableArray *gsrImages;
+@property (nonatomic, strong) NewCGRView *addNewCGRView;
+
+
+- (IBAction)newCgrTouched:(id)sender;
+- (IBAction)categoryTouched:(id)sender;
+
 
 @end

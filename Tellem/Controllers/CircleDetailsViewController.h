@@ -14,12 +14,11 @@
 #import "PAPProfileImageView.h"
 #import "CirclePhotoDetailsViewController.h"
 #import "TTTTimeIntervalFormatter.h"
-#import <AviarySDK/AviarySDK.h>
 #import "User.h"
 #import "TellemButton.h"
 
 
-@interface CircleDetailsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,AddCirclesSendDataProtocol,UIActionSheetDelegate,AddCirclesSendDataProtocol,UIImagePickerControllerDelegate,UINavigationControllerDelegate,AFPhotoEditorControllerDelegate,UITextViewDelegate>{
+@interface CircleDetailsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,AddCirclesSendDataProtocol,UIActionSheetDelegate,AddCirclesSendDataProtocol,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate>{
     
     UIWebView *webView;
     UIImage *imagePickedFromGalleryOrCamera;

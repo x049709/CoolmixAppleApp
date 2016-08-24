@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FHSTwitterEngine.h"
-#import <AviarySDK/AviarySDK.h>
+//#import <AviarySDK/AviarySDK.h>
 #import <CoreLocation/CoreLocation.h>
 #import "NSString+WordAt.h"
 #import "PostCirclesViewController.h"
@@ -18,7 +18,7 @@
 #import "TellemLabel.h"
 
 
-@interface PostViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate, UIScrollViewDelegate,FHSTwitterEngineAccessTokenDelegate,UITableViewDelegate,AFPhotoEditorControllerDelegate,UITextViewDelegate,CLLocationManagerDelegate,UIActionSheetDelegate,UIDocumentInteractionControllerDelegate, PostCirclesSendDataProtocol>
+@interface PostViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate, UIScrollViewDelegate,FHSTwitterEngineAccessTokenDelegate,UITableViewDelegate,UITextViewDelegate,CLLocationManagerDelegate,UIActionSheetDelegate,UIDocumentInteractionControllerDelegate, PostCirclesSendDataProtocol>
 {
     NSMutableArray *pastUrls;
     NSMutableArray *savedSearches;

@@ -18,7 +18,11 @@
 @property (nonatomic, strong) UITextField *inputUserName;
 @property (nonatomic, strong) UITextField *inputPassword,*retypePassword;
 @property (nonatomic, strong) UIButton *alreadyButton;
+<<<<<<< HEAD
 @property (nonatomic, strong) UIButton *continueButton, *skipButton;
+=======
+@property (nonatomic, strong) UIButton *continueButton;
+>>>>>>> 2999dc7adeb68339e4c8d8db651d6db35cd01898
 @property (nonatomic, strong) UIButton *forgotPasswordButton;
 @property (nonatomic, strong) UIButton *sportsButton, *newsButton,*musicButton;
 @property (nonatomic, strong) UIButton *entertainmentButton, *lifestyleButton,*techscienceButton;

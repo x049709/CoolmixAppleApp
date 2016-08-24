@@ -30,7 +30,11 @@
 @implementation LoginViewController
 
 @synthesize tabBarController,titleLbl,titlImg,textfielImg;
+<<<<<<< HEAD
 @synthesize isLogin,tellemLoginView,tellemSignupView,tellemSignupInterestsView,tellemSignupPictureView,resetPasswordView;
+=======
+@synthesize isLogin,tellemLoginView,tellemSignupView,tellemSignupInterestsView,resetPasswordView;
+>>>>>>> 2999dc7adeb68339e4c8d8db651d6db35cd01898
 @synthesize user_id;
 @synthesize mixSigninButton,shopSigninButton;
 
@@ -261,6 +265,10 @@
     [tellemSignupView.removeViewButton addTarget:self action:@selector(removeView:) forControlEvents:UIControlEventTouchUpInside];
     [tellemSignupView.signinButton addTarget:self action:@selector(showSigninUser:) forControlEvents:UIControlEventTouchUpInside];
     [tellemSignupView.registerButton addTarget:self action:@selector(showSignupInterests:) forControlEvents:UIControlEventTouchUpInside];
+<<<<<<< HEAD
+=======
+    //[tellemSignupView.registerButton addTarget:self action:@selector(registerNewUser:) forControlEvents:UIControlEventTouchUpInside];
+>>>>>>> 2999dc7adeb68339e4c8d8db651d6db35cd01898
     [self.view.window addSubview:ApplicationDelegate.hudd];
     [ApplicationDelegate.hudd show:YES];
     [self.view addSubview:tellemSignupView];
@@ -269,6 +277,30 @@
 }
 
 - (void)showSignupInterests:(id)sender {
+<<<<<<< HEAD
+=======
+    
+    tellemSignupInterestsView=[[TellemSignupInterestsView alloc]initWithFrame:CGRectMake(4, 0, self.view.frame.size.width-8, self.view.frame.size.height-10)];
+    [tellemSignupInterestsView.removeViewButton addTarget:self action:@selector(removeView:) forControlEvents:UIControlEventTouchUpInside];
+    [tellemSignupInterestsView.continueButton addTarget:self action:@selector(showSignupProfilePicture:) forControlEvents:UIControlEventTouchUpInside];
+    [tellemSignupInterestsView.alreadyButton addTarget:self action:@selector(showSigninUser:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.window addSubview:ApplicationDelegate.hudd];
+    [ApplicationDelegate.hudd show:YES];
+    [self.view addSubview:tellemSignupInterestsView];
+    [ApplicationDelegate.hudd hide:YES];
+    
+}
+
+- (void)showSignupProfilePicture:(id)sender {
+    
+    NSString * msgText = @"Yo man";
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Coolmix" message:msgText delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    
+}
+
+- (void)registerNewUser:(id)sender {
+>>>>>>> 2999dc7adeb68339e4c8d8db651d6db35cd01898
     
     if (![self areInputsValid:tellemSignupView.inputUserName.text andPassword:tellemSignupView.inputPassword.text])
     {
